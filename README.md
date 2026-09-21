@@ -3,6 +3,7 @@
 
 * Страница игры на [Itch.IO](https://bozavest.itch.io/after-dark)
 * [Patreon](https://www.patreon.com/cw/Bozavest) разработчика
+<img width="957" height="507" alt="image" src="https://github.com/user-attachments/assets/c513c1ff-ec26-4436-aa7d-6babc073a81c" />
 
 # Особенности
 * Переведен весь текст ивентов, меню и скриптов (визуальная часть осталась на английском)
