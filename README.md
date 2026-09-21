@@ -1,8 +1,8 @@
 # AfterDark-Rus
 Русификатор для AfterDark (для версии 0.26)
 
-Страница игры на Itch.IO: https://bozavest.itch.io/after-dark
-Patreon разработчика: https://www.patreon.com/cw/Bozavest
+* Страница игры на [Itch.IO](https://bozavest.itch.io/after-dark)
+* [Patreon](https://www.patreon.com/cw/Bozavest) разработчика
 
 # Особенности
 * Переведен весь текст ивентов, меню и скриптов (визуальная часть осталась на английском)
