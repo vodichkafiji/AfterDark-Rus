@@ -1,5 +1,5 @@
-# AfterDark-Rus
-Русификатор для AfterDark (для версии 0.26)
+# Русификатор для AfterDark
+(для версии 0.26)
 
 * Страница игры на [Itch.IO](https://bozavest.itch.io/after-dark)
 * [Patreon](https://www.patreon.com/cw/Bozavest) разработчика
