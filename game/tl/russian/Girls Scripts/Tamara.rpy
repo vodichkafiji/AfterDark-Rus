@@ -38,11 +38,11 @@ label tamara_riley_intro:
 
     scene rileytamaraintro (6) with dissolve
     "Лицо Тамары озаряется пониманием, и она поворачивается к тебе с теплой улыбкой."
-    t "Ah! Prazer! У… nice to meet you?"
+    t "Ah! Prazer! П… приятно познакомиться?"
 
     mc "Мне тоже приятно познакомиться. Значит, ты тут новенькая?"
     scene rileytamaraintro (7) with dissolve
-    t "Sim! У, yes. I… just arrived."
+    t "Sim! Д, да. Я… толька периехола."
 
     r "Она немного стеснительная, но пусть это тебя не обманывает. Наша Тамара — чемпион по заводке друзей. Правда, Тамара?"
     mc "Смотрю, ты прямо с потрохами вжилась в роль переводчика."
@@ -55,7 +55,7 @@ label tamara_riley_intro:
     scene rileytamaraintro (6) with dissolve
     "Тамара тихонько хихикает, её волнение слегка улетучивается, пока она наблюдает за вашим обменом репликами."
 
-    t "Riley… muito engraçada."
+    t "Райли… muito engraçada."
 
     r "Ага, ага, посмейся мне тут. Я вообще умора."
 
@@ -64,14 +64,14 @@ label tamara_riley_intro:
 
     r "Э, кто-то же должен ей помогать. И кто, если не я? Столп доброты и терпения, которым я являюсь."
 
-    t "Ela é… very helpful. Muito boa amiga."
+    t "Ela é… очень любезнэ. Muito boa amiga."
 
     r "Оу, Тамара, ты вгоняешь меня в краску."
 
     scene rileytamaraintro (3) with dissolve
     mc "Что ж, приятно было с вами двумя познакомиться. Может, увидимся после уроков."
 
-    t "After class? Ah, meu pai… he opens… um… bar?"
+    t "После урокаф? Ah, meu pai… he opens… um… bar?"
 
     r "Она говорит, её папа открыл бар неподалеку от метро."
 
@@ -79,11 +79,11 @@ label tamara_riley_intro:
 
     scene rileytamaraintro (8) with dissolve
 
-    t "Sim! He… um… makes… drinks? Cocktails?"
+    t "Sim! Он… эм… делать… напитки? Коктейли?"
 
     mc "Ах, я лестно удивлен, Тамара, но... Не нужно ли напомнить, что нам еще нет 21?"
 
-    t "Ah, mas! Is okay! You can come. I let you in. We are a restaurant as well!"
+    t "Ah, mas! Фсе харашо! Ты можишь прити. Я фпушу тибя. Мы супир поресторанимся!"
 
     mc "Это… мило с твоей стороны. Спасибо, Тамара. Я обязательно загляну..."
 
@@ -94,7 +94,7 @@ label tamara_riley_intro:
 
     mc "В библиотеке? Что, учишься?"
     r "Прошу тебя. Задрочу. Там отличный Wi-Fi и никаких отвлекающих факторов. Просто рай."
-    t "Gaming? Biblioteca? No… livros?"
+    t "Игры? Библеатека? Не… livros?"
 
     scene rileytamaraintro (9) with dissolve
     r "Livros? Не. Книги для девственников. Мне нужно фармить в Лиге Легенд."
@@ -103,7 +103,7 @@ label tamara_riley_intro:
     mc "Ну, это противоречивое заявление."
     scene rileytamaraintro (7) with dissolve
 
-    r "Контра-чего? Я знаю, что Тамара не шарит по-английски, но это не значит, что тебе надо выдумывать слова."
+    r "Контра-чего? Я знаю, что Тамара не шарит по-русски, но это не значит, что тебе надо выдумывать слова."
     mc "...."
     mc "Я-"
     mc "Как у тебя получается быть такой?"
@@ -114,7 +114,7 @@ label tamara_riley_intro:
 
     scene rileytamaraintro (9) with dissolve
 
-    t "Sim! See you!"
+    t "Sim! Увидимся!"
     r "До связи, брочачо."
     scene rileytamaraintro (4) with dissolve
     t "Bro..chacho?"
@@ -261,7 +261,7 @@ label tamara_bar_intro:
     scene cabanaintro (16) with fade
     "Вы начинаете с простых слов и фраз, ты записываешь их, пока она повторяет. У нее сильный акцент, но решимость очевидна."
 
-    t "У… mi-ni-mize?"
+    t "Д… mi-ni-mize?"
 
     scene cabanaintro (17) with dissolve
 
@@ -269,7 +269,7 @@ label tamara_bar_intro:
 
     scene cabanaintro (18) with dissolve
 
-    t "Elephant! Sim?"
+    t "Слон! Sim?"
 
     mc "Именно. Видишь, у тебя уже отлично получается."
 
@@ -609,7 +609,7 @@ label tamaradrinkoff:
         scene drinkoff2 (7) with dissolve
         c "Ха! Это точно!"
         scene drinkoff2 (8) with dissolve
-        c "И ее английский... становится лучше."
+        c "И ее русский... становится лучше."
         c "Вчера она сказала мне, что ей нравится каждый день в новой школе, и она столько всего узнает."
         scene drinkoff2 (9) with dissolve
         c "Она бы не сказала этого до встречи с тобой."
