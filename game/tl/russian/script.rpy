@@ -552,14 +552,14 @@ label starting:
     pause 1.0
 
 
-    $ mcname = renpy.input ("Придумай себе имя. (оставь пустым для Miles.)", length =32)
+    $ mcname = renpy.input ("Придумай себе имя. (оставь пустым для Маилз.)", length =32)
     $ mcname = mcname.strip()
     if mcname.lower() == "damian":
         $ persistent.damian_triggered = True
         centered "{size=160}{cps=10} Не стоило выбирать это имя..."
         $ renpy.quit()
     if mcname == "":
-        $ mcname = "Miles"
+        $ mcname = "Маилз"
     centered "{size=160}{cps=10}А, значит тебя зовут [mcname]."
     centered "{size=160}{cps=10}Это действительно прекрасное имя.{/cps}"
     centered "{size=160}{cps=10}Да... Правда прекрасное.{/cps}"
