@@ -216,5 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# No upload
+rus-cover.psd
+cover.jpg
 game/cover.jpg
 game/rus-cover.psd
+
