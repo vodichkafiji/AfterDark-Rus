@@ -193,7 +193,7 @@ label brooklyn_hallway_intro:
 
     scene brooklynhallintro (2) with dissolve
 
-    "Её щёки заливает blush, она отводит взгляд, а на губах играет смущённая улыбка."
+    "Её щёки заливает краской, она отводит взгляд, а на губах играет смущённая улыбка."
 
     b "Ты просто льстишь."
 
@@ -242,7 +242,7 @@ label brooklyn_hallway_intro:
 
     scene brooklynhallintro (14) with dissolve
 
-    "Она резко вскидывает голову с wide раскрытыми глазами."
+    "Она резко вскидывает голову с широко раскрытыми глазами."
 
     scene brooklynhallintro (15) with dissolve
 
@@ -1406,7 +1406,7 @@ label brooklyn_talentshow_signup:
     scene brooklynpractice (61) with dissolve
     ca "И не говори. Мне нравится, что она в последнее время сильнее увлеклась музыкой."
 
-    ca "Rаньше она так, баловалась, а теперь будто реально прониклась. На это приятно смотреть."
+    ca "Раньше она так, баловалась, а теперь будто реально прониклась. На это приятно смотреть."
 
     scene brooklynpractice (60) with dissolve
 

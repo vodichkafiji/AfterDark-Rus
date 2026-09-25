@@ -508,7 +508,7 @@ label utami_intro:
     mc "Ладно-ладно, Господи."
     scene black with fade
     stop music fadeout 1.0
-    "Ты возвращаешься в школу, как раз вовремя, чтобы пойти домой вместе с Оттум."
+    "Ты возвращаешься в школу, как раз вовремя, чтобы пойти домой вместе с Отэм."
     $ unlock_event(Utami, "Rainbow hair", "utami_intro")
     if _in_replay:
         $ renpy.end_replay()
