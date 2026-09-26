@@ -12,7 +12,7 @@
 
 
 
-define config.name = _("After Dark")
+define config.name = _("Покровы Ночи")
 
 define config.layers = [ 'master', 'transient', 'screens', 'date', 'overlay' ]
 
