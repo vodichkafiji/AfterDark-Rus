@@ -49,7 +49,7 @@ define gui.about = _p("""
 {space=30}Аниматоры{p}
 {a=https://x.com/Tiaramix1527}{image=gui/Tiaramix.png} Mix (аниматор — анимации Джун){/a} 
 
-{space=10}{a=https://rebel-tomboy-games.itch.io/project-dreadsteel}{image=gui/TheLolingPain.png} TheLolingPain (аниматор — анимации минета Изры и Утами){/a} 
+{space=10}{a=https://rebel-tomboy-games.itch.io/project-dreadsteel}{image=gui/TheLolingPain.png} TheLolingPain (аниматор — анимации минета Изры и Ютами){/a} 
 """)
 
 

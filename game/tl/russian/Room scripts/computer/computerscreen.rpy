@@ -626,9 +626,9 @@ label one_affection:
             "{i}Привязанность Тамары увеличена.{/i}"
             $ Tamara.affection += 1
             jump one_affection
-        "Утами":
+        "Ютами":
             play sound "audio/Sound/affection.mp3" volume 0.5
-            "{i}Привязанность Утами увеличена.{/i}"
+            "{i}Привязанность Ютами увеличена.{/i}"
             $ Utami.affection += 1
             jump one_affection
         "Йеджин":
@@ -719,9 +719,9 @@ label five_affection:
             "{i}Привязанность Тамары увеличена.{/i}"
             $ Tamara.affection += 5
             jump one_affection
-        "Утами":
+        "Ютами":
             play sound "audio/Sound/affection.mp3" volume 0.5
-            "{i}Привязанность Утами увеличена.{/i}"
+            "{i}Привязанность Ютами увеличена.{/i}"
             $ Utami.affection += 5
             jump one_affection
         "Йеджин":

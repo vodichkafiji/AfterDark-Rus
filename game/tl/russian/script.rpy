@@ -33,7 +33,7 @@ define k = Character("Кицунэ", color="#FF4500")
 define h = Character ("Харриет", color= "#7FF5C3")
 define mi = Character ("Мина", color="#4fa08d")
 define ye = Character ("Йеджин", color= "#000053")
-define ut = Character ("Утами", color= "#89CFF0")
+define ut = Character ("Ютами", color= "#89CFF0")
 
 
 define H = Character ("Хинэ" , color = "#ca5836")
@@ -6959,7 +6959,7 @@ label day_cycle:
         $ Tamara.quest = "Снова посетить бар ночью."
 
     if utamihairintro == 1 and utamisurf == 0:
-        $ Utami.quest = "Посетить Утами в салоне"
+        $ Utami.quest = "Посетить Ютами в салоне"
 
 
     if june15event2 == 1 and junehallway1 == 0:
@@ -8620,7 +8620,7 @@ label demomap_Utami:
     scene mapweekdayutami_bg
     jump mapweekdayutami_example
     menu:
-        "Утами":
+        "Ютами":
             if utamihairintro == 0:
                 jump utami_hair_intro
             jump city_noonutami

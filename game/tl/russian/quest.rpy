@@ -73,7 +73,7 @@ default Yejin = person("Йеджин", "yejin_gallery", "yejin_gallery_thumb")
 default Jordyn = person("Джордин", "jordyn_gallery", "jordyn_gallery_thumb")
 default Kyra = person("Кайра", "kyra_gallery", "kyra_gallery_thumb")
 default Parker = person("Паркер", "parker_gallery", "parker_gallery_thumb")
-default Utami = person("Утами", "utami_gallery", "utami_gallery_thumb")
+default Utami = person("Ютами", "utami_gallery", "utami_gallery_thumb")
 
 
 default quests = quest_handler(
