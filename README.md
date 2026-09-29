@@ -3,9 +3,20 @@
 <img width="935" height="453" alt="image" src="https://github.com/user-attachments/assets/efde6dd9-9c58-4b69-8fc6-c497df5c7420" />
 </div>
 
-* Страница игры на [Itch.IO](https://bozavest.itch.io/after-dark)
-* [Patreon](https://www.patreon.com/cw/Bozavest) разработчика
-* [Телеграм канал с обновленями](https://t.me/afterdarkrus)
+<div align="center">
+  
+[![Itch.io](https://img.shields.io/badge/Itch.io-FA5C5C?style=for-the-badge&logo=itch.io&logoColor=white)](https://bozavest.itch.io/after-dark) 
+[![Patreon](https://img.shields.io/badge/Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/cw/Bozavest)
+[![VNDB](https://img.shields.io/badge/VNDB-224466?style=for-the-badge&labelColor=001122&logoColor=white)](https://vndb.org/u12345)
+
+</div>
+<div align="center">
+
+Телеграм канал с обновлениями<p></p>
+[![Telegram](https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/afterdarkrus)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/vodichkafiji)
+
+</div>
 
 
 # Особенности
@@ -31,7 +42,3 @@ _**!!! Большая часть текста была переведена пр
 <img width="1280" height="674" alt="image" src="https://github.com/user-attachments/assets/8d2b8a5f-c218-4d1a-8dee-d8e1a36ab865" />
 <img width="1280" height="674" alt="image" src="https://github.com/user-attachments/assets/f9b8bae7-71fd-4460-815f-3327a201f58c" />
 <img width="1280" height="674" alt="image" src="https://github.com/user-attachments/assets/ca52fefb-2f6d-438c-a6b0-e6e174fef89d" />
-
-
-# Благодарность
-По желанию, можете мне подкинуть на [кофе](https://buymeacoffee.com/vodichkafiji)
