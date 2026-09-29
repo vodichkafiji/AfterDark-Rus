@@ -55,8 +55,7 @@ screen weekdaylivingroomevening_screen(g=weekdaylivingroomevening_girls):
         xanchor 1.0
         yanchor 1.0
         at slide_in_delay_5
-    text "День [totaldays]" size 130 font "NotoSansDisplay-ExtraBold.ttf" color "#FFFFFF" align (0.98, 0.01) outlines [(4, "#000000", 1, 1)] at slide_in_delay_5
-
+    use day_tracker
 
 
 

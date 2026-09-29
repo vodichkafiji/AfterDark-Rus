@@ -18,8 +18,7 @@ screen class_screen(g=class_girls):
             add i.image
             at class_button_animation
             action i.action
-    text "День [totaldays]" size 130 font "NotoSansDisplay-ExtraBold.ttf" color "#FFFFFF" align (1.0, 0.0) outlines [(4, "#000000", 1, 1)]
-
+    use day_tracker
 
 
 transform class_button_animation:

@@ -20,7 +20,7 @@ screen secondhallway1_screen(g=secondhallway1_girls):
             add i.image
             at secondhallway1_button_animation
             action i.action
-    text "День [totaldays]" size 130 font "NotoSansDisplay-ExtraBold.ttf" color "#FFFFFF" align (1.0, 0.0) outlines [(4, "#000000", 1, 1)]
+    use day_tracker
     imagebutton:
         idle "arrowback_idle.png"
         hover "arrowback_hover.png"
@@ -74,8 +74,7 @@ screen secondhallway1_screen(g=secondhallway1_girls):
         xanchor 1.0
         yanchor 1.0
         at slide_in_delay_5
-    text "День [totaldays]" size 130 font "NotoSansDisplay-ExtraBold.ttf" color "#FFFFFF" align (0.98, 0.01) outlines [(4, "#000000", 1, 1)] at slide_in_delay_5
-
+    use day_tracker
 
 
 transform secondhallway1_button_animation:

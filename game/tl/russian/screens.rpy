@@ -106,7 +106,10 @@ style fanart_thumb is image_button:
 
 
 screen day_tracker():
-    text "День [totaldays]" size 130 font "NotoSansDisplay-ExtraBold.ttf" color "#FFFFFF" align (1.0, 0.0) outlines [(4, "#000000", 1, 1)]
+    frame:
+        align (0.99, 0)
+        padding (0, 10)
+        text "День [totaldays]" size 100 font "NotoSansDisplay-ExtraBold.ttf" color "#FFFFFF" outlines [(3, "#000000", 1, 1)] at slide_in_delay_5
 
 
 screen say(who, what, namebox_type=None):
