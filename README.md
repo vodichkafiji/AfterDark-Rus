@@ -7,7 +7,7 @@
   
 [![Itch.io](https://img.shields.io/badge/Itch.io-FA5C5C?style=for-the-badge&logo=itch.io&logoColor=white)](https://bozavest.itch.io/after-dark) 
 [![Patreon](https://img.shields.io/badge/Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/cw/Bozavest)
-[![VNDB](https://img.shields.io/badge/VNDB-224466?style=for-the-badge&labelColor=001122&logoColor=white)](https://vndb.org/u12345)
+[![VNDB](https://img.shields.io/badge/VNDB-224466?style=for-the-badge&labelColor=001122&logoColor=white)](https://vndb.org/v58876)
 
 </div>
 <div align="center">
