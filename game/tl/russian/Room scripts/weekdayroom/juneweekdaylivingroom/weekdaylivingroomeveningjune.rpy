@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -49,7 +52,10 @@ screen weekdaylivingroomeveningjune_screen(g=weekdaylivingroomeveningjune_girls)
     imagebutton:
         idle "evening_idle.png"
         hover "evening_idle.png"
-        action Jump("livingroommeveningjune_example")
+
+
+
+        action Jump("weekdaylivingroomeveningjune_example")
         xpos 0.999999
         ypos 0.23
         xanchor 1.0
@@ -76,7 +82,6 @@ screen weekdaylivingroomeveningjune_screen(g=weekdaylivingroomeveningjune_girls)
     use day_tracker
 
 
-
 transform weekdaylivingroomeveningjune_button_animation:
     on idle:
         ease .1 yoffset 0 additive 0
@@ -84,8 +89,6 @@ transform weekdaylivingroomeveningjune_button_animation:
         ease .1 yoffset -10 additive .2
 
 default weekdaylivingroomeveningjune_bg = class_click("weekdaylivingroomeveningjune_bg", "weekdaylivingroomeveningjune_bg", None, (0, 0))
-
-
 
 
 default weekdaylivingroomeveningjune_girls = class_handler(
@@ -105,7 +108,6 @@ label weekdaylivingroomeveningjune_autumn:
         scene weekdaylivingroomeveningjune_bg
         "Сначала тебе нужно поговорить с Отэм в классе."
         jump weekdaylivingroomeveningjune_example
-
 
 
 label junelivingroom:
@@ -156,6 +158,9 @@ label junelivingroom:
 
     j "Я пыталась смотреть это с ней, но взбесилась после того, как та горячая гот-девка сдохла от передоза."
     scene junelivingroom (4) with dissolve
+
+
+
     j "Я лучше пойду прошвырнусь на улицу, раз уж мне нужно найти *хоть какое-то* место, чтобы выкурить сигарету."
 
     a "Ой, поплачь мне тут ещё."
@@ -175,3 +180,4 @@ label junelivingroom:
     scene weekdaylivingroomeveningjune_bg
     jump weekdaylivingroomeveningjune_example
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

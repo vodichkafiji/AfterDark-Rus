@@ -1,3 +1,7 @@
+
+
+
+
 init python:
     
     bio_data = {
@@ -34,6 +38,9 @@ init python:
 
             "Weekend":"Скейтпарк, утро",
            
+            
+            
+            
             "Description":"Лучшая подруга Отэм с детства. Старается держать себя по-взрослому, но иногда проскальзывают моменты уязвимости и доброты, за которые ты её уважаешь, хоть и знаешь не так уж хорошо."}, 
         "Jordyn" : {
             "Sexuality":"Неизвестно",
@@ -149,7 +156,6 @@ init python:
     }
     sidebio_names = tuple(sidebio_data.keys())
 
-
 transform fullhd_to_4k:
     size (3840, 2160)
     parallel:
@@ -170,9 +176,8 @@ transform fullhd_to_4k_2:
         repeat
 default bio_current_page = 0
 default sidebio_current_page = 0
-screen bio:
+screen bio():
     tag menu
-
     add "images/bio/" + bio_names[bio_current_page] + "_background.jpg" at fullhd_to_4k
     add "images/bio/" + bio_names[bio_current_page] + "_background.jpg" at fullhd_to_4k_2
     textbutton "назад" action Return()
@@ -214,12 +219,12 @@ screen bio:
         text_size 400
         action SetVariable("bio_current_page", change_next)
 
-screen sidebio:
-    tag menu
 
+screen sidebio():
+    tag menu
     add "images/sidebio/" + sidebio_names[sidebio_current_page] + "_background.jpg" at fullhd_to_4k
     add "images/sidebio/" + sidebio_names[sidebio_current_page] + "_background.jpg" at fullhd_to_4k_2
-    textbutton "назад" action Return()
+    textbutton "Назад" action Return()
 
     add "images/sidebio/" + sidebio_names[sidebio_current_page] + ".png" xpos - 1000
 
@@ -257,3 +262,4 @@ screen sidebio:
         yalign 0.5
         text_size 400
         action SetVariable("sidebio_current_page", change_next)
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

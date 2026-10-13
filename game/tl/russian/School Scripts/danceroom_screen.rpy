@@ -1,3 +1,7 @@
+
+
+
+
 init python:
 
     class class_click:
@@ -18,7 +22,8 @@ screen danceroom_screen(g=danceroom_girls):
             add i.image
             at danceroom_button_animation
             action i.action
-    use day_tracker
+    showif not _menu:
+        use day_tracker
     imagebutton:
         idle "arrow_idle.png"
         hover "arrow_hover.png"
@@ -56,6 +61,7 @@ screen danceroom_screen(g=danceroom_girls):
         at slide_in_delay_5
     use day_tracker
 
+
 transform danceroom_button_animation:
     on idle:
         ease .1 yoffset 0 additive 0
@@ -83,7 +89,5 @@ label danceroom_izra:
         jump Izrafun
     else:
         jump ballet_with_izra
-
-    jump danceroom_example
 return
 # Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

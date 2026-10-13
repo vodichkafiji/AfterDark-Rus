@@ -1,3 +1,5 @@
+
+
 label parker_intro:
     scene parkerintro (1) with fade
 
@@ -197,7 +199,7 @@ label parker_intro:
     mc "(Оу, чувак, я вообще не в форме.)"
 
     "Она даже не вздрагивает. Вместо этого просто склоняет голову набок."
-    hide parker_idle (2)
+    hide parker_smug
     show parker_idle (2) at right
 
     u "А ты неплох. Я думала, ты сдашься еще на полпути."
@@ -229,9 +231,11 @@ label parker_intro:
 
     scene parkerintro (24) with dissolve
 
-    "Ты в панике бросаешься к краю — но она уже благополучно приземлилась на крышу напротив."
+    "Ты в панике бросаешься к краю"
 
-    mc "Ты, должно быть, шутишь."
+    "Но она уже благополучно приземлилась на крышу напротив."
+
+    mc "Да ты издеваешься."
     scene parkerintro (25) with dissolve
     u "Что ж, похоже, твоя удача закончилась, здоровяк."
 
@@ -619,7 +623,7 @@ label parker_intro:
 
     a "Так что весь день это выглядело так, будто... {nw}"
 
-    mc "Ты knew, что в городе есть воры-паркуристы?"
+    mc "Ты знала, что в городе есть воры-паркуристы?"
 
     a "..."
 
@@ -634,7 +638,7 @@ label parker_intro:
     mc "..."
 
     a "Ты забыл купить продукты, не так ли..."
-    $ unlock_event(Parker, "Gimme my wallet!", "parker_intro")
+    $ unlock_event(Parker, "Отдай мой кошелёк!", "parker_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -658,9 +662,11 @@ label parkercityintro:
     "Ты срезаешь путь через узкий переулок, чтобы сэкономить время, бубня себе под нос цены на яйца, как выживший из ума пенсионер."
     scene parkercityintro (2)
     with dissolve
-    mc "(Честно говоря, я даже не злюсь — я просто поражен способностью Отэм заставить меня чувствовать вину и подтолкнуть к черновой работе.)"
+    mc "(Честно говоря, я даже не злюсь.)"
 
-    mc "(С другой стороны, она всегда была неоправданно хороша в подобных вещах.)"
+    mc "(Просто поражён, как Отэм умудрилась пристыдить меня и заставить работать руками.)"
+
+    mc "(Хотя она всегда была чересчур хороша в таких штуках.)"
     scene parkercityintro (3)
     with dissolve
     mc "(Или, может, мне просто нужно наконец отрастить хребет.)"
@@ -865,7 +871,7 @@ label parkercityintro:
     pa "В следующий раз добавим винт!"
 
     mc "В следующий раз я принесу шлем."
-    $ unlock_event(Parker, "Hardcore Parkour", "parkercityintro")
+    $ unlock_event(Parker, "Экстремальный паркур", "parkercityintro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -919,3 +925,4 @@ label city_eveningwaitparker:
     "Ты зависаешь на пожарной лестнице с Паркер, наблюдая за огнями внизу."
     jump weekday_evening
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

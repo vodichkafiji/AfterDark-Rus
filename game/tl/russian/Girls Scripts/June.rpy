@@ -52,7 +52,7 @@ label june_intro:
 
     j "Да? Трудно не заметить, знаешь ли."
 
-    "Ты рассеянно касаешься символа, sudden чувствуя себя уязвимым."
+    "Ты рассеянно касаешься символа и вдруг чувствуешь себя уязвимым."
 
     mc "А у тебя хороший глаз."
 
@@ -86,7 +86,7 @@ label june_intro:
     j "В общем, если захочешь меня найти, я обычно торчу у главного входа после уроков. Только без глупых идей."
 
     mc "Даже в мыслях не было."
-    $ unlock_event(June, "Mostly Boredom", "june_intro")
+    $ unlock_event(June, "Просто скука", "june_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -168,7 +168,7 @@ label june_smoke_intro:
     j "Похоже, что уже да."
 
     scene junesmokeintro (9) with fade
-    $ unlock_event(June, "Smoke Break", "june_smoke_intro")
+    $ unlock_event(June, "Перекур", "june_smoke_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -348,7 +348,7 @@ label june_alley_intro:
     mc "Без проблем. Увидимся, Джун."
 
     j "Пока... фрик."
-    $ unlock_event(June, "Alley Intro", "june_alley_intro")
+    $ unlock_event(June, "Знакомство в переулке", "june_alley_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -737,7 +737,7 @@ label june_5_event:
     scene intro 0 with fade
     mc "Пока мы спускаемся, мои мысли наперегонки строят теории. Джун полна сюрпризов, и я не уверен, что делать с этим открытием."
     mc "Но одно ясно точно — мне нужно узнать."
-    $ unlock_event(June, "Hidden Secrets", "june_5_event")
+    $ unlock_event(June, "Тайны", "june_5_event")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -1244,7 +1244,7 @@ label june_10_event:
     mc "Стоп..."
     mc "А как мне отсюда вернуться домой?"
     scene black with fade
-    $ unlock_event(June, "Quiet Heights", "june_10_event")
+    $ unlock_event(June, "Тишина на высоте", "june_10_event")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -1479,7 +1479,7 @@ label june_15_event_1:
     mc "Меня не парирует, общественные работы в любом случае выглядят более выгодным предложением. Нужно просто спросить Лили об этом."
 
     j "Ладно, давай проведём выходные за глажкой каких-нибудь козлов или вроде того."
-    $ unlock_event(June, "Note-Passing", "june_15_event_1")
+    $ unlock_event(June, "Записка", "june_15_event_1")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -1913,7 +1913,7 @@ label june_15_event_2:
     "Вы возвращаетесь с Джун. Лили, к счастью, смогла заманить Бартоломью обратно в загон вкусняшками."
     "После того количества дерьма, что произошло сегодня, она решила просто записать, что вы оба волонтёрили следующие 3 недели."
     "Она сказала, что ты можешь возвращаться в любое время, но вежливо попросила Джун больше никогда не приходить."
-    $ unlock_event(June, "The Great Pig Escape", "june_15_event_2")
+    $ unlock_event(June, "Большой побег свиньи", "june_15_event_2")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -2083,7 +2083,7 @@ label june_hallway_banter:
     mc "(Плохое влияние или нет… не уверен, что это подходящее слово для неё.)"
     mc "(Скорее «неприятности в ожидании приглашения».)"
     mc "(В любом случае, мне нравится зависать с Джун, мы ведь никому не вредим.)"
-    $ unlock_event(June, "Bad Influence", "june_hallway_banter")
+    $ unlock_event(June, "Дурное влияние", "june_hallway_banter")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -2582,7 +2582,7 @@ label june_skatepark:
     mc "(Ты наконец заставил её открыться… а потом...)"
     mc "(Угх.)"
     mc "(Пиздец.)"
-    $ unlock_event(June, "Graffiti & Getaways", "june_skatepark")
+    $ unlock_event(June, "Граффити и побег", "june_skatepark")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -2990,7 +2990,7 @@ label june_alley_confrontation:
             scene junealley (71) with dissolve
             mc "(Мне нужно поговорить с ней.)"
             mc "(Я должен знать, что с ней всё в порядке.)"
-            $ unlock_event(June, "Who's Lucy?", "june_alley_confrontation")
+            $ unlock_event(June, "Кто такая Люси?", "june_alley_confrontation")
             if _in_replay:
                 $ renpy.end_replay()
             else:
@@ -3111,7 +3111,7 @@ label june_alley_confrontation:
             scene junealley (73) with dissolve
             mc "(Мне нужно поговорить с ней.)"
             mc "(Я должен знать, что с ней всё в порядке.)"
-            $ unlock_event(June, "Who's Lucy?", "june_alley_confrontation")
+            $ unlock_event(June, "Кто такая Люси?", "june_alley_confrontation")
             if _in_replay:
                 $ renpy.end_replay()
             else:
@@ -3373,7 +3373,7 @@ label junehelp:
     mc "Какое облегчение."
 
     mc "Пойдём обратно в класс, пока люди не подумали, что мы прогуливаем."
-    $ unlock_event(June, "Crossed Signals", "junehelp")
+    $ unlock_event(June, "Перепутанные сигналы", "junehelp")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -3580,7 +3580,7 @@ label june_panick:
 
     "Ты умалчиваешь о том, что тебе тоже страшно."
 
-    $ unlock_event(June, "It's Over", "june_panick")
+    $ unlock_event(June, "Всё кончено", "june_panick")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -4705,7 +4705,7 @@ label june_late_night_confession:
     mc "Ладно."
     scene juneclimax3 (50) with hpunch
     "Ты даёшь ей кулачок в ответ."
-    $ unlock_event(June, "Her name is June.", "june_police_breakin")
+    $ unlock_event(June, "Её зовут Джун.", "june_police_breakin")
     if _in_replay:
         $ renpy.end_replay()
     else:

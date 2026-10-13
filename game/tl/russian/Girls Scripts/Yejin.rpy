@@ -1,3 +1,6 @@
+
+
+
 label yejin_intro:
 
     scene intro 0 with fade
@@ -50,7 +53,7 @@ label yejin_intro:
 
     mc "(Да уж, этот орешек будет трудно раскусить. Но попытаться явно стоит.)"
     mc "(Возможно, лучше познакомиться с ней поближе вне уроков.)"
-    $ unlock_event(Yejin, "The Class President", "yejin_intro")
+    $ unlock_event(Yejin, "Староста класса", "yejin_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -109,7 +112,7 @@ label yejin_afterclass_intro:
     "Она возвращается к своему списку. Выражение лица нейтральное, но осанка слегка расслабляется."
 
     "Ты стоишь рядом, тихо наблюдая за её работой, чувствуя, что тебе удалось хоть немного надколоть ту броню, которую она так усердно держит."
-    $ unlock_event(Yejin, "Methodical Checklist", "yejin_afterclass_intro")
+    $ unlock_event(Yejin, "Методичный список", "yejin_afterclass_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -245,7 +248,7 @@ label yejin_dojo_intro:
     "Она разворачивается и уходит, оставляя тебя ошеломленным и разбитым."
 
     mc "(По крайней мере, она хочет, чтобы я вернулся...)"
-    $ unlock_event(Yejin, "White Belt", "yejin_dojo_intro")
+    $ unlock_event(Yejin, "Белый пояс", "yejin_dojo_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -468,7 +471,9 @@ label Yejin_in_school:
     ye "Ты ведешь себя слишком нагло, и это нарушает баланс."
 
     scene yejinbully (36) with dissolve
-    B "Баланс? Да ты просто диктаторша. Когда Гарриет узнает об этом, она—"
+    B "Пф, баланс?"
+
+    B "Ты просто ведёшь себя как диктатор. Когда Гарриет об этом узнает, она—"
     scene yejinbully (45) with dissolve
     ye "Гарриет знает свое место в иерархии. Ей просто повезло быть на самом верху."
     scene yejinbully (46) with dissolve
@@ -607,7 +612,7 @@ label Yejin_in_school:
     scene yejinbully (62) with dissolve
     mc "(То я только что увидел ту её сторону, которую никто и никогда не должен был видеть.)"
     scene black with fade
-    $ unlock_event(Yejin, "The Empress", "Yejin_in_school")
+    $ unlock_event(Yejin, "Императрица", "Yejin_in_school")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -664,19 +669,24 @@ label blackmail_scene:
     scene blackmail (9) with dissolve
     ye "Ты шпионил за мной?"
     play music "audio/Music/Violin.mp3" volume 0.75
-    "Её глаза сужаются самую малость, но этого достаточно, чтобы по твоей спине пробежал холодок."
-    mc "Я не шпионил. Я услышал шум — плач. Я думал, кому-то нужна помощь."
-    mc "Но потом появилась ты, и вместо того, чтобы остановить это, ты... ты сделала всё только хуже."
-    mc "Это не было 'поддержанием баланса'. Это была жестокость."
+    "Её глаза слегка сужаются — этого достаточно, чтобы по тебе пробежал холодок."
+    mc "Я не шпионил. Я услышал, как кто-то плачет."
+
+    mc "Ради бога, я думал, кому-то нужна помощь."
+    mc "Но потом ты появилась, и вместо того чтобы остановить это, ты... ты только ухудшила ситуацию."
+    mc "Это было не сохранение равновесия. Это была жестокость."
     scene blackmail (13) with dissolve
     "Она обходит стол, сокращая расстояние между вами. Её взгляд приковывает тебя намертво."
     "Чеклист забыт, чернила слегка расплываются там, где она слишком сильно давила ручкой."
     ye "Жестокость? Ты так легко бросаешься этим словом."
     scene blackmail (13) with dissolve
-    ye "Ты хоть представляешь, чего стоит удерживать эту школу от хаоса? Не давать стервятникам разорвать её на части?"
+    ye "Ты представляешь, сколько сил нужно, чтобы удержать эту школу на плаву?"
+
+    ye "Чтобы не дать стервятникам разорвать её на куски?"
     scene blackmail (14) with dissolve
-    mc "Путем наступания на чужие руки? Путем угроз?"
-    mc "Та девушка была в ужасе, Йеджин. Она этого не заслужила."
+    mc "И позволь мне догадаться..."
+    mc "Наступив на чью-то руку? Угрожая ей?"
+    mc "Эта девушка была в ужасе, Йеджин. Она этого не заслужила."
     scene blackmail (22) with dissolve
     "Йеджин издает тихий, горький смешок."
 
@@ -725,7 +735,9 @@ label blackmail_scene:
     scene blackmail (29) with dissolve
     "Челюсть Йеджин сжимается, на её лице мелькает нечто сырое — злость? Боль? — прежде чем она снова берет себя в руки."
 
-    "Она бросает взгляд на дверь, словно проверяя, нет ли подслушивающих, а затем снова переводит взгляд на тебя."
+    "Злость? Боль? Раздумье? Всё это на миг отражается на её лице, прежде чем она снова берёт себя в руки."
+
+    "Она смотрит на дверь, будто проверяет, не подслушивает ли кто, а затем снова переводит взгляд на тебя."
     scene blackmail (28) with dissolve
     ye "Контролирую? Возможно. Но ответь мне, [mcname] — а что бы сделал ты?"
     scene blackmail (29) with dissolve
@@ -786,11 +798,14 @@ label blackmail_scene:
     ye "{i}*Ах!*{/i}"
     play sound "audio/sound/HeroPose.wav" 
     scene blackmail (47) with hpunch
-    ye "Пусти меня! [mcname], нет — прекрати! Пожалуйста, кто-нибудь, помогите!"
-    "Йеджин резко откидывается назад, её тело со сценическим стуком ударяется о стену."
-    "Её голос срывается на последнем слове, фальшивый ужас сочится из каждой ноты, её руки цепляются за твои, будто пытаясь защититься."
+    ye "Отпусти меня! [mcname]!"
+
+    ye "Нет, прекрати! Кто-нибудь, помогите!"
+    "Йеджин резко отдёргивается и с театральным грохотом ударяется о стену."
+    "На последнем слове её голос срывается, изображая ужас, а она хватается за твои руки, будто пытается защититься."
     scene blackmail (44) with hpunch
-    mc "Что—? Я не— Ты сама схватила меня! Это безумие!"
+    mc "Что—? Я ничего не делал!"
+    mc "Это ты схватила меня! Да это же безумие!"
     scene black with fade
     scene blackmail (52) with fade
     play music "audio/Music/yejin.mp3"
@@ -861,7 +876,7 @@ label blackmail_scene:
     mc "(Но ситуация всё равно дерьмовая, как я мог быть таким идиотом!)"
     scene blackmail (66) with dissolve
     mc "(Я должен найти способ избавиться от этого видео...{w} как-нибудь...)"
-    $ unlock_event(Yejin, "Blackmail", "blackmail_scene")
+    $ unlock_event(Yejin, "Шантаж", "blackmail_scene")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -1326,7 +1341,7 @@ label patrol_continue:
     "Дневное солнце отбрасывает длинные тени по территории школы."
     if pillowtrain == 0:
 
-        $ unlock_event(Yejin, "A lollipop and a bandage", "yejin_blackmail_patrol")
+        $ unlock_event(Yejin, "Леденец и пластырь", "yejin_blackmail_patrol")
         if _in_replay:
             $ renpy.end_replay()
         else:
@@ -1340,7 +1355,7 @@ label patrol_continue:
     else:
 
         $ main.quest = "Потренируйся с Йеджин, затем поговори с Кицунэ"
-        $ unlock_event(Yejin, "A lollipop and a bandage", "yejin_blackmail_patrol")
+        $ unlock_event(Yejin, "Леденец и пластырь", "yejin_blackmail_patrol")
         if _in_replay:
             $ renpy.end_replay()
         else:
@@ -1507,9 +1522,9 @@ label yejin_training_start:
 
     ye "Но...{w} движения ты усвоил верно. Полагаю, это хоть что-то."
 
-    mc "Спасибо, Йеджин. Мне куда спокойнее от понимания того, что делать."
-    scene yejin_training (23) with dissolve
-    ye "Не зарывайся. Это был лишь аванс за твое будущее послушание."
+    mc "Спасибо, Йеджин. Теперь мне гораздо спокойнее, когда я хотя бы примерно знаю, что делать."
+    scene yejintraining (23) with dissolve
+    ye "Не зазнавайся. Это лишь аванс за твоё будущее послушание."
     scene yejintraining (26) with dissolve
     ye "Теперь ты должен мне еще больше, [mcname]. Я не вкладываюсь в 'пёсиков', если не рассчитываю на огромную отдачу."
 
@@ -1530,3 +1545,4 @@ label yejin_training_start:
     $ main.quest = "Поговори с Кицунэ ночью."
     jump weekend_eveningmap
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

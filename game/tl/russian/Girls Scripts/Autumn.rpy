@@ -70,7 +70,7 @@ label autumn_tv_intro:
     a "«Неплохо»? Фу, ну и вкусы у тебя."
 
     mc "(Я покачал головой, но про себя признал — это было действительно круто. Даже несмотря на то, что я понятия не имею, что там происходит.)"
-    $ unlock_event(Autumn, "Say My Name", "autumn_tv_intro")
+    $ unlock_event(Autumn, "Назови моё имя", "autumn_tv_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -149,7 +149,7 @@ label autumn_skate_intro:
     a "Неплохо? Это было идеально. Тебе стоит конспектировать."
 
     mc "Я пожалуй просто посмотрю, спасибо."
-    $ unlock_event(Autumn, "Mr. Safety First", "autumn_skate_intro")
+    $ unlock_event(Autumn, "Мистер Осторожность", "autumn_skate_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -233,6 +233,12 @@ label autumn_movie:
     mc "«Бесконечная скорость», «Протокол поцелуя», «Месть 2: Всё ещё мстим»."
     a "Вот-вот! Куда делись нормальные названия?"
     mc "Мы просто постарели. Наш пик был тогда, когда «Ловушка для родителей» казалась высоким искусством."
+
+    a "Этот мусор — высокое искусство!"
+
+    mc "Если ты так говоришь, чувак."
+
+    a "Как насчёт фильма ужасов?"
     scene 260 with dissolve
     mc "Так, никаких ужастиков. Я не собираюсь ещё неделю наблюдать, как ты проверяешь коридор каждый раз, когда мигает свет."
     a "Эй! Мы были детьми, когда смотрели это, и я просто проявляла бдительность!"
@@ -445,7 +451,7 @@ label autumn_movie:
     "Ты не уверен, знает ли она, что ты слышал."
 
     "Ты не уверен, что когда-нибудь сможешь развидеть и развидеть это."
-    $ unlock_event(Autumn, "Remote Flicker", "autumn_movie")
+    $ unlock_event(Autumn, "Мерцание экрана", "autumn_movie")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -457,3 +463,4 @@ label autumn_movie:
 
         jump day_cycle
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

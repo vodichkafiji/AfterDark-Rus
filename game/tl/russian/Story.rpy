@@ -1,3 +1,6 @@
+
+
+
 image mainquest_art = "images/quest/kitsune_menu.webp"
 
 transform mq_art_br:
@@ -16,32 +19,21 @@ init python:
             self.quest = ""           
             self.req_strength = 0     
 
-    def _compute_main_quest(state):
-        """
-    Update the main quest text and its requirement based on current Strength.
-    Tweak thresholds/text to match your story beats.
-    """
-        s = state.strength
-        if s < 5:
-            state.quest = "Сходи в спортзал. Достигни - Сила 5."
-            state.req_strength = 5
-        elif s < 10:
-            state.quest = "Потренируйся с Паркером за спортивным залом. Достигни - Сила 10."
-            state.req_strength = 10
-        elif s < 15:
-            state.quest = "В сумерках проникни через южную стену школы. Достигни - Сила 15."
-            state.req_strength = 15
-        else:
-            
-            state.quest = "Отправляйтесь на крышу ночью, чтобы продолжить сюжет."
-            state.req_strength = 15
+
+
 
     def refresh_main():
-        _compute_main_quest(main)
+        if not hasattr(main, "strength"):
+            main.strength = 0
+        if not getattr(main, "quest", ""):
+            main.quest = "Продолжай историю."
+        
+        
+        
+        main.req_strength = 5 if getattr(store, "pushupintro", 0) == 1 and not getattr(store, "firstfight", 0) else 0
 
 
 default main = MainState()
-
 
 label after_loadmain:
     $ refresh_quests()
@@ -56,7 +48,7 @@ style mainquest_title:
     size 300
 style mainquest2_title:
     size 200
-    font "NotoSansDisplay-ExtraBold.ttf"
+    font "Barlow-Black.ttf"
     outlines [(16, "#000000", 0, 0)]
 
 
@@ -65,16 +57,23 @@ style mainquest2_title:
 screen main_quest():
     tag menu
 
-
-    use game_menu(_("Главный квест"), scroll=None):
+    use game_menu(_("Главное задание"), scroll=None):
         on "show" action Function(refresh_main)
         add "mainquest_art" at mq_art_br
+
+
+        imagebutton:
+            idle "gui/eventreplay_idle.png"
+            hover "gui/eventreplay_hover.png"
+            action ShowMenu("oscar_replay_gallery")
+            xpos 50
+            ypos 1350
+
         frame:
             xalign 0.5
             yalign 0.00
             background None
             text "История" style "mainquest_title" size 400 xalign 0.5 yoffset -200
-
 
 
         frame:
@@ -86,17 +85,17 @@ screen main_quest():
             has vbox
             spacing 18
 
-
             hbox:
                 spacing 24
                 text "Очки силы: [main.strength]" style "mainquest2_title" size 200
                 if main.req_strength > 0:
                     text "(Нужно: [main.req_strength] силы)" size 200
 
-
             if main.req_strength > 0:
-                bar value FieldValue(main, "strength", max(main.req_strength, 1)) xmaximum 1000
 
+
+
+                bar value StaticValue(main.strength, max(main.req_strength, 1)) xmaximum 1000
 
             vbox:
                 spacing 2
@@ -112,3 +111,4 @@ label main_quest_demo:
     "Попробуйте изменить значение main.strength в консоли или с помощью событий, чтобы понаблюдать за его обновлением."
     return
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

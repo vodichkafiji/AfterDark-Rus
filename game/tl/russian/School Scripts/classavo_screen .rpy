@@ -1,3 +1,7 @@
+
+
+
+
 init python:
 
     class class_click:
@@ -54,6 +58,8 @@ screen avoclass_screen(g=avoclass_girls):
         xanchor 1.0
         yanchor 1.0
         at slide_in_delay_2
+
+    use oscar_freeroam_inventory_button
     imagebutton:
         idle "timewait_idle.png"
         hover "timewait_hover.png"
@@ -73,6 +79,7 @@ screen avoclass_screen(g=avoclass_girls):
         yanchor 1.0
         at slide_in_delay_5
     use day_tracker
+
 
 transform avoclass_button_animation:
     on idle:
@@ -106,7 +113,6 @@ label avoclass_yejin:
 label show_quicknav:
     call screen quick_nav
 default quicknav_items = [
-      
     ("gym_idle.png",            "gym_example"),
     ("roof_idle.png",           "roof_example"),
     ("library_idle.png",        "library1_example"),
@@ -129,7 +135,6 @@ screen quick_nav():
 
     grid cols rows spacing 30 align (0.5, 0.5):
 
-
         for img, label_name in quicknav_items:
             imagebutton:
                 idle img
@@ -139,10 +144,9 @@ screen quick_nav():
         for _ in range(pad):
             null width 10 height 10
 
-    textbutton "Back":
+    textbutton "Назад":
         align (0.5, 0.95)
         action Rollback()
-
 
 
     key "game_menu" action Hide("quick_nav")

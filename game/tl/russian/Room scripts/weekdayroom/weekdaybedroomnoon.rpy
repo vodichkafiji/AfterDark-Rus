@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -55,6 +58,7 @@ screen weekdaybedroomnoon_screen(g=weekdaybedroomnoon_girls):
         xanchor 1.0
         yanchor 1.0
         at slide_in_delay_5
+    use oscar_freeroam_inventory_button2
     imagebutton:
         idle "images/point and click room/weekdayBedroomnoon/weekdaybedroomnoon_computer.webp"
         hover "images/point and click room/weekdayBedroomnoon/weekdaybedroomnoon_computer.webp"
@@ -63,7 +67,6 @@ screen weekdaybedroomnoon_screen(g=weekdaybedroomnoon_girls):
         ypos 1150
         at weekdaybedroomnoon_button_animation
     use day_tracker
-
 
 
 transform weekdaybedroomnoon_button_animation:
@@ -111,3 +114,4 @@ label weekdaybedroomnoon_exitcomputer:
     $ computer = 0
     jump weekdaybedroomnoon_example
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

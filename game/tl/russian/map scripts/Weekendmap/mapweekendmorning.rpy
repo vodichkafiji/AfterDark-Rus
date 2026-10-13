@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -85,7 +88,7 @@ label mapweekendmorning_city:
         jump rileyarcadeevents
     else:
 
-        play ambient "audio/ambient/City.wav" volume 0.5
+        play ambient "audio/ambient/City.mp3" volume 0.5
         scene black
         scene city with fade
         "Ты отправляешься в город."

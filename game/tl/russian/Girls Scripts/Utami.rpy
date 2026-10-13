@@ -1,3 +1,8 @@
+
+
+
+
+
 label utami_intro:
     play sound "audio/Sound/bell.wav" volume 1.0
     stop ambient fadeout 2
@@ -83,6 +88,9 @@ label utami_intro:
     scene utamiintro (5) with dissolve
 
     z "С чего бы это?"
+
+
+
     n "Ну-у-у~ Для моральной поддержки! И выглядит так, будто ты все равно ничем больше не занята!."
 
     scene utamiintro (3) with dissolve
@@ -509,7 +517,7 @@ label utami_intro:
     scene black with fade
     stop music fadeout 1.0
     "Ты возвращаешься в школу, как раз вовремя, чтобы пойти домой вместе с Отэм."
-    $ unlock_event(Utami, "Rainbow hair", "utami_intro")
+    $ unlock_event(Utami, "Радужные волосы", "utami_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -606,15 +614,14 @@ label utami_hair_intro:
     mc "...Воу. Это что, искренность сейчас прозвучала?"
     scene utamihairintro (3) with dissolve
 
-    ut "Тссс! Ты испортишь мой имидж~"
+    ut "Теперь понимаю, почему Нора тебя не отпускает!"
 
-    mc "Не волнуйся. Я скажу всем, что ты заставила меня работать под угрозой распыления лака для волос."
     scene utamihairintro (4) with dissolve
 
-    ut "Хе-хе~ Отлично. А теперь выметайся отсюда, пока я не сделала тебе полный макияж."
+    ut "А теперь иди наслаждайся остатком дня~"
 
-    mc "Это мой намек уходить."
-    $ unlock_event(Utami, "Fruit-Scented", "utami_hair_intro")
+    "После этого ты возвращаешься в школу."
+    $ unlock_event(Utami, "Фруктовый аромат", "utami_hair_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -626,11 +633,6 @@ label utami_hair_intro:
 
         jump weekday_evening
 
-
-
-label utamipaintevents:
-
-label utamihillevents:
 
 
 label city_noonutami:
@@ -988,7 +990,7 @@ label utami_beach_one:
     scene black with dissolve
     "Вы переодеваетесь, и Ютами везет тебя обратно к школе."
 
-    $ unlock_event(Utami, "Surf Lesson", "utami_beach_one")
+    $ unlock_event(Utami, "Урок сёрфинга", "utami_beach_one")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -1118,8 +1120,10 @@ label utami_beach_two:
     play sound "audio/sound/Watersplash.mp3"
     scene surfbeach2 (18) with hpunch
 
-    "Твоя доска сильно заваливается. Ты теряешь равновесие, падаешь вбок и врезаешься прямо в Ютами."
-    "Удар отправляет вас обоих под воду в хаотичную кучу-малу из конечностей, пены и досок."
+    "Доска начинает бешено раскачиваться."
+
+    "Ты теряешь равновесие, заваливаешься вбок и прямо врезаешься в Ютами."
+    "От удара вы оба кувыркаетесь под водой, запутавшись в руках и ногах, пене и досках."
     scene black with vpunch
     "Когда ты выныриваешь, кашляя и жадно хватая воздух, ты тут же замечаешь, что что-то очень не так."
     ut "Фух, нам повезло. Ну и дичь была, а?"
@@ -1187,6 +1191,9 @@ label utami_beach_two:
 
     ut "Или мои просто выглядят настолько хорошо, когда они мокрые и упругие?"
     mc "..."
+
+
+
 
     mc "(Думаю, мне больше не нужно смотреть на чаек.)"
     "Ты тяжело сглатываешь, не в силах выдать разумный ответ."
@@ -1276,7 +1283,7 @@ label utami_beach_two:
     mc "Вау."
 
 
-    $ unlock_event(Utami, "Beachjob", "utami_beach_two")
+    $ unlock_event(Utami, "Работа на пляже", "utami_beach_two")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -1288,3 +1295,4 @@ label utami_beach_two:
         $ Utami.quest = "На этом пока всё!"
         jump weekday_evening
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

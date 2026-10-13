@@ -1,3 +1,7 @@
+
+
+
+
 init python:
 
     class class_click:
@@ -18,7 +22,8 @@ screen artroom_screen(g=artroom_girls):
             add i.image
             at artroom_button_animation
             action i.action
-    use day_tracker
+    showif not _menu:
+        use day_tracker
     imagebutton:
         idle "arrow_idle.png"
         hover "arrow_hover.png"
@@ -55,6 +60,7 @@ screen artroom_screen(g=artroom_girls):
         yanchor 1.0
         at slide_in_delay_5
     use day_tracker
+
 
 transform artroom_button_animation:
     on idle:

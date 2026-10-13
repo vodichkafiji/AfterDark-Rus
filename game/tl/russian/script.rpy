@@ -2,24 +2,59 @@ init 1 python:
     if persistent.language == "russian" or _preferences.language == "russian":
         persistent.pref_text_font = "Fonts/NotoSansDisplay-ExtraBold.ttf"
 
+# Простая заглушка-класс для объектов квестов персонажей, чтобы не было ошибок NameError
+python early:
+    class QuestChar(object):
+        def __init__(self, name=""):
+            self.name = name
+            self.quest = ""
+            self.affection = 0
+
 define gui.interface_text_outlines = [ (9, "#00000080", 2, 2) ]
 define gui.dialogue_text_outlines = [ (9, "#000000ff", 2, 2) ]
 define gui.name_text_outlines = [ (9, "#000000ff", 2, 2) ]
 
 define config.developer = False
 
+# Объявление объектов квестов/персонажей
+default Brooklyn = QuestChar("Бруклин")
+default June = QuestChar("Джун")
+default Jordyn = QuestChar("Джордин")
+default Nora = QuestChar("Нора")
+default Mei = QuestChar("Мэй")
+default Yuki = QuestChar("Юки")
+default Tamara = QuestChar("Тамара")
+default Kyra = QuestChar("Кайра")
+default Riley = QuestChar("Райли")
+default Zara = QuestChar("Зара")
+default Grace = QuestChar("Грейс")
+default Autumn = QuestChar("Отэм")
+default Logan = QuestChar("Логан")
+default Pierre = QuestChar("Пьер")
+default Parker = QuestChar("Паркер")
+default Quinn = QuestChar("Куинн")
+default Lily = QuestChar("Лили")
+default Izra = QuestChar("Изра")
+default Kitsune = QuestChar("Кицунэ")
+default Harriet = QuestChar("Харриет")
+default Mina = QuestChar("Мина")
+default Yejin = QuestChar("Йеджин")
+default Utami = QuestChar("Ютами")
+default main = QuestChar("Главный сюжет")
+
+# Персонажи
 define b = Character("Бруклин", color="#8013f9")
-define j = Character ("Джун", color="#8bb9d5")
-define J = Character ("Джордин", color="#475bf5")
-define n = Character ("Нора", color="#ff00f7")
-define m = Character ("Мэй", color="#05ebb4")
-define y = Character ("Юки", color="#2962bc")
-define t = Character ("Тамара", color="#2a9362")
-define K = Character ("Кайра", color="#00ff11")
+define j = Character("Джун", color="#8bb9d5")
+define J = Character("Джордин", color="#475bf5")
+define n = Character("Нора", color="#ff00f7")
+define m = Character("Мэй", color="#05ebb4")
+define y = Character("Юки", color="#2962bc")
+define t = Character("Тамара", color="#2a9362")
+define K = Character("Кайра", color="#00ff11")
 define r_name = "{color=#FF0000}Рай{/color}{color=#0000FF}ли{/color}"
 define r = DynamicCharacter("r_name", what_color="#FFFFFF", substitute=False)
-define z = Character ("Зара", color="#eaf976")
-define g = Character ("Грейс", color="#d1cd4a")
+define z = Character("Зара", color="#eaf976")
+define g = Character("Грейс", color="#d1cd4a")
 define u = Character("???", color="#808080")
 define a = Character("Отэм", color="#6495ED")
 define mc = Character("[mcname]", color="#FFFFFF")
@@ -30,166 +65,140 @@ define q = Character("Куинн", color="#c0c596")
 define L = Character("Лили", color="#FF69B4")
 define I = Character("Изра", color="#EEE8AA")
 define k = Character("Кицунэ", color="#FF4500")
-define h = Character ("Харриет", color= "#7FF5C3")
-define mi = Character ("Мина", color="#4fa08d")
-define ye = Character ("Йеджин", color= "#000053")
-define ut = Character ("Ютами", color= "#89CFF0")
+define h = Character("Харриет", color="#7FF5C3")
+define mi = Character("Мина", color="#4fa08d")
+define ye = Character("Йеджин", color="#000053")
+define ut = Character("Ютами", color="#89CFF0")
 
+define H = Character("Хинэ", color="#ca5836")
+define M = Character("Минни", color="#ca5836")
+define B = Character("Банни", color="#9F2B9A")
+define Shi = Character("Шиори", color="#7c548f")
 
-define H = Character ("Хинэ" , color = "#ca5836")
-define M = Character ("Минни" , color = "#ca5836")
-define B = Character ("Банни", color = "#9F2B9A")
-define Shi = Character ("Шиори", color = "#7c548f")
+define bro = Character("Броги", color="#61CF25")
+define har = Character("Хару", color="#7FB3E3")
 
+define c = Character("Кабана", color="#ffcb3d")
+define ca = Character("Карли", color="#8013f9")
+define isa = Character("Айзая", color="#9F2B9A")
+define ti = Character("Тецуя", color="#cdf570")
+define ren = Character("Ренджи", color="#1c8d1c")
 
+define guy1 = Character("Хулиган", color="#c5ac67")
+define guy2 = Character("Хулиган", color="#f1413b")
+define guy3 = Character("Хулиган", color="#dbc715")
+define guy4 = Character("Хулиган", color="#ff87f5")
+define ga = Character("Девушка А", color="#D1ECF4")
+define gb = Character("Девушка Б", color="#9F2B9A")
+define pg = Character("Дедушка", color="#1c8d1c")
+define g1 = Character("Софи", color="#ca5836")
+define g2 = Character("Сидни", color="#d6cd77")
+define young_mc = Character("Маленький [mcname]", color="#FFFFFF")
+define girl_harassed = Character("Девушка", color="#00992e")
+define mcj = Character("{color=#FFFFFF}[mcname]{/color} и {color=#8bb9d5}Джун{/color}")
+define dol = Character("Мр. Долдрам", color="#003113")
+define thg1 = Character("Бандит 1", color="#6d0303")
+define tg2 = Character("Бандит 2", color="#2b00a1")
+define tg3 = Character("Бандит 3", color="#002e19")
+define G = Character("Джианна", color="#912900")
+define rh = Character("Рона", color="#ac0000")
+define ja = Character("Янус", color="#8a8272")
+define po = Character("Полиция", color="#280a7c")
 
-define bro = Character ("Броги", color = "#61CF25")
-define har = Character ("Хару", color = "#7FB3E3")
+define host = Character("Фудзинами", color="#ac0000")
+define dunkle = Character("ДанклФанкл", color="#2b00a1")
+define chrmk = Character("Охранник", color="#FFFFFF")
+define cthug = Character("Участник Crbs", color="#0BFF00")
 
-
-
-define c = Character ("Кабана", color="#ffcb3d")
-define ca = Character ("Карли", color = "#8013f9")
-define isa = Character ("Айзая", color = "#9F2B9A")
-define ti = Character ("Тецуя", color = "#cdf570")
-define ren = Character ("Ренджи", color = "#1c8d1c")
-
-
-define guy1 = Character ("Хулиган", color = "#c5ac67")
-define guy2 = Character ("Хулиган", color = "#f1413b")
-define guy3 = Character ("Хулиган", color = "#dbc715")
-define guy4 = Character ("Хулиган", color = "#ff87f5")
-define ga = Character ("Девушка А", color = "#D1ECF4")
-define gb = Character ("Девушка Б", color = "#9F2B9A")
-define pg = Character ("Дедушка", color = "#1c8d1c")
-define g1 = Character ("Софи", color = "#ca5836")
-define g2 = Character ("Сидни", color = "#d6cd77")
-define young_mc = Character ("Маленький [mcname]", color="#FFFFFF")
-define girl_harassed = Character ("Девушка", color="#00992e")
-define mcj = Character ("{color=#FFFFFF}[mcname]{/color} и {color=#8bb9d5}Джун{/color}")
-define dol = Character ("Мр. Долдрам", color = "#003113")
-define thg1 = Character ("Бандит 1", color = "#6d0303")
-define tg2 = Character ("Бандит 2", color = "#2b00a1")
-define tg3 = Character ("Бандит 3", color = "#002e19")
-define G = Character ("Джианна", color = "#912900")
-define rh = Character ("Рона", color = "#ac0000")
-define ja = Character ("Янус", color = "#8a8272")
-define po = Character ("Полиция", color = "#280a7c")
-
-
-
-
-define host = Character ("Фудзинами", color = "#ac0000")
-define dunkle = Character ("ДанклФанкл", color = "#2b00a1")
-define chrmk = Character ("Охранник", color = "#FFFFFF")
-define cthug = Character ("Участник Crbs", color ="#0BFF00")
-
-define S = Character ("Сэми", color = "#9F2B9A")
-define ser = Character ("Офицер", color = "#280a7c")
-
-
-
-define s = Character ("Стример", color="#9F2B9A")
-
+define S = Character("Сэми", color="#9F2B9A")
+define ser = Character("Офицер", color="#280a7c")
+define s = Character("Стример", color="#9F2B9A")
 
 define centered = Character(None, what_xalign=0.5, window_xalign=0.5, window_yalign=0.4, what_text_align=0.5, window_background=None)
 
+image movie_background = Movie(size=(3840,2160), channel="movie", play="images/trippy.webm")
+image Chapter_1 = Movie(size=(3840,2160), channel="movie", play="images/Transitions/Learning-to-Love.ogv")
+image Flowerscene1 = Movie(size=(3840,2160), channel="movie", play="images/video/flowersscene1.mp4")
+image Flowerscene2 = Movie(size=(3840,2160), channel="movie", play="images/video/flowersscene2.mp4")
+image Flowerscene3 = Movie(size=(3840,2160), channel="movie", play="images/video/flowersscene3.mp4")
 
-image movie_background = Movie(size = (3840,2160), channnel="movie", play="images/trippy.webm")
-image Chapter_1 = Movie(size = (3840,2160), channnel="movie", play="images/Transitions/Learning-to-Love.ogv")
-image Flowerscene1 = Movie(size = (3840,2160), channnel="movie", play="images/video/flowersscene1.mp4")
-image Flowerscene2 = Movie(size = (3840,2160), channnel="movie", play="images/video/flowersscene2.mp4")
-image Flowerscene3 = Movie(size = (3840,2160), channnel="movie", play="images/video/flowersscene3.mp4")
+image Izra30date = Movie(size=(3840,2160), channel="movie", play="images/video/Izra30Event.webm")
+image 20minutes = Movie(size=(3840,2160), channel="movie", play="images/video/20minuteslater.webm")
+image quest = Movie(size=(3840,2160), channel="movie", play="images/video/quest.webm")
 
+image Alleysex1 = Movie(size=(3840,2160), channel="movie", play="images/video/alleysex1.mp4")
+image Alleysex2 = Movie(size=(3840,2160), channel="movie", play="images/video/alleysex2.mp4")
+image Alleysex3 = Movie(size=(3840,2160), channel="movie", play="images/video/alleysex3.webm")
 
-image Izra30date = Movie(size = (3840,2160), channnel="movie", play="images/video/Izra30Event.webm")
-image 20minutes = Movie(size = (3840,2160), channnel="movie", play="images/video/20minuteslater.webm")
-image quest = Movie(size = (3840,2160), channnel="movie", play="images/video/quest.webm")
+image Izrasex1 = Movie(size=(3840,2160), channel="movie", play="images/video/Izra/Izrasex1.webm")
+image Izrasex2 = Movie(size=(3840,2160), channel="movie", play="images/video/Izra/Izrasex2.webm")
+image Izrasex3 = Movie(size=(3840,2160), channel="movie", play="images/video/Izra/Izrasex3.webm")
+image Izrasex4 = Movie(size=(3840,2160), channel="movie", play="images/video/Izra/Izrasex4.webm")
 
+image lilygoof1 = Movie(size=(3840,2160), channel="movie", play="images/video/lilygoof/lilygoof1.webm")
+image lilygoof2 = Movie(size=(3840,2160), channel="movie", play="images/video/lilygoof/lilygoof2.webm")
 
-image Alleysex1 = Movie(size = (3840,2160), channnel="movie", play="images/video/alleysex1.mp4")
-image Alleysex2 = Movie(size = (3840,2160), channnel="movie", play="images/video/alleysex2.mp4")
-image Alleysex3 = Movie(size = (3840,2160), channnel="movie", play="images/video/alleysex3.webm")
+image tvstatic = Movie(size=(3840,2160), channel="movie", play="images/video/tvstatic.mp4")
+image citysit = Movie(size=(3840,2160), channel="movie", play="images/video/City.mp4")
+image drink = Movie(size=(3840,2160), channel="movie", play="images/video/drink.webm")
+image eyes = Movie(size=(3840,2160), channel="movie", play="images/video/eye6.webm")
 
+image bunnyscissor1 = Movie(size=(3840,2160), channel="movie", play="images/video/Bunny/bunnyscissor1.webm")
+image bunnyscissor2 = Movie(size=(3840,2160), channel="movie", play="images/video/Bunny/bunnyscissor2.webm")
+image bunnyscissor3 = Movie(size=(3840,2160), channel="movie", play="images/video/Bunny/bunnyscissor3.webm")
 
-image Izrasex1 = Movie(size = (3840,2160), channnel="movie", play="images/video/Izra/Izrasex1.webm")
-image Izrasex2 = Movie(size = (3840,2160), channnel="movie", play="images/video/Izra/Izrasex2.webm")
-image Izrasex3 = Movie(size = (3840,2160), channnel="movie", play="images/video/Izra/Izrasex3.webm")
-image Izrasex4 = Movie(size = (3840,2160), channnel="movie", play="images/video/Izra/Izrasex4.webm")
+image grass1 = Movie(size=(3840,2160), channel="movie", play="images/video/Grass6.mp4")
+image grass2 = Movie(size=(3840,2160), channel="movie", play="images/video/Grass5.mp4")
+image question2 = Movie(size=(3840,2160), channel="movie", play="images/video/question2.mp4")
+image alone2 = Movie(size=(3840,2160), channel="movie", play="images/video/alone2.mp4")
 
+image Izrabj1 = Movie(size=(3840,2160), channel="movie", play="images/video/Izra2/izra_bj_1_pov.webm")
+image Izrabj2 = Movie(size=(3840,2160), channel="movie", play="images/video/Izra2/izra_bj_1_3rd.webm")
+image Izrabj3 = Movie(size=(3840,2160), channel="movie", play="images/video/Izra2/izra_bj_climax.webm")
 
-image lilygoof1 = Movie(size = (3840,2160), channnel="movie", play="images/video/lilygoof/lilygoof1.webm")
-image lilygoof2 = Movie(size = (3840,2160), channnel="movie", play="images/video/lilygoof/lilygoof2.webm")
+image Izrahj1 = Movie(size=(3840,2160), channel="movie", play="images/video/Izra2/izra_hj_1_pov.webm")
+image Izrahj2 = Movie(size=(3840,2160), channel="movie", play="images/video/Izra2/izra_hj_1_3rd.webm")
+image Izrahj3 = Movie(size=(3840,2160), channel="movie", play="images/video/Izra2/izra_hj_climax.webm")
 
+image autumntv1 = Movie(size=(3840,2160), channel="movie", play="images/video/autumn/fucksake.webm")
+image autumntv2 = Movie(size=(3840,2160), channel="movie", play="images/video/autumn/autumnmast3.webm")
+image autumntv3 = Movie(size=(3840,2160), channel="movie", play="images/video/autumn/autumnmast4.webm")
+image autumntv4 = Movie(size=(3840,2160), channel="movie", play="images/video/autumn/autumnmast5.webm")
 
-image tvstatic = Movie(size = (3840,2160), channnel="movie", play="images/video/tvstatic.mp4")
+image rileyroom1 = Movie(size=(3840,2160), channel="movie", play="images/video/riley/rileymast5.webm")
+image rileyroom2 = Movie(size=(3840,2160), channel="movie", play="images/video/riley/rileymast3.webm")
+image rileyroom3 = Movie(size=(3840,2160), channel="movie", play="images/video/riley/rileymast4.webm")
+image rileyroom4 = Movie(size=(3840,2160), channel="movie", play="images/video/riley/rileymast6.webm")
+image rileyroom5 = Movie(size=(3840,2160), channel="movie", play="images/video/riley/rileymast7.webm")
 
-image citysit = Movie(size = (3840,2160), channnel="movie", play="images/video/City.mp4")
+image utamiboob = Movie(size=(3840,2160), channel="movie", play="images/video/Utami/utamiboob.webm")
 
-image drink = Movie(size = (3840,2160), channnel="movie", play="images/video/drink.webm")
+image junesex1 = Movie(size=(3840,2160), channel="movie", play="images/video/june/junesex1.webm")
+image junesex2 = Movie(size=(3840,2160), channel="movie", play="images/video/june/junesex2.webm")
+image junesex3 = Movie(size=(3840,2160), channel="movie", play="images/video/june/junesex3.webm")
 
-image eyes = Movie(size = (3840,2160), channnel="movie", play="images/video/eye6.webm")
-
-image bunnyscissor1 = Movie(size = (3840,2160), channnel="movie", play="images/video/Bunny/bunnyscissor1.webm")
-image bunnyscissor2 = Movie(size = (3840,2160), channnel="movie", play="images/video/Bunny/bunnyscissor2.webm")
-image bunnyscissor3 = Movie(size = (3840,2160), channnel="movie", play="images/video/Bunny/bunnyscissor3.webm")
-
-image grass1 = Movie(size = (3840,2160), channnel="movie", play="images/video/Grass6.mp4")
-image grass2 = Movie(size = (3840,2160), channnel="movie", play="images/video/Grass5.mp4")
-image question2 = Movie(size = (3840,2160), channnel="movie", play="images/video/question2.mp4")
-image alone2 = Movie(size = (3840,2160), channnel="movie", play="images/video/alone2.mp4")
-
-image Izrabj1 = Movie(size = (3840,2160), channnel="movie", play="images/video/Izra2/izra_bj_1_pov.webm")
-image Izrabj2 = Movie(size = (3840,2160), channnel="movie", play="images/video/Izra2/izra_bj_1_3rd.webm")
-image Izrabj3 = Movie(size = (3840,2160), channnel="movie", play="images/video/Izra2/izra_bj_climax.webm")
-
-image Izrahj1 = Movie(size = (3840,2160), channnel="movie", play="images/video/Izra2/izra_hj_1_pov.webm")
-image Izrahj2 = Movie(size = (3840,2160), channnel="movie", play="images/video/Izra2/izra_hj_1_3rd.webm")
-image Izrahj3 = Movie(size = (3840,2160), channnel="movie", play="images/video/Izra2/izra_hj_climax.webm")
-
-
-
-
-
-image autumntv1 = Movie(size = (3840,2160), channnel="movie", play="images/video/autumn/fucksake.webm")
-image autumntv2 = Movie(size = (3840,2160), channnel="movie", play="images/video/autumn/autumnmast3.webm")
-image autumntv3 = Movie(size = (3840,2160), channnel="movie", play="images/video/autumn/autumnmast4.webm")
-image autumntv4 = Movie(size = (3840,2160), channnel="movie", play="images/video/autumn/autumnmast5.webm")
-
-
-image rileyroom1 = Movie(size = (3840,2160), channnel="movie", play="images/video/riley/rileymast5.webm")
-image rileyroom2 = Movie(size = (3840,2160), channnel="movie", play="images/video/riley/rileymast3.webm")
-image rileyroom3 = Movie(size = (3840,2160), channnel="movie", play="images/video/riley/rileymast4.webm")
-image rileyroom4 = Movie(size = (3840,2160), channnel="movie", play="images/video/riley/rileymast6.webm")
-image rileyroom5 = Movie(size = (3840,2160), channnel="movie", play="images/video/riley/rileymast7.webm")
-
-image utamiboob = Movie(size = (3840,2160), channnel="movie", play="images/video/Utami/utamiboob.webm")
-
-image junesex1 = Movie(size = (3840,2160), channnel="movie", play="images/video/june/junesex1.webm")
-image junesex2 = Movie(size = (3840,2160), channnel="movie", play="images/video/june/junesex2.webm")
-image junesex3 = Movie(size = (3840,2160), channnel="movie", play="images/video/june/junesex3.webm")
-
-image AutumnWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Autumnweekend.webm")
-image BrooklynWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Brooklynweekend.webm")
-image GraceWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Graceweekend.webm")
-image IzraWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Izraweekend.webm")
-image JuneWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Juneweekend.webm")
-image JordynWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Jordynweekend.webm")
-image LilyWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Lilyweekend.webm")
-image MeiWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Meiweekend.webm")
-image NoraWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Noraweekend.webm")
-image ParkerWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Parkerweekend.webm")
-image RileyWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Rileyweekend.webm")
-image TamaraWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Tamaraweekend.webm")
-image UtamiWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Utamiweekend.webm")
-image YejinWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Yejinweekend.webm")
-image YukiWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Yukiweekend.webm")
-image ZaraWeekend = Movie(size = (3840,2160), channnel="movie", play="images/Weekendgirls/Zaraweekend.webm")
+image AutumnWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Autumnweekend.webm")
+image BrooklynWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Brooklynweekend.webm")
+image GraceWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Graceweekend.webm")
+image IzraWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Izraweekend.webm")
+image JuneWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Juneweekend.webm")
+image JordynWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Jordynweekend.webm")
+image LilyWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Lilyweekend.webm")
+image MeiWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Meiweekend.webm")
+image NoraWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Noraweekend.webm")
+image ParkerWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Parkerweekend.webm")
+image RileyWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Rileyweekend.webm")
+image TamaraWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Tamaraweekend.webm")
+image UtamiWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Utamiweekend.webm")
+image YejinWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Yejinweekend.webm")
+image YukiWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Yukiweekend.webm")
+image ZaraWeekend = Movie(size=(3840,2160), channel="movie", play="images/Weekendgirls/Zaraweekend.webm")
 
 
-
-
-
+init python:
+    if 'unlock_event' not in globals():
+        def unlock_event(char, name, label_name):
+            pass
 
 define flash = Fade(0.1, 0.0, 0.5, color="#fff")
 define ahhflash = Fade(0.05, 0.0, 0.05, color="#fff")

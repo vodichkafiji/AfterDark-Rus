@@ -1,3 +1,8 @@
+
+
+
+
+
 label tamara_riley_intro:
 
     scene intro 0 with fade
@@ -71,7 +76,7 @@ label tamara_riley_intro:
     scene rileytamaraintro (3) with dissolve
     mc "Что ж, приятно было с вами двумя познакомиться. Может, увидимся после уроков."
 
-    t "После урокаф? Ah, meu pai… he opens… um… bar?"
+    t "После урокаф? Ah, meu pai… он открыл… um… bar?"
 
     r "Она говорит, её папа открыл бар неподалеку от метро."
 
@@ -281,7 +286,7 @@ label tamara_bar_intro:
     scene cabanaintro (19) with dissolve
 
     "По мере продолжения урока ты чувствуешь удовлетворение. Привязанность Тамары растет, пока вы сближаетесь за учебой."
-    $ unlock_event(Tamara, "Welcome to Cabanas!", "tamara_bar_intro")
+    $ unlock_event(Tamara, "Добро пожаловать в Cabanas!", "tamara_bar_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -886,6 +891,9 @@ label getdrinkbeach:
 
     t "Перед тем как мы купим напитки... {w} не хочешь посидеть у пляжа немного?"
     scene beachdrinkswim (52) with dissolve
+
+
+
     mc "Э-э.. а твой папа не разозлится на нас?"
     scene beachdrinkswim (56) with dissolve
     t "Это очень близко. Всего две минуты."
@@ -1069,6 +1077,9 @@ label getdrinkbeach:
 
     scene beachdrinkswim (107) with dissolve
 
+
+
+
     "Ты провожаешь Тамару обратно к бару. Вы стараетесь спешить, чтобы больше не тратить попусту время."
     "Ты останавливаешься у самого служебного входа, откуда доносится тепло и приглушенный стук посуды."
     "Тамара поворачивается к тебе, ее взгляд становится мягче."
@@ -1096,7 +1107,7 @@ label getdrinkbeach:
 
     t "Спокойной ночи, [mcname]."
     "Ты стоишь там еще мгновение, пока дверь не щелкает, затворяясь, после чего разворачиваешься и начинаешь тихий путь домой под звездами."
-    $ unlock_event(Tamara, "Night Walk to the Liquor Store", "tamara_liquor_walk")
+    $ unlock_event(Tamara, "Ночная прогулка в алкомаркет", "tamara_liquor_walk")
 
     if _in_replay:
         $ renpy.end_replay()
@@ -1109,3 +1120,4 @@ label getdrinkbeach:
 
     jump day_cycle
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

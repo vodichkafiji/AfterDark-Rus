@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -19,7 +22,8 @@ screen firsthallway2_screen(g=firsthallway2_girls):
             add i.image
             at firsthallway2_button_animation
             action i.action
-    use day_tracker
+    showif not _menu:
+        use day_tracker
     imagebutton:
         idle "arrowback_idle.png"
         hover "arrowback_hover.png"
@@ -64,6 +68,8 @@ screen firsthallway2_screen(g=firsthallway2_girls):
         xanchor 1.0
         yanchor 1.0
         at slide_in_delay_2
+
+    use oscar_freeroam_inventory_button
     imagebutton:
         idle "noon_idle.png"
         hover "noon_idle.png"
@@ -75,6 +81,7 @@ screen firsthallway2_screen(g=firsthallway2_girls):
         at slide_in_delay_5
     use day_tracker
 
+
 transform firsthallway2_button_animation:
     on idle:
         ease .1 yoffset 0 additive 0
@@ -83,7 +90,6 @@ transform firsthallway2_button_animation:
 
 default firsthallway2_bg = class_click("firsthallway2_bg", "firsthallway2_bg", None, (0, 0))
 default firsthallway2_hall = class_click("Stairs", "firsthallway2_hall", Jump("firsthallway2_hall"), (450, 0))
-
 
 
 default firsthallway2_girls = class_handler(

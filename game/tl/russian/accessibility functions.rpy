@@ -2,7 +2,7 @@ init python:
 
     def changeFont(newFont):
         # Если шрифт отсутствует в size_dict, используем первый попавшийся или безопасные значения
-        default_sizes = {"regular": 24, "large": 28, "huge": 32, "line_spacing": 0}
+        default_sizes = {"regular": 52, "large": 75, "huge": 95, "line_spacing": 0}
         font_data = size_dict.get(newFont, default_sizes)
         
         return (
@@ -14,9 +14,9 @@ init python:
 
     def changeScale(newScale):
         # Безопасное получение размера: если шрифта нет в size_dict, берутся значения по умолчанию
-        default_sizes = {"regular": 24, "large": 28, "huge": 32}
+        default_sizes = {"regular": 52, "large": 75, "huge": 95}
         font_sizes = size_dict.get(persistent.pref_text_font, default_sizes)
-        new_size = font_sizes.get(newScale, 24)
+        new_size = font_sizes.get(newScale, 52)
 
         return (
             SetField(persistent, "pref_text_scale", newScale),

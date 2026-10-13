@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -48,6 +51,7 @@ screen weekdaybedroomnight_screen(g=weekdaybedroomnight_girls):
         xanchor 1.0
         yanchor 1.0
         at slide_in_delay_5
+    use oscar_freeroam_inventory_button3
     imagebutton:
         idle "images/point and click room/weekdayBedroomnight/weekdaybedroomnight_computer.webp"
         hover "images/point and click room/weekdayBedroomnight/weekdaybedroomnight_computer.webp"
@@ -56,7 +60,6 @@ screen weekdaybedroomnight_screen(g=weekdaybedroomnight_girls):
         ypos 1150
         at weekdaybedroomnight_button_animation
     use day_tracker
-
 
 
 transform weekdaybedroomnight_button_animation:
@@ -89,7 +92,10 @@ label weekdaybedroomnight_example:
         mc "(Это так глупо.)"
         jump kyra_initiation_night
     else:
-        $ computer == 0
+
+
+
+        $ computer = 0
         play music "audio/Music/Nights.mp3"
         call screen weekdaybedroomnight_screen
 
@@ -108,10 +114,13 @@ label weekdaybedroomnight_kitsune:
     elif pillowtrain == 1 and yejin_train == 1 and chromarkwarehouse == 0:
         jump warehouse_investigation
     else:
-        scene bedroomnight_bg
+
+
+
+        scene weekdaybedroomnight_bg
         k "Ну так что, мы будем тренироваться? Или ты так и будешь весь вечер сопли на кулак наматывать?"
         mc "Я тебе чуть позже отвечу."
-        jump bedroomnight_example
+        jump weekdaybedroomnight_example
 
 label weekdaybedroomnight_bed:
     scene weekdaybedroomnight_bg
@@ -133,3 +142,4 @@ label weekdaybedroomnight_exitcomputer:
     $ computer = 0
     jump weekdaybedroomnight_example
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

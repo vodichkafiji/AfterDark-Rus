@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -27,7 +30,7 @@ screen bedroommorning_screen(g=bedroommorning_girls):
         ypos 0.95
         xanchor 1.0
         yanchor 1.0
-
+    use oscar_freeroam_inventory_button2
     imagebutton:
         idle "map_idle.png"
         hover "map_hover.png"
@@ -63,9 +66,6 @@ screen bedroommorning_screen(g=bedroommorning_girls):
         ypos 1150
         at bedroommorning_button_animation
     use day_tracker
-
-
-
 
 
 transform bedroommorning_button_animation:
@@ -124,3 +124,4 @@ label bedroommorning_exitcomputer:
     $ computer = 0
     jump bedroommorning_example
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

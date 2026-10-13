@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -27,7 +30,7 @@ screen bedroomnight_screen(g=bedroomnight_girls):
         ypos 0.95
         xanchor 1.0
         yanchor 1.0
-
+    use oscar_freeroam_inventory_button3
     imagebutton:
         idle "map_idle.png"
         hover "map_hover.png"
@@ -54,7 +57,6 @@ screen bedroomnight_screen(g=bedroomnight_girls):
         ypos 1150
         at bedroomnight_button_animation
     use day_tracker
-
 
 
 transform bedroomnight_button_animation:
@@ -91,7 +93,7 @@ label bedroomnight_kitsune:
         jump pushupintro
     elif pushupintro == 1 and main.strength >= 5 and intro_2 == 1 and intro3 == 1 and intro_jordyn == 1 and intro_brooklyn == 1 and intro_june == 1 and intro_mei == 1 and intro_nora == 1 and intro_yuki == 1 and intro_yejin == 1 and firstfight ==0:
         jump first_fight
-    elif firstfight == 1 and kyraalleyevent >= 1 and firstdream == 0:
+    elif firstfight == 1 and kyraalleyevent == 1 and firstdream == 0:
         jump thefirstdream
     elif pillowtrain == 1 and yejin_train == 1 and chromarkwarehouse == 0:
         scene bedroomnight_bg
@@ -120,8 +122,6 @@ label bedroomnight_exitcomputer:
     "Ты решаешь, что на сегодня экранного времени достаточно."
     $ computer = 0
     jump bedroomnight_example
-
-
 
 
 label pushupintro:
@@ -154,9 +154,9 @@ label pushupintro:
     hide mc_confused
     show mc_sigh at right
     with dissolve
-    mc "Безжалостно честно, ничего не скажешь."
+    mc "Честно, ничего не скажешь."
 
-    hide kitsune_neutral
+    hide kitsune_cheerful
     show kitsune_neutral at left
     with dissolve
     k "Считай это выживанием. Заведи союзников в классе, а потом приходи ко мне на тренировки."
@@ -191,3 +191,4 @@ label pushupintro:
     $ pushupintro += 1
     jump train
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

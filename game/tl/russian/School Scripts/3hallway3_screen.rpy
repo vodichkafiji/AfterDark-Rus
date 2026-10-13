@@ -1,3 +1,7 @@
+
+
+
+
 init python:
 
     class class_click:
@@ -19,7 +23,8 @@ screen thirdhallway3_screen(g=thirdhallway3_girls):
             add i.image
             at thirdhallway3_button_animation
             action i.action
-    use day_tracker
+    showif not _menu:
+        use day_tracker
     imagebutton:
         idle "arrowback_idle.png"
         hover "arrowback_hover.png"
@@ -64,6 +69,8 @@ screen thirdhallway3_screen(g=thirdhallway3_girls):
         xanchor 1.0
         yanchor 1.0
         at slide_in_delay_2
+
+    use oscar_freeroam_inventory_button
     imagebutton:
         idle "noon_idle.png"
         hover "noon_idle.png"
@@ -85,7 +92,6 @@ transform thirdhallway3_button_animation:
 default thirdhallway3_bg = class_click("thirdhallway3_bg", "thirdhallway3_bg", None, (0, 0))
 default thirdhallway3_artdoor = class_click("artdoor", "thirdhallway3_artdoor", Jump("thirdhallway3_artdoor"), (1920, 440))
 default thirdhallway3_dancedoor = class_click("Dancedoor", "thirdhallway3_dancedoor", Jump("thirdhallway3_dancedoor"), (1255, 510))
-
 
 
 default thirdhallway3_girls = class_handler(

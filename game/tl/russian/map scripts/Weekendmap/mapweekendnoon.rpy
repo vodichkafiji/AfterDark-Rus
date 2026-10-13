@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -77,7 +80,7 @@ label mapweekendnoon_park:
         play ambient "audio/ambient/Park.mp3" volume 0.5
         scene black
         scene park with fade
-        "The park is quiet today. You decide to go for a walk"
+        "В парке сегодня тихо. Ты решаешь прогуляться."
         jump parkcrossroadsnoon_example
 
 label mapweekendnoon_city:

@@ -315,7 +315,7 @@ label izracityevents:
     elif Izra.affection >= 10 and totaldays >= 14 and izra5event == 1 and izra10event == 0:
         jump izra_10_event
     else:
-        jump skateparkmorning_example
+        jump izra_menu
 
 
 
@@ -366,6 +366,9 @@ label izra_5_event:
     scene izra5event (9) with dissolve
     mc "Земля вращается со скоростью около 1000 миль в час на экваторе?"
     I "Эм...."
+
+
+
     I "Окей?...."
     scene izra5event (10) with dissolve
     mc "Сумасшедшие цифры, да? О, и гравитация! Охренеть какая важная штука, гравитация."
@@ -774,6 +777,8 @@ label izra_15_event:
 
     I "Так и есть. Но это мой крест. Пьер старается изо всех сил, но… кто-то же должен быть взрослым."
     I "Готовка, уборка, следить за тем, чтобы он не сжёг дом к чертям — это изматывает. Но это же и держит меня на плаву."
+
+    I "Я..."
 
     scene izra15event (15) with dissolve
     "Она отводит взгляд, её взор на мгновение становится устремлённым вдаль."
@@ -1260,6 +1265,9 @@ label izra_25_event:
 
     "После нескольких секунд сопротивления ты вздыхаешь."
 
+
+
+
     mc "Ладно. Но если я отстану от своего графика «пяления в потолок», это будет на твоей совести."
     scene izra25event (8) with dissolve
 
@@ -1665,6 +1673,9 @@ label izra_inbetween_event:
 
     pe "Ну, насколько нам известно, он собирается не на свидание с трупом."
 
+
+
+
     pe "Хммм, почему бы тебе самму не выбрать, [mcname].. Ты же лучше всех знаешь девчонку, что бы ей понравилось?"
     scene izrabetweenevent (36) with dissolve
 
@@ -1695,7 +1706,7 @@ label choicesdontmatter:
     scene izrabetweenevent (37) with ahhflash
     scene izrabetweenevent (38) with ahhflash
 
-    "{color=#FF0000}{b}Оооооооооооооооооооооооооооооооооооооооооо неттттттттттттттттттттттт :().{b}"
+    "{color=#FF0000}{b}Оооооооооооооооооооооооооооооооооооооооооо неттттттттттттттттттттттт :(.{b}"
 
     "{color=#FF0000}{b}Ты только что вспомнил, что твой выбор ни на что не влияет.{b}"
 
@@ -1818,6 +1829,9 @@ label choicesdontmatter:
     if _in_replay:
         $ renpy.end_replay()
     else:
+
+
+
 
         $ Izra.quest = "Жди выходных для большого свидания!."
         $ izrainbetweenevent += 1
@@ -2175,7 +2189,6 @@ label izra_30_event:
 
 
     scene izra30event (71) with dissolve
-
     "Вы вдвоём начинаете шагать к ресторану, напряжение спадает с каждым шагом."
 
     stop music fadeout 1.0
@@ -3410,7 +3423,7 @@ label izraclimaxevent:
     "Изре требуется пара секунд, чтобы вернуть самообладание перед тем как вернуться к своему обычному спокойному стилю."
 
     I "Ну да, ты вообще-то не особо-то привлекательно всё расписал."
-    scene izraclimaxevent1 (31) with dissolve
+    scene izraclimaxevent2 (31) with dissolve
 
     I "Совет на будущее: в следующий раз, когда будешь писать мне, просто начинай с «Привет, Изра, это [mcname].»"
     scene izraclimaxevent2 (30) with dissolve
@@ -3753,8 +3766,8 @@ label izraclimaxevent:
     mc "Что я не просто так закрылся в своей комнате, прогуливал уроки и забил на всё просто потому, что мне так захотелось."
     mc "Ты думаешь, я никогда не разговаривал с тобой просто потому, что ты была мне не интересна?"
     scene izraclimaxevent2 (103) with dissolve
-    I "[mcname], я—"
-    scene izraclimaxevent1 (104) with dissolve
+    I "[mcname] Я-"
+    scene izraclimaxevent2 (104) with dissolve
     play music "audio/Music/Izraclimax1.mp3"
     mc "Конечно же я видел тебя. Я видел, насколько ты красивая, насколько страстная и заботливая по отношению к Отэм и своему брату."
     mc "Но я также видел, что это невозможно. Ты была недосягаема для меня, и я это прекрасно понимал."
@@ -4409,3 +4422,4 @@ label Izrafun:
             $ Izra.affection += 1
             jump weekday_evening
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

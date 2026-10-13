@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -18,7 +21,8 @@ screen class_screen(g=class_girls):
             add i.image
             at class_button_animation
             action i.action
-    use day_tracker
+    showif not _menu:
+        use day_tracker
 
 
 transform class_button_animation:
@@ -100,7 +104,6 @@ label class_yejin:
         jump yejin_intro
     else:
         jump yejin_class
-    jump class_example
 label class_trio:
     if intro3 == 0:
         jump trio_intro
@@ -112,5 +115,5 @@ label class_nora:
         jump nora_intro
     else:
         jump nora_class
-    jump class_example
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

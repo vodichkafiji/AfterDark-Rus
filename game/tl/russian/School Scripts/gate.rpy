@@ -1,3 +1,7 @@
+
+
+
+
 init python:
 
     class class_click:
@@ -19,7 +23,8 @@ screen gate_screen(g=gate_girls):
             add i.image
             at gate_button_animation
             action i.action
-    use day_tracker
+    showif not _menu:
+        use day_tracker
     imagebutton:
         idle "arrowback_idle.png"
         hover "arrowback_hover.png"
@@ -64,6 +69,8 @@ screen gate_screen(g=gate_girls):
         xanchor 1.0
         yanchor 1.0
         at slide_in_delay_2
+
+    use oscar_freeroam_inventory_button
     imagebutton:
         idle "noon_idle.png"
         hover "noon_idle.png"

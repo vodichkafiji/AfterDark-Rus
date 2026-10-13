@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -27,7 +30,7 @@ screen bedroomnoon_screen(g=bedroomnoon_girls):
         ypos 0.95
         xanchor 1.0
         yanchor 1.0
-
+    use oscar_freeroam_inventory_button2
     imagebutton:
         idle "map_idle.png"
         hover "map_hover.png"
@@ -65,7 +68,6 @@ screen bedroomnoon_screen(g=bedroomnoon_girls):
     use day_tracker
 
 
-
 transform bedroomnoon_button_animation:
     on idle:
         ease .1 yoffset 0 additive 0
@@ -75,7 +77,6 @@ transform bedroomnoon_button_animation:
 define bedroomnoon_bg = class_click("bedroomnoon_bg", "bedroomnoon_bg", None, (0, 0))
 define bedroomnoon_skelly = class_click("Skelly", "bedroomnoon_skelly", Jump("bedroomnoon_skelly"), (1138, 103))
 define bedroomnoon_kitsune = class_click("Kitsune", "bedroomnoon_kitsune", Jump("bedroomnoon_kitsune"), (1730, 385))
-
 
 
 define bedroomnoon_girls = class_handler(
@@ -115,3 +116,4 @@ label bedroomnoon_exitcomputer:
     $ computer = 0
     jump bedroomnoon_example
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

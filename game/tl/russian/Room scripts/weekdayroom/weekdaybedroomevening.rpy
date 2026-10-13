@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -56,6 +59,7 @@ screen weekdaybedroomevening_screen(g=weekdaybedroomevening_girls):
         xanchor 1.0
         yanchor 1.0
         at slide_in_delay_5
+    use oscar_freeroam_inventory_button2
     imagebutton:
         idle "images/point and click room/weekdayBedroomevening/weekdaybedroomevening_computer.webp"
         hover "images/point and click room/weekdayBedroomevening/weekdaybedroomevening_computer.webp"
@@ -65,7 +69,6 @@ screen weekdaybedroomevening_screen(g=weekdaybedroomevening_girls):
         at weekdaybedroomevening_button_animation
 
     use day_tracker
-
 
 
 transform weekdaybedroomevening_button_animation:
@@ -95,7 +98,12 @@ label weekdaybedroomevening_skelly:
     "Хэштег не спонсирован."
     jump weekdaybedroomevening_example
 label weekdaybedroomevening_kitsune:
-    if storydream2 == 1 and pillowtrain == 0:
+
+
+
+    if storydream1 >= 1 and storydream2 == 0:
+        jump stillindream
+    elif storydream2 == 1 and pillowtrain == 0:
         jump brighttalk
     elif firstfight == 1 and yukibook2event == 1 and yukikitsunebook == 0:
         jump Kitsune_book
@@ -106,6 +114,9 @@ label weekdaybedroomevening_kitsune:
         jump weekdaybedroomevening_example
 label weekdaybedroomevening_wallofshit:
     scene weekdaybedroomevening_bg
+
+
+
     "Ах, моя пресловутая «Стена с дерьмом, которое я считаю крутым»."
     "Непрактично? {w} Да."
     "Нёсет ли она какую-то пользу? {w} Нет."
@@ -127,3 +138,4 @@ label weekdaybedroomevening_exitcomputer:
     $ computer = 0
     jump weekdaybedroomevening_example
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -18,7 +21,8 @@ screen thirdhallway1_screen(g=thirdhallway1_girls):
             add i.image
             at thirdhallway1_button_animation
             action i.action
-    use day_tracker
+    showif not _menu:
+        use day_tracker
     imagebutton:
         idle "arrowback_idle.png"
         hover "arrowback_hover.png"
@@ -63,6 +67,8 @@ screen thirdhallway1_screen(g=thirdhallway1_girls):
         xanchor 1.0
         yanchor 1.0
         at slide_in_delay_2
+
+    use oscar_freeroam_inventory_button
     imagebutton:
         idle "noon_idle.png"
         hover "noon_idle.png"
@@ -73,6 +79,7 @@ screen thirdhallway1_screen(g=thirdhallway1_girls):
         yanchor 1.0
         at slide_in_delay_5
     use day_tracker
+
 
 transform thirdhallway1_button_animation:
     on idle:

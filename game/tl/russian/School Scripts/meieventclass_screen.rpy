@@ -1,3 +1,7 @@
+
+
+
+
 init python:
 
     class meieventclass_click:
@@ -48,12 +52,15 @@ label meieventclass_example:
     call screen meieventclass_screen
 
 
+
+
+
 label meieventclass_june:
     if intro_june == 0:
 
         jump june_intro
     else:
-        jump june_lass
+        jump june_class
 label meieventclass_tamara_riley:
     if intro_2 == 0:
         jump tamara_riley_intro
@@ -92,6 +99,5 @@ label meieventclass_nora:
         jump nora_intro
     else:
         jump nora_class
-    jump meieventclass_example
 return
 # Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

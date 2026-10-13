@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -40,7 +43,10 @@ screen weekdaylivingroomnightjune_screen(g=weekdaylivingroomnightjune_girls):
     imagebutton:
         idle "night_idle.png"
         hover "night_idle.png"
-        action Jump("weekdaylivingroomight_example")
+
+
+
+        action Jump("weekdaylivingroomnightjune_example")
         xpos 0.999999
         ypos 0.23
         xanchor 1.0
@@ -57,7 +63,6 @@ screen weekdaylivingroomnightjune_screen(g=weekdaylivingroomnightjune_girls):
 
 
     use day_tracker
-
 
 
 transform weekdaylivingroomnightjune_button_animation:
@@ -116,3 +121,4 @@ label nightjunecouch:
     scene weekdaylivingroomnightjune_bg
     jump weekdaylivingroomnightjune_example
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

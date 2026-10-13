@@ -1,5 +1,7 @@
-init python:
 
+
+
+init python:
     def unlock_event(person_obj, title, label_name):
         if not hasattr(person_obj, 'completed_events'):
             person_obj.completed_events = []
@@ -8,9 +10,7 @@ init python:
         
         if event_tuple not in person_obj.completed_events:
             person_obj.completed_events.append(event_tuple)
-            
             renpy.retain_after_load() 
-
 
     def get_neighbor(current_person, direction=1):
         people = get_people()
@@ -26,17 +26,17 @@ init python:
             Jordyn, Kyra, Parker, Utami]
 
 
-define config.developer = True
+
+
+
 
 init python:
     def get_neighbor(current_person, direction=1):
         people = get_people()
-        
         try:
             idx = people.index(current_person)
         except ValueError:
             return people[0]
-        
         
         new_idx = (idx + direction) % len(people)
         return people[new_idx]
@@ -75,7 +75,6 @@ default Kyra = person("Кайра", "kyra_gallery", "kyra_gallery_thumb")
 default Parker = person("Паркер", "parker_gallery", "parker_gallery_thumb")
 default Utami = person("Ютами", "utami_gallery", "utami_gallery_thumb")
 
-
 default quests = quest_handler(
     [
         Autumn, Brooklyn, Grace, Izra,
@@ -90,7 +89,6 @@ default quests = quest_handler(
 
 init python:
     def get_people():
-        
         return [
         Autumn, Brooklyn, Grace, Izra,
         Jordyn, June, Kyra, Lily,
@@ -99,18 +97,13 @@ init python:
     ]
 
     def refresh_quests():
-        
         quests.pages = list(get_people())
-
 
 label after_load:
     python:
-
         for person_item in get_people():
-            
             if not hasattr(person_item, 'completed_events'):
                 person_item.completed_events = []
-            
             
             if not hasattr(person_item, 'quest'):
                 person_item.quest = "Нет активного задания."
@@ -118,11 +111,12 @@ label after_load:
             
             setattr(person_item, 'completed_events', person_item.completed_events)
 
+
+
+
+    $ refresh_main()
     $ refresh_quests()
     return
-
-
-
 
 
 
@@ -134,6 +128,12 @@ style quest_text:
     font "NotoSansDisplay-ExtraBold.ttf"
     outlines [(16, "#000000", 0, 0)]
 
+transform quest_portrait_hover:
+    on hover:
+        ease 0.12 yoffset -6 additive 0.08
+    on idle:
+        ease 0.12 yoffset 0 additive 0
+
 
 
 
@@ -144,9 +144,8 @@ screen quests(g=quests):
         hbox:
             align (0.5, 0.5)
             box_wrap True
-
             for i in get_people():
-                button:
+                button at quest_portrait_hover:
                     vbox:
                         add i.thumb xalign .5
                         text "[i.name]" xalign .5
@@ -160,12 +159,14 @@ screen character_page(g=Yuki):
 
 
 
+
+    use oscar_quest_page_key_navigation(g)
+
     imagebutton:
         idle "questleft.png"
         hover im.MatrixColor("questleft.png", im.matrix.brightness(0.12))
         action Show("character_page", g=get_neighbor(g, direction=-1))
         align (0.001, 0.5)
-
 
     imagebutton:
         idle "questright.png"
@@ -200,8 +201,11 @@ screen character_page(g=Yuki):
             else:
                 text "Нет задания." xalign 0.5
 
-
     button:
+        xalign 1.0
+        yalign 0.0
+        xoffset -40
+        yoffset 40
         text "Назад"
         action ShowMenu("quests")
 
@@ -211,8 +215,8 @@ screen character_page(g=Yuki):
 label quest_example:
     "Давай дадим задание Юки."
     $ Yuki.quest = "Поговорить с Джун в классе утром."
-
     $ renpy.restart_interaction()
     "Теперь проверь её страницу заданий."
     return
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

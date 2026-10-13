@@ -1,7 +1,13 @@
+
+
+
+
 screen quicktime_button():
+
+
+
     default time_left = 2.0
     timer 0.05 repeat True action SetScreenVariable("time_left", time_left - 0.05)
-
 
     if time_left <= 0:
         timer 0.1 action Return(False)
@@ -9,8 +15,6 @@ screen quicktime_button():
     vbox:
         align (0.5, 0.5)
         spacing 15
-
-
 
 
         imagebutton:
@@ -28,15 +32,12 @@ screen quicktime2_button():
     default time_left = 2.0
     timer 0.05 repeat True action SetScreenVariable("time_left", time_left - 0.05)
 
-
     if time_left <= 0:
         timer 0.1 action Return(False)
 
     vbox:
         align (0.5, 0.5)
         spacing 15
-
-
 
 
         imagebutton:
@@ -51,7 +52,9 @@ screen quicktime2_button():
     bar value time_left range 2.0 xmaximum 1050 ymaximum 150 xpos 0.365 ypos 0.6
 
 
-screen retry:
+
+
+screen retry():
     imagebutton:
         idle "gui/retry_idle.png"
         hover "gui/retry_hover.png"
@@ -60,7 +63,8 @@ screen retry:
         action Jump("retry")
         activate_sound "audio/sound/select.mp3"
 
-screen retry2:
+
+screen retry2():
     imagebutton:
         idle "gui/retry_idle.png"
         hover "gui/retry_hover.png"
@@ -73,15 +77,12 @@ screen quicktime3_button():
     default time_left = 2.0
     timer 0.05 repeat True action SetScreenVariable("time_left", time_left - 0.05)
 
-
     if time_left <= 0:
         timer 0.1 action Return(False)
 
     vbox:
         align (0.5, 0.5)
         spacing 15
-
-
 
 
         imagebutton:
@@ -100,15 +101,12 @@ screen quicktime4_button():
     default time_left = 2.0
     timer 0.05 repeat True action SetScreenVariable("time_left", time_left - 0.05)
 
-
     if time_left <= 0:
         timer 0.1 action Return(False)
 
     vbox:
         align (0.5, 0.5)
         spacing 15
-
-
 
 
         imagebutton:
@@ -121,3 +119,4 @@ screen quicktime4_button():
             activate_sound "audio/sound/select.mp3"
 
     bar value time_left range 2.0 xmaximum 1050 ymaximum 150 xpos 0.365 ypos 0.6
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

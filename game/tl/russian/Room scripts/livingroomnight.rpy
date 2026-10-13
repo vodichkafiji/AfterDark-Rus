@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -27,7 +30,7 @@ screen livingroomnight_screen(g=livingroomnight_girls):
         ypos 0.95
         xanchor 1.0
         yanchor 1.0
-
+    use oscar_freeroam_inventory_button3
     imagebutton:
         idle "map_idle.png"
         hover "map_hover.png"
@@ -49,7 +52,6 @@ screen livingroomnight_screen(g=livingroomnight_girls):
     use day_tracker
 
 
-
 transform livingroomnight_button_animation:
     on idle:
         ease .1 yoffset 0 additive 0
@@ -69,3 +71,4 @@ default livingroomnight_girls = class_handler(
 label livingroomnight_example:
     call screen livingroomnight_screen
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

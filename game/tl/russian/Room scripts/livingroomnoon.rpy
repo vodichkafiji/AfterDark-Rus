@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -58,7 +61,6 @@ screen livingroomnoon_screen(g=livingroomnoon_girls):
     use day_tracker
 
 
-
 transform livingroomnoon_button_animation:
     on idle:
         ease .1 yoffset 0 additive 0
@@ -78,3 +80,4 @@ default livingroomnoon_girls = class_handler(
 label livingroomnoon_example:
     call screen livingroomnoon_screen
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

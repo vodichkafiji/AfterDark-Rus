@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -46,6 +49,7 @@ screen weekdaylivingroomevening_screen(g=weekdaylivingroomevening_girls):
         xanchor 1.0
         yanchor 1.0
         at slide_in_delay_3
+    use oscar_freeroam_inventory_button2
     imagebutton:
         idle "evening_idle.png"
         hover "evening_idle.png"
@@ -58,7 +62,6 @@ screen weekdaylivingroomevening_screen(g=weekdaylivingroomevening_girls):
     use day_tracker
 
 
-
 transform weekdaylivingroomevening_button_animation:
     on idle:
         ease .1 yoffset 0 additive 0
@@ -67,7 +70,6 @@ transform weekdaylivingroomevening_button_animation:
 
 default weekdaylivingroomevening_bg = class_click("weekdaylivingroomevening_bg", "weekdaylivingroomevening_bg", None, (0, 0))
 default weekdaylivingroomevening_autumn = class_click("Autumn", "weekdaylivingroomevening_autumn", Jump("weekdaylivingroomevening_autumn"), (2340, 660))
-
 
 
 default weekdaylivingroomevening_girls = class_handler(
@@ -88,3 +90,4 @@ label weekdaylivingroomevening_autumn:
         "Сначала тебе нужно поговорить с Отэм в классе."
         jump weekdaylivingroomevening_example
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

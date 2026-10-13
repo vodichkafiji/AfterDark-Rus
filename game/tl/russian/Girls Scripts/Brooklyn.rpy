@@ -1,5 +1,5 @@
-default Autumngymintro = False
-default Autumncityintro = False
+
+
 
 
 
@@ -116,7 +116,7 @@ label brooklyn_intro:
     b "Увидимся, [mcname]."
 
     mc "Ага. До встречи."
-    $ unlock_event(Brooklyn, "A Shy Strummer", "brooklyn_intro")
+    $ unlock_event(Brooklyn, "Застенчивая гитаристка", "brooklyn_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -284,7 +284,7 @@ label brooklyn_hallway_intro:
     "Она смотрит на тебя, её взгляд смягчается."
     stop music fadeout 1.0
     b "Спасибо, [mcname]. Правда."
-    $ unlock_event(Brooklyn, "Secret Crush", "brooklyn_hallway_intro")
+    $ unlock_event(Brooklyn, "Тайная влюблённость", "brooklyn_hallway_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -404,7 +404,7 @@ label brooklyn_cafe_intro:
 
     mc "Обращайся."
     stop music fadeout 1.0 
-    $ unlock_event(Brooklyn, "The Koala Cafe", "brooklyn_cafe_intro")
+    $ unlock_event(Brooklyn, "Кафе «Koala Café»", "brooklyn_cafe_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -732,7 +732,7 @@ label brooklyn_talentshow_intro:
     scene brooklyntalentshow (21) with dissolve
 
     "Ты бросаешь ещё один взгляд на плакат перед уходом, уже гадая, решится ли она на это на самом деле."
-    $ unlock_event(Brooklyn, "The Poster", "brooklyn_talentshow_intro")
+    $ unlock_event(Brooklyn, "Плакат", "brooklyn_talentshow_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -979,9 +979,9 @@ label brooklyn_cafe_talentshow:
     b "Я только хочу спросить кое-что сначала."
     b "Ты... поможешь мне репетиревать?"
     scene brooklyncafe2 (19) with dissolve
-    "Не знаю, хватит ли меня для шоу талантов… особенно когда времени в обрез."
-    b "Так что мне не помешала бы помощь, е-если ты не против."
-    mc "Да, без проблем! Хотя не знаю, какая от меня вообще польза."
+    b "Не знаю, хватит ли у меня таланта для конкурса… особенно если он уже так скоро."
+    b "Так что мне бы не помешала помощь, е-если ты не против."
+    mc "Да, конечно! Хотя не знаю, насколько сильно смогу помочь."
     scene brooklyncafe2 (22) with dissolve
     b "Спасибо, я это ценю."
     b "Иногда просто присутствия ещё одной пары ушей в комнате уже достаточно."
@@ -995,7 +995,7 @@ label brooklyn_cafe_talentshow:
     "Ты медленно допиваешь свой кофе, наблюдая, как она органично возвращается к работе за стойкой."
     "Внешне она выглядит так же, как и до этого — принимает заказы, выдаёт стаканчики, вежливо улыбается."
     "Но её настрой, кажется, совершенно изменился."
-    $ unlock_event(Brooklyn, "Doing It Scared", "brooklyn_cafe_talentshow")
+    $ unlock_event(Brooklyn, "Преодолеть страх", "brooklyn_cafe_talentshow")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -1400,6 +1400,9 @@ label brooklyn_talentshow_signup:
     scene brooklynpractice (56) with dissolve
     ca "Это же ты подбил её записаться на шоу талантов, да?"
 
+
+
+
     mc "Думаю, я просто подталкивал её какое-то время."
 
     mc "Она очень талантливая, просто сама этого не замечает."
@@ -1795,6 +1798,9 @@ label brooklyn_talentshow_signup:
 
     ca "Ха-ха!"
     scene brooklynpractice (89) with dissolve
+
+
+
     mc "Я бы с радостью остался, но у меня дома кое-кто, скорее всего, ждёт, пока я закажу пиццу."
 
     ca "Ну, я могла бы всегда—"
@@ -1812,7 +1818,7 @@ label brooklyn_talentshow_signup:
 
     scene black with fade
 
-    $ unlock_event(Brooklyn, "Last Day Sign-Up", "brooklyn_talentshow_signup")
+    $ unlock_event(Brooklyn, "Запись в последний день", "brooklyn_talentshow_signup")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -1824,3 +1830,4 @@ label brooklyn_talentshow_signup:
 
         jump weekday_evening
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

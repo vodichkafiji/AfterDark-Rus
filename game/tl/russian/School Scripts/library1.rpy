@@ -1,3 +1,7 @@
+
+
+
+
 init python:
 
     class class_click:
@@ -19,7 +23,9 @@ screen library1_screen(g=library1_girls):
             add i.image
             at library1_button_animation
             action i.action
-    use day_tracker
+
+    showif not _menu:
+        use day_tracker
     imagebutton:
         idle "arrow_idle.png"
         hover "arrow_hover.png"
@@ -64,6 +70,8 @@ screen library1_screen(g=library1_girls):
         xanchor 1.0
         yanchor 1.0
         at slide_in_delay_2
+
+    use oscar_freeroam_inventory_button
     imagebutton:
         idle "noon_idle.png"
         hover "noon_idle.png"
@@ -74,6 +82,7 @@ screen library1_screen(g=library1_girls):
         yanchor 1.0
         at slide_in_delay_5
     use day_tracker
+
 
 transform library1_button_animation:
     on idle:

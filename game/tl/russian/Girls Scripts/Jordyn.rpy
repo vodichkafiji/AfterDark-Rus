@@ -68,7 +68,7 @@ label jordyn_intro:
     J "Как знаешь. Но если передумаешь — я буду там, нарезать круги вокруг тебя."
 
     J "Увидимся, [mcname]. И не пропадай."
-    $ unlock_event(Jordyn, "Bored Striker", "jordyn_intro")
+    $ unlock_event(Jordyn, "Скучающая звезда нападения", "jordyn_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -227,7 +227,7 @@ label jordyn_track_intro:
     "Прощаясь с ней, ты ощущаешь смесь изнеможения и веселья."
 
     "Даже если ты уверен, что твои ноги проклянут тебя завтра, ты приходишь к выводу, что это было весело."
-    $ unlock_event(Jordyn, "Laps Around You", "jordyn_track_intro")
+    $ unlock_event(Jordyn, "Круги вокруг тебя", "jordyn_track_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -335,7 +335,7 @@ label jordyn_park_intro:
 
     "Несмотря на первоначальные опасения, ты ловишь себя на том, что тебе это нравится."
     stop music fadeout 1.0
-    $ unlock_event(Jordyn, "Fountain Dribbles", "jordyn_park_intro")
+    $ unlock_event(Jordyn, "Дриблинг у фонтана", "jordyn_park_intro")
     if _in_replay:
         $ renpy.end_replay()
     else:
@@ -911,7 +911,7 @@ label jordyn_question_round:
     scene black with fade
     stop music fadeout 1.0
     "Ты хромая уходишь от Джордин и её собаки. И пытаешься найти в городе место, где продают пакеты со льдом..."
-    $ unlock_event(Jordyn, "20 Questions", "jordyn_dog_event")
+    $ unlock_event(Jordyn, "20 вопросов", "jordyn_dog_event")
     if _in_replay:
         $ renpy.end_replay()
     else:

@@ -1,3 +1,6 @@
+
+
+
 init python:
 
     class class_click:
@@ -27,7 +30,7 @@ screen bedroomevening_screen(g=bedroomevening_girls):
         ypos 0.95
         xanchor 1.0
         yanchor 1.0
-
+    use oscar_freeroam_inventory_button2
     imagebutton:
         idle "map_idle.png"
         hover "map_hover.png"
@@ -65,7 +68,6 @@ screen bedroomevening_screen(g=bedroomevening_girls):
     use day_tracker
 
 
-
 transform bedroomevening_button_animation:
     on idle:
         ease .1 yoffset 0 additive 0
@@ -96,12 +98,20 @@ label bedroomevening_skelly:
     jump bedroomevening_example
 label bedroomevening_kitsune:
 
-    scene bedroomevening_bg
-    k "Чёрт, зацени, какой красивый закат."
-    k "А ты опять решил провести его запершись в своей комнате."
-    jump bedroomevening_example
+
+
+    if storydream1 >= 1 and storydream2 == 0:
+        jump stillindream
+    else:
+        scene bedroomevening_bg
+        k "Чёрт, какой красивый закат."
+        k "А ты опять решил провести его взаперти в своей комнате."
+        jump bedroomevening_example
 label bedroomevening_wallofshit:
     scene bedroomevening_bg
+
+
+
     "Ах, моя пресловутая «Стена с дерьмом, которое я считаю крутым»."
     "Непрактично? {w} Да."
     "Нёсет ли она какую-то пользу? {w} Нет."
@@ -122,3 +132,4 @@ label bedroomevening_exitcomputer:
     $ computer = 0
     jump bedroomevening_example
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

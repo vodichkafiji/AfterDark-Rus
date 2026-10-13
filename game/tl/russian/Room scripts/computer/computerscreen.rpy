@@ -1,4 +1,11 @@
-screen computerhome:
+
+
+
+
+
+
+
+screen computerhome():
     imagebutton:
         idle "images/computer/fanartdesktop_idle.png"
         hover "images/computer/fanartdesktop_hover.png"
@@ -38,7 +45,9 @@ screen computerhome:
         activate_sound "audio/sound/mouse.mp3"
 
 
-screen computerscreen_fanart:
+
+
+screen computerscreen_fanart():
     imagebutton:
         idle "images/computer/fanart/exit.png"
         hover im.MatrixColor("images/computer/fanart/exit.png", im.matrix.brightness(0.12))
@@ -217,9 +226,7 @@ screen computerscreen_fanart:
 
 
 
-
-
-screen computerscreen_fanart2:
+screen computerscreen_fanart2():
     imagebutton:
         idle "images/computer/fanart/exit.png"
         hover im.MatrixColor("images/computer/fanart/exit.png", im.matrix.brightness(0.12))
@@ -274,6 +281,63 @@ screen computerscreen_fanart2:
         activate_sound "audio/sound/mouse.mp3"
 
 
+
+    imagebutton:
+        idle "images/computer/fanart/fanart23.png"
+        hover im.MatrixColor("images/computer/fanart/fanart23.png", im.matrix.brightness(0.12))
+        action Jump("fanart23")
+        xpos 0.6
+        ypos 0.1
+        style "fanart_thumb"
+        activate_sound "audio/sound/mouse.mp3"
+
+    imagebutton:
+        idle "images/computer/fanart/fanart24.png"
+        hover im.MatrixColor("images/computer/fanart/fanart24.png", im.matrix.brightness(0.12))
+        action Jump("fanart24")
+        xpos 0.72
+        ypos 0.15
+        style "fanart_thumb"
+        activate_sound "audio/sound/mouse.mp3"
+
+
+    imagebutton:
+        idle "images/computer/fanart/fanart25.png"
+        hover im.MatrixColor("images/computer/fanart/fanart25.png", im.matrix.brightness(0.12))
+        action Jump("fanart25")
+        xpos 0.05
+        ypos 0.41
+        style "fanart_thumb"
+        activate_sound "audio/sound/mouse.mp3"
+
+    imagebutton:
+        idle "images/computer/fanart/fanart26.png"
+        hover im.MatrixColor("images/computer/fanart/fanart26.png", im.matrix.brightness(0.12))
+        action Jump("fanart26")
+        xpos 0.16
+        ypos 0.41
+        style "fanart_thumb"
+        activate_sound "audio/sound/mouse.mp3"
+
+    imagebutton:
+        idle "images/computer/fanart/fanart27.png"
+        hover im.MatrixColor("images/computer/fanart/fanart27.png", im.matrix.brightness(0.12))
+        action Jump("fanart27")
+        xpos 0.27
+        ypos 0.45
+        style "fanart_thumb"
+        activate_sound "audio/sound/mouse.mp3"
+
+    imagebutton:
+        idle "images/computer/fanart/fanart28.png"
+        hover im.MatrixColor("images/computer/fanart/fanart28.png", im.matrix.brightness(0.12))
+        action Jump("fanart28")
+        xpos 0.385
+        ypos 0.41
+        style "fanart_thumb"
+        activate_sound "audio/sound/mouse.mp3"
+
+
     imagebutton:
         idle "images/computer/fanart/fanartarrow.png"
         hover im.MatrixColor("images/computer/fanart/fanartarrow.png", im.matrix.brightness(0.12))
@@ -285,13 +349,7 @@ screen computerscreen_fanart2:
 
 
 
-
-
-
-
-
-
-screen computerscreen_cheats:
+screen computerscreen_cheats():
     imagebutton:
         idle "images/computer/cheats/affection.png"
         hover im.MatrixColor("images/computer/cheats/affection.png", im.matrix.brightness(0.12))
@@ -320,7 +378,8 @@ screen computerscreen_cheats:
         ypos 0.8
         activate_sound "audio/sound/mouse.mp3"
 
-screen computerscreen_patreon:
+
+screen computerscreen_patreon():
     imagebutton:
         idle "images/computer/fanart/exit.png"
         hover im.MatrixColor("images/computer/fanart/exit.png", im.matrix.brightness(0.12))
@@ -344,7 +403,9 @@ screen computerscreen_patreon:
         activate_sound "audio/sound/mouse.mp3"
 
 
-screen computerscreen_patreon2:
+
+
+screen computerscreen_patreon2():
     imagebutton:
         idle "images/computer/fanart/exit.png"
         hover im.MatrixColor("images/computer/fanart/exit.png", im.matrix.brightness(0.12))
@@ -359,10 +420,6 @@ screen computerscreen_patreon2:
         xpos 0.05
         ypos 0.1
         activate_sound "audio/sound/mouse.mp3"
-
-
-
-
 
 
 label computerscreen:
@@ -394,7 +451,6 @@ label computerscreenpatreon2:
 label computerscreenpatreonrenders:
     scene patreonrenders with dissolve
     jump render1
-
 
 
 label ask_patreon_code:
@@ -429,7 +485,6 @@ label ask_patreon_code:
             jump computerscreen
 
 
-
 label ask_patreon_code2:
 
     if persistent.patreon_unlocked2:
@@ -442,9 +497,9 @@ label ask_patreon_code2:
         mc "Бля, у меня еще был один пароль?"
         mc "Так...{w} какой он там был?"
         "От автора русификатора: для вас я выдал пароль к рендерам :)"
-        "Пароль будет: {w}fiji"
+        "Пароль будет: {w}fiji2"
         $ code_try = renpy.input("Введите свой код с Patreon:", length=64).strip()
-        if code_try == "fiji":
+        if code_try == "fiji2":
 
             $ persistent.patreon_unlocked2 = True
             $ renpy.save_persistent()
@@ -460,7 +515,6 @@ label ask_patreon_code2:
             "Пароль, который ты ввел, оказался неверным."
             mc "Черт, на языке же вертится...{w} Какой он был?"
             jump computerscreen
-
 
 
 label computerquit:
@@ -479,43 +533,10 @@ label computerquit:
     elif computer == 7:
         jump weekdaybedroomnight_exitcomputer
     else:
-        jump computerhome
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        jump computerscreen
 
 
 label affectioncheat:
@@ -650,7 +671,6 @@ label one_affection:
             jump cheatmenu
 
 
-
 label five_affection:
     menu(screen="two_col_choice"):
         "Кому ты хочешь добавить привязанности?"
@@ -742,3 +762,4 @@ label five_affection:
         "Отмена":
             jump cheatmenu
 return
+# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc
