@@ -1,5 +1,5 @@
 <div align="center">
-<h1><b>Русификатор для AfterDark (версия игры: 0.26)</b></h1>
+<h1><b>Русификатор для AfterDark (версия игры: 0.26.1)</b></h1>
 <img width="935" height="453" alt="image" src="https://github.com/user-attachments/assets/efde6dd9-9c58-4b69-8fc6-c497df5c7420" />
 </div>
 
