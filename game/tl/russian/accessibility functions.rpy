@@ -41,7 +41,7 @@ init python:
         if persistent.audio_cues:
             playing = renpy.music.get_playing('music')
             if playing in music_dictionary:
-                renpy.notify("Now Playing: " + music_dictionary[playing])
+                renpy.notify("Сейчас играет: " + music_dictionary[playing])
 
     def shake():
         if persistent.screenshake:
