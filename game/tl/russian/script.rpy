@@ -104,6 +104,10 @@ define G = Character("Джианна", color="#912900")
 define rh = Character("Рона", color="#ac0000")
 define ja = Character("Янус", color="#8a8272")
 define po = Character("Полиция", color="#280a7c")
+define u2 = Character("???", color="#ac0000")
+define T1 = Character("Бенни")
+define T2 = Character("Кенни")
+define T1T2 = Character("Близнецы")
 
 define host = Character("Фудзинами", color="#ac0000")
 define dunkle = Character("ДанклФанкл", color="#2b00a1")
@@ -114,7 +118,7 @@ define S = Character("Сэми", color="#9F2B9A")
 define ser = Character("Офицер", color="#280a7c")
 define s = Character("Стример", color="#9F2B9A")
 
-define centered = Character(None, what_xalign=0.5, window_xalign=0.5, window_yalign=0.4, what_text_align=0.5, window_background=None)
+define ad_centered = Character(None, what_xalign=0.5, window_xalign=0.5, window_yalign=0.4, what_text_align=0.5, window_background=None)
 
 image movie_background = Movie(size=(3840,2160), channel="movie", play="images/trippy.webm")
 image Chapter_1 = Movie(size=(3840,2160), channel="movie", play="images/Transitions/Learning-to-Love.ogv")
@@ -313,6 +317,7 @@ init:
     $ rileyroom = 0
     $ rileyconfront = 0
     $ rileyroom2 = 0
+    $ rileyroomclean = 0
 
 
 
@@ -403,6 +408,7 @@ init:
     $ yejin_train = 0
     $ pillowtrain = 0
     $ chromarkwarehouse = 0
+    $ chap13epilogue = 0
 
     $ intro_utami = 0
     $ intro_yejin = 0
@@ -473,57 +479,57 @@ label starting:
     $ main.quest = "Продвинуться по сюжету."
 
     play music "audio/Music/Calm_Music.mp3" volume 1.0
-    centered "{size=160}{cps=10}Привет{/cps}"
-    centered "{size=160}{cps=10}Как ты?{/cps}"
-    centered "{size=160}{cps=10}Странный вопрос, я знаю, но мне любопытно.{/cps}"
-    centered "{size=160}{cps=10}Прямо сейчас, в этот момент — что ты чувствуешь?{/cps}"
-    centered "{size=160}{cps=10}Как прошёл твой день? Надеюсь, ты не слишком себя загонял.{/cps}"
-    centered "{size=160}{cps=10}Я надеюсь, у тебя всё хорошо. Надеюсь, тебе спокойно.{/cps}"
-    centered "{size=160}{cps=10}Честно говоря, я не могу знать наверняка.{/cps}"
-    centered "{size=160}{cps=10}Я мог бы дать тебе выбор ответить «да» или «нет», но не думаю, что это действительно нужно.{/cps}"
-    centered "{size=160}{cps=10}Скорее, мне не так уж это и важно.{/cps}"
-    centered "{size=160}{cps=10}И у меня есть чувство, что тебе тоже не так уж важно.{/cps}"
-    centered "{size=160}{cps=10}Не удивлюсь, если ты сейчас просто проматываешь этот текст.{/cps}"
-    centered "{size=160}{cps=10}Пытаешься побыстрее добраться до самой истории, до желанных моментов.{/cps}"
-    centered "{size=160}{cps=10}Куда спешить? Игра никуда не денется."
-    centered "{size=160}{cps=10}Если идти по жизни, вцепившись в одну цель...{/cps}"
-    centered "{size=160}{cps=10}Ты упустишь всю красоту, что приходит с неспешным путём.{/cps}"
-    centered "{size=160}{cps=10}Людей, которых ты встретил, места, где ты побывал, воспоминания, которыми дорожишь.{/cps}"
-    centered "{size=160}{cps=10}Представь, если бы всё это ничего не значило для тебя только потому, что ты был слишком сосредоточен на том, что впереди, а не на том, что здесь и сейчас.{/cps}"
-    centered "{size=160}{cps=10}И посмотри, где ты теперь!{/cps}"
-    centered "{size=160}{cps=10}Смотришь на чёрный экран порно-игры в одиночестве, пока кто-то отчитывает тебя за нетерпеливость.{/cps}"
-    centered "{size=160}{cps=10}Я так тобой горжусь.{/cps}"
-    centered "{size=160}{cps=10}….{/cps}"
-    centered "{size=160}{cps=10}…..{/cps}"
-    centered "{size=160}{cps=10}Кстати, я серьёзно.{/cps}"
-    centered "{size=160}{cps=10}Я горжусь тобой.{/cps}"
-    centered "{size=160}{cps=10}Даже если мы никогда не встречались.{/cps}"
-    centered "{size=160}{cps=10} Даже если мы на разных концах света."
-    centered "{size=160}{cps=10} Даже если я не знаю ни твоего имени, ни возраста, ни пола, ни того, через что ты проходишь.{/cps}"
-    centered "{size=160}{cps=10}Я горжусь тобой.{/cps}"
-    centered "{size=160}{cps=10}Тебе не обязательно мне верить, может, тебе кажется, что это невозможно.{/cps}"
-    centered "{size=160}{cps=10}Может, ты сам собой не гордишься.{/cps}"
-    centered "{size=160}{cps=10}Может, другие тобой не гордятся.{/cps}"
-    centered "{size=160}{cps=10}Но я горжусь.{/cps}"
-    centered "{size=160}{cps=10}Надеюсь, тебе стало немного легче, если было не по себе.{/cps}"
-    centered "{size=160}{cps=10}А если нет — тоже ничего страшного…..{/cps}"
-    centered "{size=160}{cps=10}Ладно, кажется, я и так задержал тебя надолго.{/cps}"
-    centered "{size=160}{cps=10}Пора начинать твою историю.{/cps}"
+    ad_centered "{size=160}{cps=10}Привет{/cps}"
+    ad_centered "{size=160}{cps=10}Как ты?{/cps}"
+    ad_centered "{size=160}{cps=10}Странный вопрос, я знаю, но мне любопытно.{/cps}"
+    ad_centered "{size=160}{cps=10}Прямо сейчас, в этот момент — что ты чувствуешь?{/cps}"
+    ad_centered "{size=160}{cps=10}Как прошёл твой день? Надеюсь, ты не слишком себя загонял.{/cps}"
+    ad_centered "{size=160}{cps=10}Я надеюсь, у тебя всё хорошо. Надеюсь, тебе спокойно.{/cps}"
+    ad_centered "{size=160}{cps=10}Честно говоря, я не могу знать наверняка.{/cps}"
+    ad_centered "{size=160}{cps=10}Я мог бы дать тебе выбор ответить «да» или «нет», но не думаю, что это действительно нужно.{/cps}"
+    ad_centered "{size=160}{cps=10}Скорее, мне не так уж это и важно.{/cps}"
+    ad_centered "{size=160}{cps=10}И у меня есть чувство, что тебе тоже не так уж важно.{/cps}"
+    ad_centered "{size=160}{cps=10}Не удивлюсь, если ты сейчас просто проматываешь этот текст.{/cps}"
+    ad_centered "{size=160}{cps=10}Пытаешься побыстрее добраться до самой истории, до желанных моментов.{/cps}"
+    ad_centered "{size=160}{cps=10}Куда спешить? Игра никуда не денется."
+    ad_centered "{size=160}{cps=10}Если идти по жизни, вцепившись в одну цель...{/cps}"
+    ad_centered "{size=160}{cps=10}Ты упустишь всю красоту, что приходит с неспешным путём.{/cps}"
+    ad_centered "{size=160}{cps=10}Людей, которых ты встретил, места, где ты побывал, воспоминания, которыми дорожишь.{/cps}"
+    ad_centered "{size=160}{cps=10}Представь, если бы всё это ничего не значило для тебя только потому, что ты был слишком сосредоточен на том, что впереди, а не на том, что здесь и сейчас.{/cps}"
+    ad_centered "{size=160}{cps=10}И посмотри, где ты теперь!{/cps}"
+    ad_centered "{size=160}{cps=10}Смотришь на чёрный экран порно-игры в одиночестве, пока кто-то отчитывает тебя за нетерпеливость.{/cps}"
+    ad_centered "{size=160}{cps=10}Я так тобой горжусь.{/cps}"
+    ad_centered "{size=160}{cps=10}….{/cps}"
+    ad_centered "{size=160}{cps=10}…..{/cps}"
+    ad_centered "{size=160}{cps=10}Кстати, я серьёзно.{/cps}"
+    ad_centered "{size=160}{cps=10}Я горжусь тобой.{/cps}"
+    ad_centered "{size=160}{cps=10}Даже если мы никогда не встречались.{/cps}"
+    ad_centered "{size=160}{cps=10} Даже если мы на разных концах света."
+    ad_centered "{size=160}{cps=10} Даже если я не знаю ни твоего имени, ни возраста, ни пола, ни того, через что ты проходишь.{/cps}"
+    ad_centered "{size=160}{cps=10}Я горжусь тобой.{/cps}"
+    ad_centered "{size=160}{cps=10}Тебе не обязательно мне верить, может, тебе кажется, что это невозможно.{/cps}"
+    ad_centered "{size=160}{cps=10}Может, ты сам собой не гордишься.{/cps}"
+    ad_centered "{size=160}{cps=10}Может, другие тобой не гордятся.{/cps}"
+    ad_centered "{size=160}{cps=10}Но я горжусь.{/cps}"
+    ad_centered "{size=160}{cps=10}Надеюсь, тебе стало немного легче, если было не по себе.{/cps}"
+    ad_centered "{size=160}{cps=10}А если нет — тоже ничего страшного…..{/cps}"
+    ad_centered "{size=160}{cps=10}Ладно, кажется, я и так задержал тебя надолго.{/cps}"
+    ad_centered "{size=160}{cps=10}Пора начинать твою историю.{/cps}"
     window hide 
     scene movie_background with fade
-    centered "{size=160}{cps=10}Чтобы ты мог стать тем, кем хочешь быть.{/cps}"
-    centered "{size=160}{cps=10}Чтобы ты мог испытать то, что хочешь испытать.{/cps}"
-    centered "{size=160}{cps=10}Чтобы ты мог гордиться тем, кем станешь.{/cps}"
-    centered "{size=160}{cps=10}Это ты.{/cps}"
-    centered "{size=160}{cps=10}Поздравляю.{/cps}"
-    centered "{size=160}{cps=10}Но кто ты без имени?{/cps}"
-    centered "{size=160}{cps=10}Говорят, знание чьего-то имени даёт над ним власть.{/cps}"
-    centered "{size=160}{cps=10}Но что, если даже ты сам не знаешь своего?{/cps}"
-    centered "{size=160}{cps=10}Тебе дана полная свобода решить это самому.{/cps}"
-    centered "{size=160}{cps=10}Немногим выпадает такая привилегия.{/cps}"
-    centered "{size=160}{cps=10}Но тебе я подарю это удовольствие.{/cps}"
-    centered "{size=160}{cps=10}Так скажи мне.{/cps}"
-    centered "{size=160}{cps=10}Как тебя зовут?{/cps}"
+    ad_centered "{size=160}{cps=10}Чтобы ты мог стать тем, кем хочешь быть.{/cps}"
+    ad_centered "{size=160}{cps=10}Чтобы ты мог испытать то, что хочешь испытать.{/cps}"
+    ad_centered "{size=160}{cps=10}Чтобы ты мог гордиться тем, кем станешь.{/cps}"
+    ad_centered "{size=160}{cps=10}Это ты.{/cps}"
+    ad_centered "{size=160}{cps=10}Поздравляю.{/cps}"
+    ad_centered "{size=160}{cps=10}Но кто ты без имени?{/cps}"
+    ad_centered "{size=160}{cps=10}Говорят, знание чьего-то имени даёт над ним власть.{/cps}"
+    ad_centered "{size=160}{cps=10}Но что, если даже ты сам не знаешь своего?{/cps}"
+    ad_centered "{size=160}{cps=10}Тебе дана полная свобода решить это самому.{/cps}"
+    ad_centered "{size=160}{cps=10}Немногим выпадает такая привилегия.{/cps}"
+    ad_centered "{size=160}{cps=10}Но тебе я подарю это удовольствие.{/cps}"
+    ad_centered "{size=160}{cps=10}Так скажи мне.{/cps}"
+    ad_centered "{size=160}{cps=10}Как тебя зовут?{/cps}"
     stop music
     play sound "audio/Sound/Glitch1.wav" volume 1.0
     scene scawy6 with quickdissolve
@@ -565,22 +571,22 @@ label starting:
     $ mcname = mcname.strip()
     if mcname.lower() == "damian":
         $ persistent.damian_triggered = True
-        centered "{size=160}{cps=10} Не стоило выбирать это имя..."
+        ad_centered "{size=160}{cps=10} Не стоило выбирать это имя..."
         $ renpy.quit()
     if mcname == "":
         $ mcname = "Маилз"
-    centered "{size=160}{cps=10}А, значит тебя зовут [mcname]."
-    centered "{size=160}{cps=10}Это действительно прекрасное имя.{/cps}"
-    centered "{size=160}{cps=10}Да... Правда прекрасное.{/cps}"
-    centered "{size=160}{cps=10}Желаю тебе всего наилучшего в этой истории, [mcname].{/cps}"
-    centered "{size=160}{cps=10}Теперь я отпущу тебя.{/cps}"
-    centered "{size=160}{cps=10}Но прежде чем уйти.{/cps}"
-    centered "{size=160}{cps=10}У меня есть ещё один вопрос к тебе, [mcname].{/cps}"
-    centered "{size=160}{cps=10}Это займёт всего мгновение.{/cps}"
-    centered "{size=160}{cps=10}Но мне любопытно.{/cps}"
+    ad_centered "{size=160}{cps=10}А, значит тебя зовут [mcname]."
+    ad_centered "{size=160}{cps=10}Это действительно прекрасное имя.{/cps}"
+    ad_centered "{size=160}{cps=10}Да... Правда прекрасное.{/cps}"
+    ad_centered "{size=160}{cps=10}Желаю тебе всего наилучшего в этой истории, [mcname].{/cps}"
+    ad_centered "{size=160}{cps=10}Теперь я отпущу тебя.{/cps}"
+    ad_centered "{size=160}{cps=10}Но прежде чем уйти.{/cps}"
+    ad_centered "{size=160}{cps=10}У меня есть ещё один вопрос к тебе, [mcname].{/cps}"
+    ad_centered "{size=160}{cps=10}Это займёт всего мгновение.{/cps}"
+    ad_centered "{size=160}{cps=10}Но мне любопытно.{/cps}"
 
     stop music
-    centered "{size=160}{cps=10} Приходилось ли тебе в жизни переживать травму?{/cps}"
+    ad_centered "{size=160}{cps=10} Приходилось ли тебе в жизни переживать травму?{/cps}"
 
     menu trauma:
         "Да":
@@ -588,23 +594,23 @@ label starting:
 
 
 
-            centered "{size=160}{cps=10}Понятно.{/cps}"
-            centered "{size=160}{cps=10}Мне жаль это слышать.{/cps}"
-            centered "{size=160}{cps=10}Как ты справился с этой травмой? Как переживал горе?{/cps}"
-            centered "{size=160}{cps=10}Тебе становится грустно, когда думаешь об этом? Или злишься?{/cps}"
-            centered "{size=160}{cps=10}Может, кажется, что можно было это предотвратить.{/cps}"
-            centered "{size=160}{cps=10}хмм{/cps}"
-            centered "{size=160}{cps=10}Меня завораживает, как по-разному мы все переживаем горе.{/cps}"
-            centered "{size=160}{cps=10}Ни у кого нет одинакового опыта.{/cps}"
-            centered "{size=160}{cps=10}Никто не сталкивается с теми же трудностями.{/cps}"
-            centered "{size=160}{cps=10}Никто не горюет одинаково.{/cps}"
-            centered "{size=160}{cps=10}Как думаешь, как бы ты отреагировал, если бы в один день потерял всё?{/cps}"
-            centered "{size=160}{cps=10}Как бы ты переживал это?{/cps}"
-            centered "{size=160}{cps=10}Может, ты уже потерял.{/cps}"
-            centered "{size=160}{cps=10}Может, поэтому ты здесь….{/cps}"
-            centered "{size=160}{cps=10}Извини, я разболтался.{/cps}"
-            centered "{size=160}{cps=10}Наверное, я просто немного устал.{/cps}"
-            centered "{size=160}{cps=10}Надеюсь, тебе понравится твой опыт здесь.{/cps}"
+            ad_centered "{size=160}{cps=10}Понятно.{/cps}"
+            ad_centered "{size=160}{cps=10}Мне жаль это слышать.{/cps}"
+            ad_centered "{size=160}{cps=10}Как ты справился с этой травмой? Как переживал горе?{/cps}"
+            ad_centered "{size=160}{cps=10}Тебе становится грустно, когда думаешь об этом? Или злишься?{/cps}"
+            ad_centered "{size=160}{cps=10}Может, кажется, что можно было это предотвратить.{/cps}"
+            ad_centered "{size=160}{cps=10}хмм{/cps}"
+            ad_centered "{size=160}{cps=10}Меня завораживает, как по-разному мы все переживаем горе.{/cps}"
+            ad_centered "{size=160}{cps=10}Ни у кого нет одинакового опыта.{/cps}"
+            ad_centered "{size=160}{cps=10}Никто не сталкивается с теми же трудностями.{/cps}"
+            ad_centered "{size=160}{cps=10}Никто не горюет одинаково.{/cps}"
+            ad_centered "{size=160}{cps=10}Как думаешь, как бы ты отреагировал, если бы в один день потерял всё?{/cps}"
+            ad_centered "{size=160}{cps=10}Как бы ты переживал это?{/cps}"
+            ad_centered "{size=160}{cps=10}Может, ты уже потерял.{/cps}"
+            ad_centered "{size=160}{cps=10}Может, поэтому ты здесь….{/cps}"
+            ad_centered "{size=160}{cps=10}Извини, я разболтался.{/cps}"
+            ad_centered "{size=160}{cps=10}Наверное, я просто немного устал.{/cps}"
+            ad_centered "{size=160}{cps=10}Надеюсь, тебе понравится твой опыт здесь.{/cps}"
             $ renpy.pause(3, hard=True)
             play sound "audio/Sound/static.mp3" volume 0.75
             scene black with quickflash
@@ -622,32 +628,32 @@ label starting:
 
 
 
-            centered "{size=160}{cps=10}Правда?{/cps}"
-            centered "{size=160}{cps=10}Что ж, это хорошо.{/cps}"
-            centered "{size=160}{cps=10}Хмммм...{/cps}"
-            centered "{size=160}{cps=10}Да... Полагаю, это действительно хорошо.{/cps}"
-            centered "{size=160}{cps=10}Я даже немного тебе завидую.{/cps}"
-            centered "{size=160}{cps=10}Потому что ты такой...{/cps}"
-            centered "{size=160}{cps=10}Такой...{/cps}"
+            ad_centered "{size=160}{cps=10}Правда?{/cps}"
+            ad_centered "{size=160}{cps=10}Что ж, это хорошо.{/cps}"
+            ad_centered "{size=160}{cps=10}Хмммм...{/cps}"
+            ad_centered "{size=160}{cps=10}Да... Полагаю, это действительно хорошо.{/cps}"
+            ad_centered "{size=160}{cps=10}Я даже немного тебе завидую.{/cps}"
+            ad_centered "{size=160}{cps=10}Потому что ты такой...{/cps}"
+            ad_centered "{size=160}{cps=10}Такой...{/cps}"
             play sound "audio/Sound/static.mp3" volume 0.75
             scene lucky with quickflash
             stop sound
             play music "audio/Music/lucky1.mp3" volume 1
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
             play sound "audio/Sound/static.mp3" volume 1
             scene lucky2 with quickflash
             stop sound
             play music "audio/Music/lucky2.mp3" volume 1
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
             play sound "audio/Sound/static.mp3" volume 1
             scene lucky3 with quickflash
             stop sound
             play music "audio/Music/lucky4.mp3" volume 1
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
             play sound "audio/Sound/static.mp3" volume 1
             scene lucky4 with quickflash
             stop sound
@@ -1901,6 +1907,12 @@ label actualintro:
         $ renpy.pause(0.01, hard=True)
         scene scareroom (14) with quickdissolve
         $ renpy.pause(0.01, hard=True)
+        scene scareroom (10) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene scareroom (11) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene scareroom (12) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
         scene scareroom (13) with quickdissolve
         $ renpy.pause(0.01, hard=True)
         scene scareroom (14) with quickdissolve
@@ -2038,7 +2050,7 @@ label actualintro:
         window hide dissolve
         pause 1.0
         play music "audio/Music/Acting.mp3" volume 1.0 fadein 1.0
-        play ambient "audio/ambient/convenience.wav" volume 1.0
+        play ambient "audio/ambient/Convenience.mp3" volume 1.0
 
         scene 5scene (1) with fade
 
@@ -4552,7 +4564,7 @@ label actualintro:
 
         k "Уже не совсем! Я уверена, что события сегодняшнего дня уже кардинально изменили будущее. Так что теперь я в той же лодке, что и ты."
 
-        mc "Ты можешь в этот раз закончить колледж, или стать стриптизёром! Да кто ж его знает!"
+        k "Ты можешь в этот раз закончить колледж, или стать стриптизёром! Да кто ж его знает!"
         mc "Фантастика…."
 
         scene 10scene (14) with dissolve
@@ -6402,7 +6414,7 @@ label actualintro:
 
                 mc "А кто те девушки, что разговаривают друг с другом?"
                 l "Хм... я их не знаю. А ты, Пьер?"
-                pe "Та, с розовыми прядями — Райли. Реально странная, я бы с ней не связывался."
+                pe "Та, с красно-синими прядями — Райли. Реально странная, я бы с ней не связывался."
                 pe "А вторую девушку... без понятия, кто это, наверное, новенькая."
                 pe "Если она разговаривает с Райли, может, уже слишком поздно её спасать."
                 mc "Блин, ты говоришь про эту Райли так, будто она прям супер-Гитлер какой-то."
@@ -6493,6 +6505,7 @@ label actualintro:
                 mc "Может, тебя просто пугают умные девчонки."
                 l "Нет! Ладно, может. Но ещё, да ладно, ты хоть раз видел, чтобы она улыбалась? Ни разу. Кто вообще не улыбается?"
                 pe "Может, она просто не находит тебя смешным, Логан."
+                mc "(Она была бы не первой.)"
                 mc "Так где она обычно тусуется?"
                 pe "Я видел, она остаётся здесь после уроков. Может, стоит попробовать там."
                 l "Или, знаешь, {i}не надо{/i}, если хочешь остаться в живых."
@@ -6584,8 +6597,10 @@ label actualintro:
         scene auralore (4) with flash
 
         "Кицунэ начинает формировать изображение крошечного жёлтого человечка с мечом."
-        k "Жёлтый — это Усилители. У них есть хватка... буквально. Всё, к чему они прикоснутся, они могут сделать сильнее. Оружие, броню, что угодно."
-        k "Они — качки мира Сияющих."
+        k "Жёлтый — это Усилители. У них есть хватка... буквально. Всё, к чему они прикоснутся, они могут сделать сильнее. Оружие, броню, что угодно. Но некоторые сильнее с определёнными предметами."
+        mc "Определёнными предметами?"
+        k "Ага, есть те, кто лучше усиливает вещи, к которым особенно привязан."
+        k "Они — качки мира Сияющих, и встречаются чаще всего."
         mc "(Звучит полезно в бою. И, наверное, превращение в танк — не худший вариант.)"
         mc "Ладно, а остальные?."
 
@@ -6694,119 +6709,178 @@ label actualintro:
         k "Отнесись к этому серьёзно, пожалуйста."
         mc "Ладно... Думай, [mcname]"
         mc "Что я чувствую по запаху?"
-
+        stop music fadeout 1.0
         scene chap1room (17) with dissolve
 
         mc "Я чувствую запах..."
-        play sound "audio/Sound/static.mp3"
-        scene scawy with ahhflash
-        scene scawy with ahhflash
-        scene scawy with ahhflash
-        stop sound
-        play music "audio/Music/Glitch2.wav" volume 0.75
-        scene scawy2 with flash
-        pause 2
-        scene scawy3 with quickdissolve
-        scene scawy4 with quickdissolve
-        scene scawy2 with quickdissolve
-        scene scawy3 with quickdissolve
-        scene scawy4 with quickdissolve
-        scene scawy2 with quickdissolve
-        scene scawy3 with quickdissolve
-        scene scawy4 with quickdissolve
-        scene scawy2 with quickdissolve
-        pause 2
+        scene chap1room (18) with hpunch
+
+        mc "КРОВЬ!{nw}"
+        scene black
+        $ renpy.pause(2, hard=True)
+
+        stop music 
+        play sound "audio/sound/numan.mp3" volume 1.0
+        scene numan
+        $ renpy.pause(14, hard=True)
         stop music
-        play sound "audio/Sound/static.mp3"
-        scene scawy with ahhflash
-        scene scawy with ahhflash
-        scene scawy with ahhflash
-        scene chap1room (18) with flash
         stop sound
 
-        mc "КРОВЬ!"
+        scene trippyroom (1) with hpunch
+        mc "Ч-"
+        mc "Где я?"
+        scene trippyroom (2) with dissolve
+        mc "Это не моя спальня."
+        play music "audio/music/creepy.mp3" volume 0.5
+        scene trippyroom (3) with dissolve
+        mc "Это вообще не похоже...{w}ни на что."
+        scene trippyroom (2) with dissolve
+        mc "Я просто сделал то, что сказала Кицунэ. Это часть пробуждения моей ауры?"
+        scene trippyroom (4) with dissolve
+        mc "..."
 
-        scene chap1room (19)
+        mc "Так...{w}это сон?"
 
-        play music "audio/Music/lostfire.mp3" volume 1.0
+        mc "Но это значило бы, что я сплю..."
+
+        mc "Кажется, это..."
+        play sound "audio/sound/paper.wav"
+        scene trippyroom (5) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene trippyroom (6) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene trippyroom (7) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene trippyroom (8) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene trippyroom (9) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene trippyroom (10) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene trippyroom (4) with quickdissolve
+        stop sound
+        mc "Что-то совсем другое..."
+
+        mc "Но я не понимаю, при чём тут..."
+        play sound "audio/sound/mm.mp3"
+        scene red
+        $ renpy.pause(1, hard=True)
+        stop sound
+        scene tripprison (1)
         mc "А?"
-        mc "(Где я вообще? Похоже на какую-то тюрьму.)"
+        scene tripprison (2) with hpunch
+        mc "Где я, чёрт возьми, теперь?"
 
-        scene chap1room (21) with dissolve
+        mc "Похоже на...{w} какую-то тюрьму."
 
-        mc "(Это место... оно ощущается неправильным. Холодным. Будто я задыхаюсь.)"
+        mc "..."
 
-        scene chap1room (22) with dissolve
+        mc "Это место...{w} с ним что-то не так."
+
+        mc "Такое чувство, будто я задыхаюсь."
+
+        scene tripprison (3) with dissolve
 
         mc "(Погоди...)"
+        mc "Это немного похоже на..."
 
-        scene chap1room (23) with dissolve
+        mc "Но...{w} я этого не помню...{w} с кем я разговариваю?"
 
-        mc "(Это похоже на... меня? Но... я этого не помню... И с кем я разговариваю?)"
+        "Тишину нарушает младшая версия... кажется, тебя."
 
-        scene chap1room (25) with dissolve
+        scene tripprison (4) with dissolve
+        u "Меня заставили обрить голову, но...{w} это не так уж плохо. Это просто волосы. Они отрастут."
+        u "Тебе...{w} тебе ведь всегда нравились мои волосы подлиннее, да?"
 
-        "Молодая версия тебя нарушает тишину, голос сорванный и напряжённый."
-        young_mc "Меня заставили обрить голову, но... это не так уж плохо. Это просто волосы. Они отрастут."
-        "Он делает паузу, будто ожидая ответа, который так и не приходит."
-        young_mc "Ты же... тебе всегда нравились мои волосы подлиннее, да? Говорила, что я похож на одного из тех героев из историй."
-        "Тишина. Девочка не двигается, всё ещё повернувшись к нему спиной."
-        young_mc "Они отрастут. Твои тоже. Может... может, мы просто притворимся, что это новое начало. Как новая глава."
-        mc "Ты, наверное, закатываешь глаза на меня сейчас, да? Знаю, знаю... вечно пытаюсь найти хорошее в ужасной ситуации."
+        "Говорила, что я с ними похож на одного из тех героев из историй."
+        u "Они отрастут. Твои тоже."
 
-        scene chap1room (26) with dissolve
+        u "Может... может, притворимся, что это новое начало. Как новая глава."
+        u "Ты, наверное, сейчас закатываешь глаза, да?"
 
-        mc "Уверен, ты будешь такой же красивой, когда сделают это и с тобой тоже."
-        "Тишина заполняет комнату. На мгновение кажется, что кто-то слушает."
-        young_mc "Я знаю, что это больно. Всё больно. Но мы не можем сдаться, ладно? Мы просто... должны продолжать идти."
+        u "Знаю, знаю... вечно пытаюсь найти хорошее в ужасной ситуации."
+        image prisonglitch:
+            "images/Chapter 1/Bedroom/prisonglitch1.webp"
+            pause 0.2
+            "images/Chapter 1/Bedroom/prisonglitch2.webp"
+            pause 0.2
+            "images/Chapter 1/Bedroom/prisonglitch3.webp"
+            pause 0.2
+            "images/Chapter 1/Bedroom/prisonglitch4.webp"
+            pause 0.2
+            repeat
+        scene prisonglitch with dissolve
+
+        u "Уверен, ты будешь такой же красивой, когда и с тобой это сделают."
+        u "Я знаю, что больно. Всё болит. Но мы не можем сдаться, ладно? Мы просто... должны держаться."
         "Девочка остаётся неподвижной, её маленькое тело дрожит."
-        young_mc "Хотел бы я... хотел бы я забрать всю эту боль. Заставить её прекратиться. Но всё, что я могу — это остаться здесь, с тобой."
-        "Он придвигается ближе, его голос смягчается."
-        young_mc "Ты не одна. Я здесь, рядом. Я всегда буду рядом."
-        "В комнате становится холоднее, и у тебя перехватывает дыхание, пока ты наблюдаешь, как разворачивается эта сцена."
-        young_mc "Мы сильные, помнишь? Нам просто нужно потерпеть сейчас, и однажды... однажды мы выберемся отсюда. Вместе."
-        "Это воспоминание ощущается как острый осколок в его сознании, разрезающий любое чувство утешения."
+        u "Хотел бы я...{w} хотел бы я забрать всю эту боль."
 
-        scene chap1room (29) with dissolve
+        u "Но всё, что я могу, это быть здесь, с тобой."
+        u "Я всегда буду рядом."
+        "В комнате становится холоднее, и у тебя перехватывает дыхание, пока ты наблюдаешь за этой сценой."
+        u "Однажды...{w} однажды мы выберемся отсюда. Вместе."
 
-        young_mc "Они думают, что смогут нас сломать, но они ошибаются. Мы сильнее, чем они когда-либо узнают."
+
+        u "Они думают, что смогут нас сломать, но... Мы сильнее, чем они могут себе представить."
         "Его голос дрожит, выдавая собственный страх."
-        young_mc "Однажды... однажды мы выберемся отсюда. Мы снова увидим солнце. Обещаю."
-        young_mc "Я буду тебя защищать. Несмотря ни на что. Никто больше тебя не тронет. Клянусь."
-        young_mc "Всё будет хорошо. Я не позволю, чтобы с тобой снова что-то случилось. Обещаю. Я буду защищать свою сестру, несмотря ни на что."
-        mc "(Мою... сестру? Почему я не могу вспомнить её лицо?)"
 
-        scene chap1room (30) with dissolve
+        u "В-всё будет хорошо."
 
-        mc "(Это... это не может быть реальным. Я не помню свою сестру... и уж точно не помню ничего из этого.)"
-        mc "(Так... почему это ощущается настолько реальным? Настолько... знакомым?)"
+        u "Я больше не позволю, чтобы с тобой что-то случилось."
 
-        scene chap1room (31) with dissolve
+        "О-обещаю, я защищу свою сестру, что бы ни случилось."
+        mc "С-сестру?"
+
+        scene tripprison (5) with dissolve
+
+        mc "Это...{w} это не может быть правдой."
+
+        mc "Я не помню свою сестру...{w} и уж точно, чёрт возьми, не помню ничего из этого."
+        mc "Так...{w} почему это кажется таким...{w} знакомым?"
+        play sound "audio/sound/mm.mp3"
+        scene red
+        $ renpy.pause(1, hard=True)
+        stop sound
+        scene tripprison (6)
 
         u "Воспоминания, погребённые в тени, но эхо остаётся, не так ли, [mcname]?"
+        play sound "audio/sound/shootglitch.mp3"
+        scene owlglitch (1) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene owlglitch (2) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        stop sound
+        scene chap1room (33) with quickdissolve
+        $ renpy.pause(2, hard=True)
 
-        scene chap1room (32) with dissolve
-        window hide dissolve
-        pause 1.0
-        scene chap1room (33) with dissolve
-
-        "(Говорящая сова? Что вообще происходит? Что это такое?)"
-        u "Прошлое — это головоломка с осколками, разбросанными повсюду. Одни потеряны, другие спрятаны..."
+        mc "Говорящая сова? Что, чёрт возьми, происходит? Что это такое?"
+        u "Прошлое — это головоломка, чьи кусочки разбросаны повсюду. Одни потеряны, другие спрятаны..."
         u "А некоторые, [mcname], заперты в самых глубоких уголках твоего разума."
-        play ambient "audio/ambient/feathers.mp3" volume 0.3
 
         scene chap1room (34) with dissolve
 
 
         mc "О чём ты вообще? Кто ты?"
         u "Имена, как и воспоминания, текучи... меняются со временем."
+        scene chap1room (35) with dissolve
         u "Но я — хранитель тайн, страж забытых истин."
+        play sound "audio/sound/shootglitch.mp3"
+        scene owlglitch (3) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene owlglitch (4) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        stop sound
+        scene chap1room (35) with quickdissolve
+
         u "И ты, [mcname], на грани того, чтобы вспомнить нечто давно утраченное."
 
-        scene chap1room (35) with dissolve
 
-        mc "Вспомнить? Но я даже не знаю, что именно должен вспомнить. Что всё это такое?"
-        u "Со временем ты найдёшь свои ответы. Но пока знай одно: прошлое никогда по-настоящему не уходит."
+        play ambient "audio/ambient/feathers.mp3" volume 0.3
+        mc "Вспомнить? Но я даже не знаю, что должен вспомнить."
+        u "Со временем ты найдёшь свои ответы."
+
+        u "Но пока знай одно: прошлое никогда не уходит по-настоящему."
         play sound "audio/Sound/feathers.mp3" volume 0.3
 
         scene chap1room (36) with dissolve
@@ -6824,7 +6898,20 @@ label actualintro:
         play sound "audio/Sound/feathers.mp3" volume 0.3
 
         scene chap1room (38) with dissolve
-        u "Когда мы встретимся снова, кусочки могут начать складываться воедино. А пока... помни, истина внутри тебя. Найди её."
+        u "Когда мы встретимся снова, кусочки могут начать складываться воедино. Истина внутри тебя."
+        stop ambient
+        play sound "audio/Sound/s_kill_glitch1.ogg"
+        scene owlglitch (5) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene owlglitch (6) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene owlglitch (5) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene owlglitch (6) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene black with quickdissolve
+
+        u "Найди её."
         stop sound
         stop ambient
         stop music
@@ -6837,15 +6924,18 @@ label actualintro:
         "(А???)"
 
         scene chap1room (42) with dissolve
-        "(Это всё был сон? Но я же не засыпал?)"
+        mc "(Это всё был сон? Но я же не засыпал?)"
         "(Да что вообще, чёрт возьми, происходит!?)"
 
         scene chap1room (44) with dissolve
 
-        "Что за хрень это вообще было!?"
-        "Ты уж лучше дай мне какой-нибудь внятный ответ на то, что я там видел!"
+        mc "Что за хрень это вообще было!?"
+        mc "Ты уж лучше дай мне какой-нибудь внятный ответ на то, что я там видел!"
         k "[mcname]..."
-        mc "Кто была эта сова? Что это было за место? Почему я не могу вспомнить, что это вообще происходило?!"
+        mc "Кто была эта сова?"
+        mc "Что это было за место?"
+
+        mc "Почему я не помню, чтобы такое происходило?!"
 
         scene chap1room (48) with dissolve
 
@@ -6939,6 +7029,9 @@ label actualintro:
 
 
 label day_cycle:
+    if chromarkwarehouse == 1 and chap13epilogue == 0:
+        jump chap13epilogue
+
 
     if rileyarcadeintro >= 1 and rileyroom == 0:
 
@@ -7005,6 +7098,10 @@ label day_cycle:
     if rileyroom == 1 and rileyconfront == 0:
         $ Riley.quest = "Подождать до конца урока."
 
+
+    if rileyroom2 == 1 and rileyroomclean == 0:
+        $ Riley.quest = "Подождать до выходных."
+
     if yejinbully == 1 and yejinblackmail == 0:
         $ Yejin.quest = "Найти Йеджин в классе после урока."
     if yejinblackmail == 1 and yejinpatrol == 0:
@@ -7012,6 +7109,10 @@ label day_cycle:
 
     if mei5event == 1 and meisketch == 0:
         $ Mei.quest = "Поднять симпатию, затем подождать несколько дней до урока."
+
+    if storydream1 >= 1 and storydream2 == 0 and firstdream == 0:
+        $ firstdream = 1
+        $ main.quest = "Дождаться вечера, чтобы продолжить сон."
 
     if firstfight == 1 and kyraalleyevent == 0:
         $ main.quest = "Поговорить с Кайрой в школе."
@@ -7034,6 +7135,21 @@ label day_cycle:
     if storydream2 == 1 and pillowtrain == 0:
 
         $ main.quest =  "Поговорить с Кицунэ о тренировках вечером."
+
+
+    if pillowtrain >= 1 and yejin_train == 0 and chromarkwarehouse == 0:
+        if yejinpatrol == 1:
+            $ main.quest = "Навести Йеджин в додзё на выходных, затем поговори с Кицунэ ночью."
+        elif yejinblackmail == 1:
+            $ main.quest = "Иди к школьным шкафчикам после уроков."
+        elif yejinbully == 1:
+            $ main.quest = "Найди Йеджин в классе после уроков."
+        elif yejindojointro == 1:
+            $ main.quest = "Подними симпатию Йеджин до 5, затем иди на беговую дорожку после уроков."
+        elif yejinclassintro == 1:
+            $ main.quest = "Найди Йеджин в городе на выходных."
+        else:
+            $ main.quest = "Поговори с Йеджин в классе после уроков."
 
 
     if autumnskateintro == 1:
@@ -7560,6 +7676,8 @@ label weekend_morning:
             jump izra_30_event
         elif junelilyzoo == 1 and june15event2== 0:
             jump june_15_event_2
+        elif rileyroom2 == 1 and rileyroomclean == 0:
+            jump riley_clean_event
         else:
             jump bedroommorning_example
 
@@ -7937,7 +8055,7 @@ label skatepark_noonwait:
 label weekend_evening:
     stop music fadeout 1.0
     stop sound
-    scene evening with fade
+    scene mapweekendevening_bg with fade
     "Ты пытаешься убить немного времени, но быстро начинаешь скучать."
     "Уже вечер. Куда хочешь пойти?"
 label weekend_eveningmap:
@@ -8018,6 +8136,9 @@ label yuki_menu:
     scene YukiWeekend with dissolve
     "Ты находишь Юки за прилавком, явно умирающую от скуки."
     call screen  Yukiaction_menu
+    if _return == "store":
+        call screen ad_yuki_store_screen
+        jump yuki_menu
     if _return == "gift_unavailable":
         "Подарки пока недоступны."
         jump yuki_menu
@@ -8119,7 +8240,7 @@ label library:
         "Посмотреть, чем занята Райли":
 
             if intro_2 == 1:
-                jump Rileylibraryevents
+                jump rileylibraryevents
             else:
                 "Ты ещё недостаточно хорошо знаешь Райли, чтобы с ней говорить."
                 jump weekday_evening
@@ -8272,7 +8393,7 @@ label gym_photos_for_nora:
     "Сделав фото, она удовлетворённо кивает и благодарит тебя."
     play sound "audio/Sound/affection.mp3" volume 0.5
     "{i}Симпатия Норы возросла.{/i}"
-    $ Zara.affection += 1
+    $ Nora.affection += 1
     jump weekday_evening
 
 label hallway:
@@ -8385,7 +8506,7 @@ label approach_kyra_gang:
     jump weekday_evening
 
 label rooftop:
-    scene schoolroof
+    scene roof_bg
     "Ты выходишь на крышу, наслаждаясь спокойным видом на окрестности."
     menu:
         "Помочь Лили с садоводством":
@@ -8425,7 +8546,7 @@ label rooftop_mysterious_woman:
     jump weekday_evening
 
 label classrooms:
-    scene classes with fade
+    scene classroom with fade
     "Ты бродишь по пустым классам, думая о сегодняшних уроках."
 
     menu:
@@ -8499,6 +8620,7 @@ label bar:
     "Ты заходишь в бар, знакомый звон бокалов и гул разговоров наполняют комнату. Кабана стоит за стойкой, протирая стаканы с дружелюбной улыбкой."
 
     c "А, вот и мой любимый помощник! Рад тебя видеть, малец."
+    c "Тамара вон там. Если что-то понадобится, дай знать, ¿entiendes?"
     "Он тепло тебе ухмыляется и кивает в сторону Тамары, которая занята обслуживанием столиков."
 label tamara_menu:
 
@@ -10008,6 +10130,7 @@ label itdontmatterfool:
     $ renpy.pause (3, hard= True)
     window hide 
     pause 1
+    $ renpy.end_replay()
     $ firstfight = 1
     if yukibook2event == 1:
         $ Yuki.quest = "Поговорить с Кицунэ о книгах Юки"
@@ -10233,10 +10356,10 @@ label thefirstdream:
 
 
     label yes_accept:
-    show layer master:
-        zoom 1.0 yalign 0.5
-    show layer screens:
-        zoom 1.0 yalign 0.5
+        show layer master:
+            zoom 1.0 yalign 0.5
+        show layer screens:
+            zoom 1.0 yalign 0.5
 
 
     scene dreamroom (28) with dissolve
@@ -10406,7 +10529,7 @@ label thefirstdream:
     play music "audio/music/drown2.mp3"
     play ambient "audio/ambient/darkocean.mp3"
     scene dreamocean (11) with hpunch
-    play sound "audio/sound/heartbeat.wav" fadein 2.0
+    play sound "audio/Sound/heartbeat.mp3" fadein 2.0
 
     "Синевы больше нет."
     "Вода не просто изменила цвет. Она изменила текстуру."
@@ -10691,7 +10814,7 @@ label thefirstdream:
     play sound "audio/sound/buzzer.wav" 
     stop ambient
     scene dreamgameshow (20) with hpunch
-    play sound "sfx/buzzer_press.ogg"
+    play sound "audio/Sound/Buzzer.wav"
     "Ты жмёшь на кнопку раньше, чем он успевает закончить вопрос."
 
     menu:
@@ -10906,7 +11029,7 @@ label thefirstdream:
     I "О? Должно быть, это твой отец!"
 
 
-    play sound "sfx/audience_cheer_huge.ogg"
+    play sound "audio/Sound/clapsaudience.mp3"
     scene sitcom (28) with dissolve
     "Заходит Лили. На ней комично большой пиджак и накладные усы."
 
@@ -12172,6 +12295,10 @@ label thefirstdream:
     $ renpy.pause (0.001, hard= True)
     scene wakeup (7) with quickflash
     $ renpy.pause (0.001, hard= True)
+    scene weirdshit (68) with quickflash
+    $ renpy.pause (0.001, hard= True)
+    scene wakeup (8) with quickflash
+    $ renpy.pause (0.001, hard= True)
     stop sound
 
     scene hallway (9)
@@ -12488,6 +12615,11 @@ label thefirstdream:
     "Но ты понимаешь, что во всей этой странности может скрываться что-то важное."
 
     "И всё же...твоё тело и разум ощущаются затуманенными."
+
+    $ renpy.end_replay()
+    if not _in_replay:
+        $ firstdream = 1
+        $ main.quest = "Дождаться вечера, чтобы продолжить сон."
     $ storydream1 += 1
 
     jump day_cycle
@@ -12768,10 +12900,10 @@ label stillindream:
     "Ну...{w}насколько это вообще возможно."
     "К тому моменту, как твой разум проясняется, уже наступает утро."
 
-    $ firstdream += 1
+    $ firstdream = 1
     $ storydream2 += 1
     $ totaldays += 1
-    $ day += 1
+    $ day = (day % 7) + 1
 
     if day == 1:
         hide sunday onlayer date
@@ -13021,5 +13153,11 @@ label stillindream:
     $ main.quest =  "Поговорить с Кицунэ о тренировках вечером."
     "У тебя есть зацепка. У тебя есть цель."
     "Пора браться за дело."
-    jump class_scene
+
+    $ renpy.end_replay()
+
+    if day in (6, 7):
+        jump weekend_morning
+    else:
+        jump weekday_morning
 return
