@@ -1934,7 +1934,6 @@ label june_hallway_banter:
 
 
     stop ambient fadeout 1.0
-    play ambient "audio/ambient/SchoolHall.wav" volume 0.4
 
     scene hallway with fade
     play music "audio/Music/June.mp3" volume 1.0 fadein 1.0
@@ -2517,7 +2516,7 @@ label june_skatepark:
     j "Сколько ты видел?"
 
     mc "Я…"
-    scene june10event (64) with dissolve
+    scene juneskate (64) with dissolve
     mc "Достаточно, чтобы понять, что ты выглядела совсем иначе."
     mc "Я не пытался—"
     scene juneskate (66) with dissolve
@@ -2709,7 +2708,6 @@ label june_alley_confrontation:
 
 
     stop ambient fadeout 1.0
-    play ambient "audio/ambient/Schoolyard.wav" volume 0.5 fadein 1.0
 
     scene black with fade
 
@@ -3702,7 +3700,6 @@ label june_police_breakin:
     mc "(Что является смене темпа для меня.)"
     stop music fadeout 1.0
     scene juneclimax2 (18) with dissolve
-    play ambient "audio/ambient/Police.mp3" volume 0.35
 
     "В вестибюле мёртвая тишина."
 

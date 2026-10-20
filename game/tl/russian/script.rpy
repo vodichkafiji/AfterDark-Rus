@@ -104,6 +104,7 @@ define G = Character("Джианна", color="#912900")
 define rh = Character("Рона", color="#ac0000")
 define ja = Character("Янус", color="#8a8272")
 define po = Character("Полиция", color="#280a7c")
+define u2 = Character("???", color="#ac0000")
 
 define host = Character("Фудзинами", color="#ac0000")
 define dunkle = Character("ДанклФанкл", color="#2b00a1")
@@ -114,7 +115,7 @@ define S = Character("Сэми", color="#9F2B9A")
 define ser = Character("Офицер", color="#280a7c")
 define s = Character("Стример", color="#9F2B9A")
 
-define centered = Character(None, what_xalign=0.5, window_xalign=0.5, window_yalign=0.4, what_text_align=0.5, window_background=None)
+define ad_centered = Character(None, what_xalign=0.5, window_xalign=0.5, window_yalign=0.4, what_text_align=0.5, window_background=None)
 
 image movie_background = Movie(size=(3840,2160), channel="movie", play="images/trippy.webm")
 image Chapter_1 = Movie(size=(3840,2160), channel="movie", play="images/Transitions/Learning-to-Love.ogv")
@@ -313,6 +314,7 @@ init:
     $ rileyroom = 0
     $ rileyconfront = 0
     $ rileyroom2 = 0
+    $ rileyroomclean = 0
 
 
 
@@ -403,6 +405,7 @@ init:
     $ yejin_train = 0
     $ pillowtrain = 0
     $ chromarkwarehouse = 0
+    $ chap13epilogue = 0
 
     $ intro_utami = 0
     $ intro_yejin = 0
@@ -473,57 +476,57 @@ label starting:
     $ main.quest = "Продвинуться по сюжету."
 
     play music "audio/Music/Calm_Music.mp3" volume 1.0
-    centered "{size=160}{cps=10}Привет{/cps}"
-    centered "{size=160}{cps=10}Как ты?{/cps}"
-    centered "{size=160}{cps=10}Странный вопрос, я знаю, но мне любопытно.{/cps}"
-    centered "{size=160}{cps=10}Прямо сейчас, в этот момент — что ты чувствуешь?{/cps}"
-    centered "{size=160}{cps=10}Как прошёл твой день? Надеюсь, ты не слишком себя загонял.{/cps}"
-    centered "{size=160}{cps=10}Я надеюсь, у тебя всё хорошо. Надеюсь, тебе спокойно.{/cps}"
-    centered "{size=160}{cps=10}Честно говоря, я не могу знать наверняка.{/cps}"
-    centered "{size=160}{cps=10}Я мог бы дать тебе выбор ответить «да» или «нет», но не думаю, что это действительно нужно.{/cps}"
-    centered "{size=160}{cps=10}Скорее, мне не так уж это и важно.{/cps}"
-    centered "{size=160}{cps=10}И у меня есть чувство, что тебе тоже не так уж важно.{/cps}"
-    centered "{size=160}{cps=10}Не удивлюсь, если ты сейчас просто проматываешь этот текст.{/cps}"
-    centered "{size=160}{cps=10}Пытаешься побыстрее добраться до самой истории, до желанных моментов.{/cps}"
-    centered "{size=160}{cps=10}Куда спешить? Игра никуда не денется."
-    centered "{size=160}{cps=10}Если идти по жизни, вцепившись в одну цель...{/cps}"
-    centered "{size=160}{cps=10}Ты упустишь всю красоту, что приходит с неспешным путём.{/cps}"
-    centered "{size=160}{cps=10}Людей, которых ты встретил, места, где ты побывал, воспоминания, которыми дорожишь.{/cps}"
-    centered "{size=160}{cps=10}Представь, если бы всё это ничего не значило для тебя только потому, что ты был слишком сосредоточен на том, что впереди, а не на том, что здесь и сейчас.{/cps}"
-    centered "{size=160}{cps=10}И посмотри, где ты теперь!{/cps}"
-    centered "{size=160}{cps=10}Смотришь на чёрный экран порно-игры в одиночестве, пока кто-то отчитывает тебя за нетерпеливость.{/cps}"
-    centered "{size=160}{cps=10}Я так тобой горжусь.{/cps}"
-    centered "{size=160}{cps=10}….{/cps}"
-    centered "{size=160}{cps=10}…..{/cps}"
-    centered "{size=160}{cps=10}Кстати, я серьёзно.{/cps}"
-    centered "{size=160}{cps=10}Я горжусь тобой.{/cps}"
-    centered "{size=160}{cps=10}Даже если мы никогда не встречались.{/cps}"
-    centered "{size=160}{cps=10} Даже если мы на разных концах света."
-    centered "{size=160}{cps=10} Даже если я не знаю ни твоего имени, ни возраста, ни пола, ни того, через что ты проходишь.{/cps}"
-    centered "{size=160}{cps=10}Я горжусь тобой.{/cps}"
-    centered "{size=160}{cps=10}Тебе не обязательно мне верить, может, тебе кажется, что это невозможно.{/cps}"
-    centered "{size=160}{cps=10}Может, ты сам собой не гордишься.{/cps}"
-    centered "{size=160}{cps=10}Может, другие тобой не гордятся.{/cps}"
-    centered "{size=160}{cps=10}Но я горжусь.{/cps}"
-    centered "{size=160}{cps=10}Надеюсь, тебе стало немного легче, если было не по себе.{/cps}"
-    centered "{size=160}{cps=10}А если нет — тоже ничего страшного…..{/cps}"
-    centered "{size=160}{cps=10}Ладно, кажется, я и так задержал тебя надолго.{/cps}"
-    centered "{size=160}{cps=10}Пора начинать твою историю.{/cps}"
+    ad_centered "{size=160}{cps=10}Привет{/cps}"
+    ad_centered "{size=160}{cps=10}Как ты?{/cps}"
+    ad_centered "{size=160}{cps=10}Странный вопрос, я знаю, но мне любопытно.{/cps}"
+    ad_centered "{size=160}{cps=10}Прямо сейчас, в этот момент — что ты чувствуешь?{/cps}"
+    ad_centered "{size=160}{cps=10}Как прошёл твой день? Надеюсь, ты не слишком себя загонял.{/cps}"
+    ad_centered "{size=160}{cps=10}Я надеюсь, у тебя всё хорошо. Надеюсь, тебе спокойно.{/cps}"
+    ad_centered "{size=160}{cps=10}Честно говоря, я не могу знать наверняка.{/cps}"
+    ad_centered "{size=160}{cps=10}Я мог бы дать тебе выбор ответить «да» или «нет», но не думаю, что это действительно нужно.{/cps}"
+    ad_centered "{size=160}{cps=10}Скорее, мне не так уж это и важно.{/cps}"
+    ad_centered "{size=160}{cps=10}И у меня есть чувство, что тебе тоже не так уж важно.{/cps}"
+    ad_centered "{size=160}{cps=10}Не удивлюсь, если ты сейчас просто проматываешь этот текст.{/cps}"
+    ad_centered "{size=160}{cps=10}Пытаешься побыстрее добраться до самой истории, до желанных моментов.{/cps}"
+    ad_centered "{size=160}{cps=10}Куда спешить? Игра никуда не денется."
+    ad_centered "{size=160}{cps=10}Если идти по жизни, вцепившись в одну цель...{/cps}"
+    ad_centered "{size=160}{cps=10}Ты упустишь всю красоту, что приходит с неспешным путём.{/cps}"
+    ad_centered "{size=160}{cps=10}Людей, которых ты встретил, места, где ты побывал, воспоминания, которыми дорожишь.{/cps}"
+    ad_centered "{size=160}{cps=10}Представь, если бы всё это ничего не значило для тебя только потому, что ты был слишком сосредоточен на том, что впереди, а не на том, что здесь и сейчас.{/cps}"
+    ad_centered "{size=160}{cps=10}И посмотри, где ты теперь!{/cps}"
+    ad_centered "{size=160}{cps=10}Смотришь на чёрный экран порно-игры в одиночестве, пока кто-то отчитывает тебя за нетерпеливость.{/cps}"
+    ad_centered "{size=160}{cps=10}Я так тобой горжусь.{/cps}"
+    ad_centered "{size=160}{cps=10}….{/cps}"
+    ad_centered "{size=160}{cps=10}…..{/cps}"
+    ad_centered "{size=160}{cps=10}Кстати, я серьёзно.{/cps}"
+    ad_centered "{size=160}{cps=10}Я горжусь тобой.{/cps}"
+    ad_centered "{size=160}{cps=10}Даже если мы никогда не встречались.{/cps}"
+    ad_centered "{size=160}{cps=10} Даже если мы на разных концах света."
+    ad_centered "{size=160}{cps=10} Даже если я не знаю ни твоего имени, ни возраста, ни пола, ни того, через что ты проходишь.{/cps}"
+    ad_centered "{size=160}{cps=10}Я горжусь тобой.{/cps}"
+    ad_centered "{size=160}{cps=10}Тебе не обязательно мне верить, может, тебе кажется, что это невозможно.{/cps}"
+    ad_centered "{size=160}{cps=10}Может, ты сам собой не гордишься.{/cps}"
+    ad_centered "{size=160}{cps=10}Может, другие тобой не гордятся.{/cps}"
+    ad_centered "{size=160}{cps=10}Но я горжусь.{/cps}"
+    ad_centered "{size=160}{cps=10}Надеюсь, тебе стало немного легче, если было не по себе.{/cps}"
+    ad_centered "{size=160}{cps=10}А если нет — тоже ничего страшного…..{/cps}"
+    ad_centered "{size=160}{cps=10}Ладно, кажется, я и так задержал тебя надолго.{/cps}"
+    ad_centered "{size=160}{cps=10}Пора начинать твою историю.{/cps}"
     window hide 
     scene movie_background with fade
-    centered "{size=160}{cps=10}Чтобы ты мог стать тем, кем хочешь быть.{/cps}"
-    centered "{size=160}{cps=10}Чтобы ты мог испытать то, что хочешь испытать.{/cps}"
-    centered "{size=160}{cps=10}Чтобы ты мог гордиться тем, кем станешь.{/cps}"
-    centered "{size=160}{cps=10}Это ты.{/cps}"
-    centered "{size=160}{cps=10}Поздравляю.{/cps}"
-    centered "{size=160}{cps=10}Но кто ты без имени?{/cps}"
-    centered "{size=160}{cps=10}Говорят, знание чьего-то имени даёт над ним власть.{/cps}"
-    centered "{size=160}{cps=10}Но что, если даже ты сам не знаешь своего?{/cps}"
-    centered "{size=160}{cps=10}Тебе дана полная свобода решить это самому.{/cps}"
-    centered "{size=160}{cps=10}Немногим выпадает такая привилегия.{/cps}"
-    centered "{size=160}{cps=10}Но тебе я подарю это удовольствие.{/cps}"
-    centered "{size=160}{cps=10}Так скажи мне.{/cps}"
-    centered "{size=160}{cps=10}Как тебя зовут?{/cps}"
+    ad_centered "{size=160}{cps=10}Чтобы ты мог стать тем, кем хочешь быть.{/cps}"
+    ad_centered "{size=160}{cps=10}Чтобы ты мог испытать то, что хочешь испытать.{/cps}"
+    ad_centered "{size=160}{cps=10}Чтобы ты мог гордиться тем, кем станешь.{/cps}"
+    ad_centered "{size=160}{cps=10}Это ты.{/cps}"
+    ad_centered "{size=160}{cps=10}Поздравляю.{/cps}"
+    ad_centered "{size=160}{cps=10}Но кто ты без имени?{/cps}"
+    ad_centered "{size=160}{cps=10}Говорят, знание чьего-то имени даёт над ним власть.{/cps}"
+    ad_centered "{size=160}{cps=10}Но что, если даже ты сам не знаешь своего?{/cps}"
+    ad_centered "{size=160}{cps=10}Тебе дана полная свобода решить это самому.{/cps}"
+    ad_centered "{size=160}{cps=10}Немногим выпадает такая привилегия.{/cps}"
+    ad_centered "{size=160}{cps=10}Но тебе я подарю это удовольствие.{/cps}"
+    ad_centered "{size=160}{cps=10}Так скажи мне.{/cps}"
+    ad_centered "{size=160}{cps=10}Как тебя зовут?{/cps}"
     stop music
     play sound "audio/Sound/Glitch1.wav" volume 1.0
     scene scawy6 with quickdissolve
@@ -565,22 +568,22 @@ label starting:
     $ mcname = mcname.strip()
     if mcname.lower() == "damian":
         $ persistent.damian_triggered = True
-        centered "{size=160}{cps=10} Не стоило выбирать это имя..."
+        ad_centered "{size=160}{cps=10} Не стоило выбирать это имя..."
         $ renpy.quit()
     if mcname == "":
         $ mcname = "Маилз"
-    centered "{size=160}{cps=10}А, значит тебя зовут [mcname]."
-    centered "{size=160}{cps=10}Это действительно прекрасное имя.{/cps}"
-    centered "{size=160}{cps=10}Да... Правда прекрасное.{/cps}"
-    centered "{size=160}{cps=10}Желаю тебе всего наилучшего в этой истории, [mcname].{/cps}"
-    centered "{size=160}{cps=10}Теперь я отпущу тебя.{/cps}"
-    centered "{size=160}{cps=10}Но прежде чем уйти.{/cps}"
-    centered "{size=160}{cps=10}У меня есть ещё один вопрос к тебе, [mcname].{/cps}"
-    centered "{size=160}{cps=10}Это займёт всего мгновение.{/cps}"
-    centered "{size=160}{cps=10}Но мне любопытно.{/cps}"
+    ad_centered "{size=160}{cps=10}А, значит тебя зовут [mcname]."
+    ad_centered "{size=160}{cps=10}Это действительно прекрасное имя.{/cps}"
+    ad_centered "{size=160}{cps=10}Да... Правда прекрасное.{/cps}"
+    ad_centered "{size=160}{cps=10}Желаю тебе всего наилучшего в этой истории, [mcname].{/cps}"
+    ad_centered "{size=160}{cps=10}Теперь я отпущу тебя.{/cps}"
+    ad_centered "{size=160}{cps=10}Но прежде чем уйти.{/cps}"
+    ad_centered "{size=160}{cps=10}У меня есть ещё один вопрос к тебе, [mcname].{/cps}"
+    ad_centered "{size=160}{cps=10}Это займёт всего мгновение.{/cps}"
+    ad_centered "{size=160}{cps=10}Но мне любопытно.{/cps}"
 
     stop music
-    centered "{size=160}{cps=10} Приходилось ли тебе в жизни переживать травму?{/cps}"
+    ad_centered "{size=160}{cps=10} Приходилось ли тебе в жизни переживать травму?{/cps}"
 
     menu trauma:
         "Да":
@@ -588,23 +591,23 @@ label starting:
 
 
 
-            centered "{size=160}{cps=10}Понятно.{/cps}"
-            centered "{size=160}{cps=10}Мне жаль это слышать.{/cps}"
-            centered "{size=160}{cps=10}Как ты справился с этой травмой? Как переживал горе?{/cps}"
-            centered "{size=160}{cps=10}Тебе становится грустно, когда думаешь об этом? Или злишься?{/cps}"
-            centered "{size=160}{cps=10}Может, кажется, что можно было это предотвратить.{/cps}"
-            centered "{size=160}{cps=10}хмм{/cps}"
-            centered "{size=160}{cps=10}Меня завораживает, как по-разному мы все переживаем горе.{/cps}"
-            centered "{size=160}{cps=10}Ни у кого нет одинакового опыта.{/cps}"
-            centered "{size=160}{cps=10}Никто не сталкивается с теми же трудностями.{/cps}"
-            centered "{size=160}{cps=10}Никто не горюет одинаково.{/cps}"
-            centered "{size=160}{cps=10}Как думаешь, как бы ты отреагировал, если бы в один день потерял всё?{/cps}"
-            centered "{size=160}{cps=10}Как бы ты переживал это?{/cps}"
-            centered "{size=160}{cps=10}Может, ты уже потерял.{/cps}"
-            centered "{size=160}{cps=10}Может, поэтому ты здесь….{/cps}"
-            centered "{size=160}{cps=10}Извини, я разболтался.{/cps}"
-            centered "{size=160}{cps=10}Наверное, я просто немного устал.{/cps}"
-            centered "{size=160}{cps=10}Надеюсь, тебе понравится твой опыт здесь.{/cps}"
+            ad_centered "{size=160}{cps=10}Понятно.{/cps}"
+            ad_centered "{size=160}{cps=10}Мне жаль это слышать.{/cps}"
+            ad_centered "{size=160}{cps=10}Как ты справился с этой травмой? Как переживал горе?{/cps}"
+            ad_centered "{size=160}{cps=10}Тебе становится грустно, когда думаешь об этом? Или злишься?{/cps}"
+            ad_centered "{size=160}{cps=10}Может, кажется, что можно было это предотвратить.{/cps}"
+            ad_centered "{size=160}{cps=10}хмм{/cps}"
+            ad_centered "{size=160}{cps=10}Меня завораживает, как по-разному мы все переживаем горе.{/cps}"
+            ad_centered "{size=160}{cps=10}Ни у кого нет одинакового опыта.{/cps}"
+            ad_centered "{size=160}{cps=10}Никто не сталкивается с теми же трудностями.{/cps}"
+            ad_centered "{size=160}{cps=10}Никто не горюет одинаково.{/cps}"
+            ad_centered "{size=160}{cps=10}Как думаешь, как бы ты отреагировал, если бы в один день потерял всё?{/cps}"
+            ad_centered "{size=160}{cps=10}Как бы ты переживал это?{/cps}"
+            ad_centered "{size=160}{cps=10}Может, ты уже потерял.{/cps}"
+            ad_centered "{size=160}{cps=10}Может, поэтому ты здесь….{/cps}"
+            ad_centered "{size=160}{cps=10}Извини, я разболтался.{/cps}"
+            ad_centered "{size=160}{cps=10}Наверное, я просто немного устал.{/cps}"
+            ad_centered "{size=160}{cps=10}Надеюсь, тебе понравится твой опыт здесь.{/cps}"
             $ renpy.pause(3, hard=True)
             play sound "audio/Sound/static.mp3" volume 0.75
             scene black with quickflash
@@ -622,32 +625,32 @@ label starting:
 
 
 
-            centered "{size=160}{cps=10}Правда?{/cps}"
-            centered "{size=160}{cps=10}Что ж, это хорошо.{/cps}"
-            centered "{size=160}{cps=10}Хмммм...{/cps}"
-            centered "{size=160}{cps=10}Да... Полагаю, это действительно хорошо.{/cps}"
-            centered "{size=160}{cps=10}Я даже немного тебе завидую.{/cps}"
-            centered "{size=160}{cps=10}Потому что ты такой...{/cps}"
-            centered "{size=160}{cps=10}Такой...{/cps}"
+            ad_centered "{size=160}{cps=10}Правда?{/cps}"
+            ad_centered "{size=160}{cps=10}Что ж, это хорошо.{/cps}"
+            ad_centered "{size=160}{cps=10}Хмммм...{/cps}"
+            ad_centered "{size=160}{cps=10}Да... Полагаю, это действительно хорошо.{/cps}"
+            ad_centered "{size=160}{cps=10}Я даже немного тебе завидую.{/cps}"
+            ad_centered "{size=160}{cps=10}Потому что ты такой...{/cps}"
+            ad_centered "{size=160}{cps=10}Такой...{/cps}"
             play sound "audio/Sound/static.mp3" volume 0.75
             scene lucky with quickflash
             stop sound
             play music "audio/Music/lucky1.mp3" volume 1
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
             play sound "audio/Sound/static.mp3" volume 1
             scene lucky2 with quickflash
             stop sound
             play music "audio/Music/lucky2.mp3" volume 1
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
             play sound "audio/Sound/static.mp3" volume 1
             scene lucky3 with quickflash
             stop sound
             play music "audio/Music/lucky4.mp3" volume 1
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
-            centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
+            ad_centered "{size=160}{cps=10}ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИКВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК ВЕЗУНЧИК{/cps}"
             play sound "audio/Sound/static.mp3" volume 1
             scene lucky4 with quickflash
             stop sound
@@ -2038,7 +2041,7 @@ label actualintro:
         window hide dissolve
         pause 1.0
         play music "audio/Music/Acting.mp3" volume 1.0 fadein 1.0
-        play ambient "audio/ambient/convenience.wav" volume 1.0
+        play ambient "audio/ambient/Convenience.mp3" volume 1.0
 
         scene 5scene (1) with fade
 
@@ -4552,7 +4555,7 @@ label actualintro:
 
         k "Уже не совсем! Я уверена, что события сегодняшнего дня уже кардинально изменили будущее. Так что теперь я в той же лодке, что и ты."
 
-        mc "Ты можешь в этот раз закончить колледж, или стать стриптизёром! Да кто ж его знает!"
+        k "Ты можешь в этот раз закончить колледж, или стать стриптизёром! Да кто ж его знает!"
         mc "Фантастика…."
 
         scene 10scene (14) with dissolve
@@ -6939,6 +6942,9 @@ label actualintro:
 
 
 label day_cycle:
+    if chromarkwarehouse == 1 and chap13epilogue == 0:
+        jump chap13epilogue
+
 
     if rileyarcadeintro >= 1 and rileyroom == 0:
 
@@ -7005,6 +7011,10 @@ label day_cycle:
     if rileyroom == 1 and rileyconfront == 0:
         $ Riley.quest = "Подождать до конца урока."
 
+
+    if rileyroom2 == 1 and rileyroomclean == 0:
+        $ Riley.quest = "Подождать до выходных."
+
     if yejinbully == 1 and yejinblackmail == 0:
         $ Yejin.quest = "Найти Йеджин в классе после урока."
     if yejinblackmail == 1 and yejinpatrol == 0:
@@ -7012,6 +7022,10 @@ label day_cycle:
 
     if mei5event == 1 and meisketch == 0:
         $ Mei.quest = "Поднять симпатию, затем подождать несколько дней до урока."
+
+    if storydream1 >= 1 and storydream2 == 0 and firstdream == 0:
+        $ firstdream = 1
+        $ main.quest = "Дождаться вечера, чтобы продолжить сон."
 
     if firstfight == 1 and kyraalleyevent == 0:
         $ main.quest = "Поговорить с Кайрой в школе."
@@ -7034,6 +7048,21 @@ label day_cycle:
     if storydream2 == 1 and pillowtrain == 0:
 
         $ main.quest =  "Поговорить с Кицунэ о тренировках вечером."
+
+
+    if pillowtrain >= 1 and yejin_train == 0 and chromarkwarehouse == 0:
+        if yejinpatrol == 1:
+            $ main.quest = "Навести Йеджин в додзё на выходных, затем поговори с Кицунэ ночью."
+        elif yejinblackmail == 1:
+            $ main.quest = "Иди к школьным шкафчикам после уроков."
+        elif yejinbully == 1:
+            $ main.quest = "Найди Йеджин в классе после уроков."
+        elif yejindojointro == 1:
+            $ main.quest = "Подними симпатию Йеджин до 5, затем иди на беговую дорожку после уроков."
+        elif yejinclassintro == 1:
+            $ main.quest = "Найди Йеджин в городе на выходных."
+        else:
+            $ main.quest = "Поговори с Йеджин в классе после уроков."
 
 
     if autumnskateintro == 1:
@@ -7560,6 +7589,8 @@ label weekend_morning:
             jump izra_30_event
         elif junelilyzoo == 1 and june15event2== 0:
             jump june_15_event_2
+        elif rileyroom2 == 1 and rileyroomclean == 0:
+            jump riley_clean_event
         else:
             jump bedroommorning_example
 
@@ -8018,6 +8049,9 @@ label yuki_menu:
     scene YukiWeekend with dissolve
     "Ты находишь Юки за прилавком, явно умирающую от скуки."
     call screen  Yukiaction_menu
+    if _return == "store":
+        call screen ad_yuki_store_screen
+        jump yuki_menu
     if _return == "gift_unavailable":
         "Подарки пока недоступны."
         jump yuki_menu
@@ -8119,7 +8153,7 @@ label library:
         "Посмотреть, чем занята Райли":
 
             if intro_2 == 1:
-                jump Rileylibraryevents
+                jump rileylibraryevents
             else:
                 "Ты ещё недостаточно хорошо знаешь Райли, чтобы с ней говорить."
                 jump weekday_evening
@@ -8272,7 +8306,7 @@ label gym_photos_for_nora:
     "Сделав фото, она удовлетворённо кивает и благодарит тебя."
     play sound "audio/Sound/affection.mp3" volume 0.5
     "{i}Симпатия Норы возросла.{/i}"
-    $ Zara.affection += 1
+    $ Nora.affection += 1
     jump weekday_evening
 
 label hallway:
@@ -8385,7 +8419,7 @@ label approach_kyra_gang:
     jump weekday_evening
 
 label rooftop:
-    scene schoolroof
+    scene roof_bg
     "Ты выходишь на крышу, наслаждаясь спокойным видом на окрестности."
     menu:
         "Помочь Лили с садоводством":
@@ -8425,7 +8459,7 @@ label rooftop_mysterious_woman:
     jump weekday_evening
 
 label classrooms:
-    scene classes with fade
+    scene classroom with fade
     "Ты бродишь по пустым классам, думая о сегодняшних уроках."
 
     menu:
@@ -10008,6 +10042,7 @@ label itdontmatterfool:
     $ renpy.pause (3, hard= True)
     window hide 
     pause 1
+    $ renpy.end_replay()
     $ firstfight = 1
     if yukibook2event == 1:
         $ Yuki.quest = "Поговорить с Кицунэ о книгах Юки"
@@ -10406,7 +10441,7 @@ label thefirstdream:
     play music "audio/music/drown2.mp3"
     play ambient "audio/ambient/darkocean.mp3"
     scene dreamocean (11) with hpunch
-    play sound "audio/sound/heartbeat.wav" fadein 2.0
+    play sound "audio/Sound/heartbeat.mp3" fadein 2.0
 
     "Синевы больше нет."
     "Вода не просто изменила цвет. Она изменила текстуру."
@@ -10691,7 +10726,7 @@ label thefirstdream:
     play sound "audio/sound/buzzer.wav" 
     stop ambient
     scene dreamgameshow (20) with hpunch
-    play sound "sfx/buzzer_press.ogg"
+    play sound "audio/Sound/Buzzer.wav"
     "Ты жмёшь на кнопку раньше, чем он успевает закончить вопрос."
 
     menu:
@@ -10906,7 +10941,7 @@ label thefirstdream:
     I "О? Должно быть, это твой отец!"
 
 
-    play sound "sfx/audience_cheer_huge.ogg"
+    play sound "audio/Sound/clapsaudience.mp3"
     scene sitcom (28) with dissolve
     "Заходит Лили. На ней комично большой пиджак и накладные усы."
 
@@ -12488,6 +12523,11 @@ label thefirstdream:
     "Но ты понимаешь, что во всей этой странности может скрываться что-то важное."
 
     "И всё же...твоё тело и разум ощущаются затуманенными."
+
+    $ renpy.end_replay()
+    if not _in_replay:
+        $ firstdream = 1
+        $ main.quest = "Дождаться вечера, чтобы продолжить сон."
     $ storydream1 += 1
 
     jump day_cycle
@@ -12768,10 +12808,10 @@ label stillindream:
     "Ну...{w}насколько это вообще возможно."
     "К тому моменту, как твой разум проясняется, уже наступает утро."
 
-    $ firstdream += 1
+    $ firstdream = 1
     $ storydream2 += 1
     $ totaldays += 1
-    $ day += 1
+    $ day = (day % 7) + 1
 
     if day == 1:
         hide sunday onlayer date
@@ -13021,5 +13061,11 @@ label stillindream:
     $ main.quest =  "Поговорить с Кицунэ о тренировках вечером."
     "У тебя есть зацепка. У тебя есть цель."
     "Пора браться за дело."
-    jump class_scene
+
+    $ renpy.end_replay()
+
+    if day in (6, 7):
+        jump weekend_morning
+    else:
+        jump weekday_morning
 return

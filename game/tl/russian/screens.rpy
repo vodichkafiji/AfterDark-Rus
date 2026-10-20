@@ -4,7 +4,6 @@ init offset = -1
 
 
 
-default persistent.dialogueBoxOpacity = 1.0
 
 
 
@@ -31,6 +30,12 @@ style gui_text:
 
 style button:
     properties gui.button_properties("button")
+
+
+
+
+style image_button:
+    focus_mask True
 
 style button_text is gui_text:
     properties gui.text_properties("button")
@@ -86,6 +91,30 @@ style fanart_thumb is image_button:
     hover_background Solid("#66aaff")
 
 
+default ad_fullscreen_menu_open = False
+default ad_hidden_weekday_tags = []
+
+init python:
+    def ad_menu_visibility(transform, st, at):
+        """Keeps map HUD elements hidden while Ren'Py is in a full game menu."""
+        transform.alpha = 0.0 if renpy.store._menu else 1.0
+        return 0.05
+
+    def ad_hide_weekday_indicator():
+        """Temporarily hide the active weekday image while a game menu is open."""
+        weekday_tags = ("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday")
+        showing_tags = renpy.get_showing_tags(layer="date")
+        renpy.store.ad_hidden_weekday_tags = [tag for tag in weekday_tags if tag in showing_tags]
+        for tag in renpy.store.ad_hidden_weekday_tags:
+            renpy.hide(tag, layer="date")
+
+    def ad_restore_weekday_indicator():
+        """Restore only the weekday image that was visible before the game menu."""
+        for tag in renpy.store.ad_hidden_weekday_tags:
+            renpy.show(tag, layer="date")
+        renpy.store.ad_hidden_weekday_tags = []
+
+
 
 
 
@@ -106,10 +135,14 @@ style fanart_thumb is image_button:
 
 
 screen day_tracker():
-    frame:
-        align (0.99, 0)
-        padding (0, 10)
-        text "День [totaldays]" size 100 font "NotoSansDisplay-ExtraBold.ttf" color "#FFFFFF" outlines [(3, "#000000", 1, 1)] at slide_in_delay_5
+
+    zorder -10
+
+    if not ad_fullscreen_menu_open:
+        frame:
+            align (0.99, 0)
+            padding (0, 10)
+            text "День [totaldays]" size 100 font "NotoSansDisplay-ExtraBold.ttf" color "#FFFFFF" outlines [(3, "#000000", 1, 1)] at slide_in_delay_5
 
 
 screen say(who, what, namebox_type=None):
@@ -123,7 +156,7 @@ screen say(who, what, namebox_type=None):
             window:
                 id "namebox"
                 style "namebox"
-                background Transform(Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign), alpha=persistent.dialogueBoxOpacity)
+                background Transform(Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign), alpha=persistent.say_window_alpha)
                 text who id "who"
 
         id "window"
@@ -396,6 +429,19 @@ style quick_button:
 
 style quick_button_text:
     properties gui.button_text_properties("quick_button")
+    idle_color "#FFFFFF"
+    hover_color "#FFFFFF"
+    selected_idle_color "#FFFFFF"
+    selected_hover_color "#FFFFFF"
+    size (gui.quick_button_text_size - 4)
+
+style quick_main_button is quick_button
+style quick_main_button_text is quick_button_text:
+    color "#FFFFFF"
+    hover_color "#FFFFFF"
+    selected_idle_color "#FFFFFF"
+    selected_hover_color "#FFFFFF"
+    size 38
 
 
 
@@ -433,7 +479,7 @@ screen Autumnaction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+            action [SetVariable("ad_gift_target", "Autumn"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_2
             xalign 0.5
 screen Brooklynaction_menu():
@@ -463,7 +509,7 @@ screen Brooklynaction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+            action [SetVariable("ad_gift_target", "Brooklyn"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_5
             xalign 0.5
 
@@ -495,7 +541,7 @@ screen Graceaction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+            action [SetVariable("ad_gift_target", "Grace"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_2
             xalign 0.5
 
@@ -526,7 +572,7 @@ screen Izraaction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+            action [SetVariable("ad_gift_target", "Izra"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_5
             xalign 0.5
 
@@ -557,7 +603,7 @@ screen Juneaction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+            action [SetVariable("ad_gift_target", "June"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_5
             xalign 0.5
 
@@ -589,7 +635,7 @@ screen Jordynaction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+            action [SetVariable("ad_gift_target", "Jordyn"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_5
             xalign 0.5
 
@@ -621,7 +667,7 @@ screen Lilyaction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+            action [SetVariable("ad_gift_target", "Lily"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_2
             xalign 0.5
 
@@ -652,7 +698,7 @@ screen Meiaction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+            action [SetVariable("ad_gift_target", "Mei"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_2
             xalign 0.5
 
@@ -684,7 +730,7 @@ screen Noraaction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+            action [SetVariable("ad_gift_target", "Nora"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_2
             xalign 0.5
 
@@ -715,7 +761,7 @@ screen Parkeraction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+            action [SetVariable("ad_gift_target", "Parker"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_2
             xalign 0.5
 
@@ -746,7 +792,10 @@ screen Rileyaction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+
+
+
+            action [SetVariable("ad_gift_target", "Riley"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_2
             xalign 0.5
 
@@ -767,19 +816,31 @@ screen Tamaraaction_menu():
                 at slide_in_delay_0
 
             imagebutton:
-                idle "wait_idle.png"
-                hover "wait_hover.png"
+                idle Transform("wait_idle.png", crop=(8, 444, 649, 573), size=(642, 566))
+                hover Transform("wait_hover.png", crop=(8, 444, 649, 573), size=(642, 566))
+                xoffset 8
+                yoffset 444
                 action Jump("bar_wait")
                 at slide_in_delay_1
 
-        null height 10
+        hbox:
+            spacing 20
 
-        imagebutton:
-            idle "gift_idle.png"
-            hover "gift_hover.png"
-            action Return("gift_unavailable")
-            at slide_in_delay_2
-            xalign 0.5
+            imagebutton:
+                idle "gift_idle.png"
+                hover "gift_hover.png"
+                focus_mask True
+                xoffset 188
+                action [SetVariable("ad_gift_target", "Tamara"), SetVariable("ad_gift_message", ""), SetVariable("ad_gift_is_error", False), SetVariable("ad_gift_show_result", False), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
+                at slide_in_delay_2
+
+            imagebutton:
+                idle ad_tamara_work_button_idle
+                hover ad_tamara_work_button_hover
+                focus_mask True
+                xoffset -180
+                action Jump("tamara_work")
+                at slide_in_delay_2
 
 screen Utamiaction_menu():
     tag action_menu
@@ -808,7 +869,7 @@ screen Utamiaction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+            action [SetVariable("ad_gift_target", "Utami"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_2
             xalign 0.5
 
@@ -839,7 +900,7 @@ screen Yejinaction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+            action [SetVariable("ad_gift_target", "Yejin"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_2
             xalign 0.5
 
@@ -856,23 +917,37 @@ screen Yukiaction_menu():
             imagebutton:
                 idle "hangout_idle.png"
                 hover "hangout_hover.png"
+                focus_mask True
                 action Jump("con_eveninghang")
                 at slide_in_delay_3
 
             imagebutton:
                 idle "wait_idle.png"
                 hover "wait_hover.png"
+                focus_mask True
                 action Jump("con_eveningwait")
                 at slide_in_delay_4
 
-        null height 10
 
-        imagebutton:
-            idle "gift_idle.png"
-            hover "gift_hover.png"
-            action Return("gift_unavailable")
-            at slide_in_delay_5
-            xalign 0.5
+
+
+        hbox:
+            spacing 20
+
+            imagebutton:
+                idle "gift_idle.png"
+                hover "gift_hover.png"
+                focus_mask True
+                xoffset 188
+                action [SetVariable("ad_gift_target", "Yuki"), SetVariable("ad_gift_message", ""), SetVariable("ad_gift_is_error", False), SetVariable("ad_gift_show_result", False), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
+                at slide_in_delay_5
+
+            imagebutton:
+                idle ad_yuki_store_button_idle
+                hover ad_yuki_store_button_hover
+                focus_mask True
+                action Return("store")
+                at slide_in_delay_5
 
 screen Zaraaction_menu():
     tag action_menu
@@ -901,7 +976,7 @@ screen Zaraaction_menu():
         imagebutton:
             idle "gift_idle.png"
             hover "gift_hover.png"
-            action Return("gift_unavailable")
+            action [SetVariable("ad_gift_target", "Zara"), SetVariable("ad_gift_message", ""), Show("ad_gifting_input_blocker"), Show("ad_character_gifting_screen")]
             at slide_in_delay_2
             xalign 0.5
 
@@ -938,6 +1013,7 @@ transform slide_in_delay_5:
     xoffset 400
     pause 0.3
     easein 0.4 xoffset 0 alpha 1
+    function ad_menu_visibility
 
 screen start_choice():
     modal True
@@ -1136,22 +1212,22 @@ screen main_menu():
         action OpenURL("https://patreon.com/Bozavest?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink")
         at patreonbutton
         focus_mask True
-        hover_sound "audio/hover.ogg"
-        activate_sound "audio/click.ogg"
+        hover_sound "audio/Sound/hover.mp3"
+        activate_sound "audio/Sound/select.mp3"
 
     imagebutton auto "gui/discord_%s.png":
         action OpenURL("https://discord.gg/jWBcjvwkjM")
         at discordbutton
         focus_mask True
-        hover_sound "audio/hover.ogg"
-        activate_sound "audio/click.ogg"
+        hover_sound "audio/Sound/hover.mp3"
+        activate_sound "audio/Sound/select.mp3"
 
     imagebutton auto "gui/itch_%s.png":
         action OpenURL("https://bozavest.itch.io")
         at itchbutton
         focus_mask True
-        hover_sound "audio/hover.ogg"
-        activate_sound "audio/click.ogg"
+        hover_sound "audio/Sound/hover.mp3"
+        activate_sound "audio/Sound/select.mp3"
 
 
 
@@ -1220,6 +1296,9 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
     style_prefix "game_menu"
 
+    on "show" action [SetVariable("ad_fullscreen_menu_open", True), Hide("day_tracker"), Function(ad_hide_weekday_indicator)]
+    on "hide" action [SetVariable("ad_fullscreen_menu_open", False), Show("day_tracker"), Function(ad_restore_weekday_indicator)]
+
     if main_menu:
         add gui.main_menu_background
     else:
@@ -1277,7 +1356,10 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
         action Return()
 
-    label title
+
+    label title:
+        style "quick_menu_title_label"
+        xcenter int((config.screen_width + 840) / 2)
 
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
@@ -1329,10 +1411,134 @@ style game_menu_label_text:
     color gui.choice_button_text_hover_color
     yalign 0.4
 
+style quick_menu_title_label is game_menu_label:
+    xanchor 0.5
+
+style quick_menu_title_label_text is game_menu_label_text:
+    color "#FFFFFF"
+
+style about_game_menu_label is game_menu_label
+
+style about_game_menu_label_text is game_menu_label_text:
+    color "#FFFFFF"
+
+style settings_game_menu_label is about_game_menu_label:
+    xpos 100
+
+style settings_game_menu_label_text is about_game_menu_label_text
+
 style return_button:
     xpos gui.navigation_xpos
     yalign 1.0
     yoffset -90
+
+
+transform about_link_hover:
+    subpixel True
+    xoffset 0
+    yoffset 0
+    zoom 1.0
+    alpha 0.92
+    on idle:
+        easeout 0.20 xoffset 0 yoffset 0 zoom 1.0 alpha 0.92
+    on hover:
+        easein 0.07 xoffset 1 yoffset 2 zoom 0.985 alpha 0.88
+        easeout 0.13 xoffset 0 yoffset -7 zoom 1.075 alpha 1.0
+        easein 0.11 yoffset -4 zoom 1.04
+
+transform about_group_link_hover:
+    subpixel True
+    xoffset 0
+    yoffset 0
+    alpha 0.94
+    on idle:
+        easeout 0.20 xoffset 0 yoffset 0 alpha 0.94
+    on hover:
+        easein 0.07 xoffset 2 yoffset 2 alpha 0.88
+        easeout 0.13 xoffset 0 yoffset -7 alpha 1.0
+        easein 0.11 yoffset -4
+
+
+transform about_oscar_glow_idle:
+    alpha 0.0
+
+transform about_oscar_glow_active:
+    alpha 0.0
+    easein 0.18 alpha 0.82
+    blur 9
+
+
+
+
+
+init -2 python:
+    class OscarAboutCard(renpy.Displayable):
+        """A responsive layered card background used only by the About screen."""
+        
+        def __init__(self, variant="panel", **properties):
+            super(OscarAboutCard, self).__init__(**properties)
+            self.variant = variant
+        
+        def render(self, width, height, st, at):
+            width = max(1, int(width))
+            height = max(1, int(height))
+            rv = renpy.Render(width, height)
+            
+            def layer(color, x, y, layer_width, layer_height):
+                if layer_width <= 0 or layer_height <= 0:
+                    return
+                
+                displayable = renpy.display.imagelike.Solid(color)
+                rendered = renpy.render(displayable, layer_width, layer_height, st, at)
+                rv.blit(rendered, (x, y))
+            
+            if self.variant == "feature":
+                outer = "#00000078"
+                steel = "#A4A6AACC"
+                shadow = "#36383DCC"
+            elif self.variant == "section":
+                outer = "#00000070"
+                steel = "#85888DCC"
+                shadow = "#2B2D32CC"
+            else:
+                outer = "#00000066"
+                steel = "#73767BCC"
+                shadow = "#222429CC"
+            
+            border = 3
+            inset = 7
+            
+            
+            layer(outer, 0, 0, width, height)
+            layer(steel, 0, 0, width, border)
+            layer(steel, 0, height - border, width, border)
+            layer(steel, 0, 0, border, height)
+            layer(steel, width - border, 0, border, height)
+            layer(shadow, inset, inset, width - (inset * 2), 2)
+            layer(shadow, inset, height - inset - 2, width - (inset * 2), 2)
+            layer(shadow, inset, inset, 2, height - (inset * 2))
+            layer(shadow, width - inset - 2, inset, 2, height - (inset * 2))
+            
+            return rv
+
+
+    renpy.register_textshader(
+    "oscar_red_gradient",
+    include_default=True,
+    variables="""
+    attribute vec2 a_tex_coord;
+    varying vec2 v_oscar_gradient_coord;
+    """,
+    vertex_200="""
+    v_oscar_gradient_coord = a_tex_coord;
+    """,
+    fragment_400="""
+    vec3 l_oscar_top = vec3(0.94, 0.16, 0.16);
+    vec3 l_oscar_bottom = vec3(0.16, 0.003, 0.008);
+    vec3 l_oscar_color = mix(l_oscar_top, l_oscar_bottom, clamp(v_oscar_gradient_coord.y, 0.0, 1.0));
+    gl_FragColor.rgb = l_oscar_color * gl_FragColor.a;
+    """,
+)
 
 
 
@@ -1345,9 +1551,7 @@ style return_button:
 screen about():
     tag menu
 
-
-
-
+    default about_oscar_card_hovered = False
 
     use game_menu(_("Об игре"), scroll="viewport"):
 
@@ -1355,22 +1559,335 @@ screen about():
 
         vbox:
 
-            label "[config.name!t]"
-            text _("Версия [config.version!t]\n")
+            xpos 0
+            xsize 2760
+            spacing 18
 
+            null height 20
+            fixed:
+                xpos 58
+                xsize 2644
+                ysize gui.label_text_size + 12
+                text "{color=#FFFFFF}ОБ ИГРЕ{/color} {color=#9933FF}AFTER DARK{/color}" style "about_heading_text" xpos 0 yalign 0.5
+                text _("Версия [config.version!t]") style "about_meta_text" xalign 1.0 yalign 0.5 text_align 1.0
 
             if gui.about:
-                text "[gui.about!t]\n"
+                null height 12
 
-            text _("Сделано на {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+                frame:
+                    style "about_section_card"
+                    xfill True
+                    xpadding 58
+                    ypadding 32
+
+                    has vbox
+                    xfill True
+                    spacing 12
+
+                    text _("Разработчик:") style "about_meta_text" xalign 0.5 xoffset -30 text_align 0.5
+                    add "gui/dev_logo.webp" xalign 0.5
+                    text _("Bozavest") style "about_body_text" xalign 0.5 text_align 0.5
+                    hbox:
+                        xalign 0.5
+                        spacing 20
+                        frame:
+                            style "about_link_card"
+                            xsize 304
+                            ysize 304
+                            xpadding 30
+                            ypadding 30
+                            has button
+                            background None
+                            hover_background None
+                            xfill True
+                            yfill True
+                            action OpenURL("https://www.patreon.com/bozavest")
+                            at about_group_link_hover
+                            fixed:
+                                xfill True
+                                yfill True
+                                add Transform("gui/patreon_idle.png", zoom=0.8) xalign 0.5 yalign 0.5
+                        frame:
+                            style "about_link_card"
+                            xsize 304
+                            ysize 304
+                            xpadding 30
+                            ypadding 30
+                            has button
+                            background None
+                            hover_background None
+                            xfill True
+                            yfill True
+                            action OpenURL("https://bozavest.itch.io/after-dark")
+                            at about_group_link_hover
+                            fixed:
+                                xfill True
+                                yfill True
+                                add Transform("gui/itch_idle.png", zoom=0.8) xalign 0.5 yalign 0.5
+
+                frame:
+                    style "about_section_card"
+                    xfill True
+                    xpadding 58
+                    ypadding 32
+
+                    has vbox
+                    xfill True
+                    spacing 14
+
+                    text _("Отдельная благодарность:") style "about_meta_text" xalign 0.5 text_align 0.5
+                    frame:
+                        style "about_feature_card"
+                        xsize 1305
+                        ysize 304
+                        xalign 0.5
+                        xpadding 30
+                        ypadding 24
+                        has button
+                        background None
+                        hover_background None
+                        xfill True
+                        yfill True
+                        action OpenURL("https://penrucci.itch.io/")
+                        hovered SetScreenVariable("about_oscar_card_hovered", True)
+                        unhovered SetScreenVariable("about_oscar_card_hovered", False)
+                        at about_group_link_hover
+                        fixed:
+                            xfill True
+                            yfill True
+                            add Transform("gui/oscar.webp", zoom=0.342) xpos 0 yalign 0.5
+                            hbox:
+                                xpos 740
+                                xanchor 0.5
+                                ypos 31
+                                spacing 14
+                                fixed:
+                                    fit_first True
+                                    xoffset -5
+                                    yoffset -8
+                                    if about_oscar_card_hovered:
+                                        text "oscar" style "about_oscar_glow_text" at about_oscar_glow_active
+                                    else:
+                                        text "oscar" style "about_oscar_glow_text" at about_oscar_glow_idle
+                                    text "oscar" style "about_oscar_link_text"
+                                text "(СОАВТОР)" style "about_oscar_codev_text"
+                            text "Помогал исправлять баги и добавлять новые функции." style "about_card_note" xpos 755 xanchor 0.5 ypos 133 xsize 1100 text_align 0.5
+                    hbox:
+                        xalign 0.5
+                        spacing 34
+                        frame:
+                            style "about_link_card"
+                            xsize 1305
+                            ysize 304
+                            xpadding 30
+                            ypadding 24
+                            has fixed
+                            xfill True
+                            yfill True
+                            add "gui/bootykat.png" xpos 0 yalign 0.5
+                            text " - " style "about_body_text" xpos 266 yalign 0.5
+                            text "BootyKat (контроль качества)" style "about_card_text" xpos 340 yalign 0.5 text_align 0.0
+                        frame:
+                            style "about_link_card"
+                            xsize 1305
+                            ysize 304
+                            xpadding 30
+                            ypadding 24
+                            has button
+                            background None
+                            hover_background None
+                            xfill True
+                            yfill True
+                            action OpenURL("https://x.com/Gamingrecluse11")
+                            at about_group_link_hover
+                            fixed:
+                                xfill True
+                                yfill True
+                                add "gui/recluse.png" xpos 0 yalign 0.5
+                                text " - " style "about_body_text" xpos 266 yalign 0.5
+                                text "Recluse {color=#FFFFFF}(художник){/color}" style "about_link_text" xpos 340 yalign 0.5 text_align 0.0
+
+                frame:
+                    style "about_section_card"
+                    xfill True
+                    xpadding 58
+                    ypadding 32
+
+                    has vbox
+                    xfill True
+                    spacing 16
+
+                    text _("Аниматоры:") style "about_meta_text" xalign 0.5 text_align 0.5
+                    hbox:
+                        xalign 0.5
+                        spacing 34
+                        frame:
+                            style "about_link_card"
+                            xsize 1305
+                            ysize 304
+                            xpadding 30
+                            ypadding 24
+                            has button
+                            background None
+                            hover_background None
+                            xfill True
+                            yfill True
+                            action OpenURL("https://x.com/Tiaramix1527")
+                            at about_group_link_hover
+                            fixed:
+                                xfill True
+                                yfill True
+                                add "gui/Tiaramix.png" xpos 0 yalign 0.5
+                                text " - " style "about_body_text" xpos 266 yalign 0.5
+                                text "Mix {color=#FFFFFF}(аниматор, анимации Джун){/color}" style "about_mix_link_text" xpos 340 yalign 0.5 text_align 0.0
+                        frame:
+                            style "about_link_card"
+                            xsize 1305
+                            ysize 304
+                            xpadding 30
+                            ypadding 24
+                            has button
+                            background None
+                            hover_background None
+                            xfill True
+                            yfill True
+                            action OpenURL("https://rebel-tomboy-games.itch.io/project-dreadsteel")
+                            at about_group_link_hover
+                            fixed:
+                                xfill True
+                                yfill True
+                                add "gui/TheLolingPain.png" xpos 0 yalign 0.5
+                                text " - " style "about_body_text" xpos 266 yalign 0.5
+                                text "TheLolingPain\n{color=#FFFFFF}(аниматор, bj-анимации Изры и Ютами){/color}" style "about_loling_link_text" xpos 340 yalign 0.5 xsize 900
+
+                frame:
+                    style "about_section_card"
+                    xfill True
+                    xpadding 58
+                    ypadding 32
+
+                    has vbox
+                    xfill True
+                    spacing 16
+
+                    text _("Автор перевода:") style "about_meta_text" xalign 0.5 text_align 0.5
+                    textbutton "vodichkafiji":
+                        style "about_link"
+                        xalign 0.5
+                        action OpenURL("https://github.com/vodichkafiji/AfterDark-Rus")
+                        at about_link_hover
+
+            null height 16
+            text _("ДВИЖОК И ЛИЦЕНЗИЯ") style "about_meta_text" xalign 0.5 text_align 0.5
+            hbox:
+                xalign 0.5
+                spacing 10
+                text _("Сделано на ") style "about_body_text"
+                textbutton "Ren'Py":
+                    style "about_link"
+                    xoffset -10
+                    action OpenURL("https://www.renpy.org/")
+                    at about_link_hover
+                text "[renpy.version_only]." style "about_body_text"
+            vbox:
+                xalign 0.5
+                xsize 1800
+                spacing 0
+                text _("Эта программа содержит свободное программное обеспечение под рядом лицензий, включая MIT License и GNU Lesser General Public License. Полный список программ, включая ссылки на исходный код,") style "about_legal_text" xfill True xalign 0.5 text_align 0.5
+                hbox:
+                    xalign 0.5
+                    spacing 0
+                    text _("можно найти ") style "about_legal_text"
+                    textbutton "здесь":
+                        style "about_inline_link"
+                        action OpenURL("https://www.renpy.org/l/license")
+                        at about_link_hover
+                    text "." style "about_legal_text"
 
 
 style about_label is gui_label
 style about_label_text is gui_label_text
 style about_text is gui_text
 
+style about_section_card is frame:
+    background OscarAboutCard("section")
+
+style about_link_card is frame:
+    background OscarAboutCard("link")
+
+style about_feature_card is frame:
+    background OscarAboutCard("feature")
+
 style about_label_text:
     size gui.label_text_size
+
+style about_meta_text is about_text:
+    size gui.text_size - 18
+
+style about_heading_text is about_label_text:
+    size gui.label_text_size
+
+style about_body_text is about_text:
+    size gui.text_size - 10
+
+style about_card_text is about_link_text:
+    size gui.text_size - 20
+    color "#FFFFFF"
+
+style about_card_note is about_body_text:
+    font "oscar assets/fonts/oscar_MetalMania.ttf"
+    size gui.text_size - 15
+    color "#FFFFFF"
+
+style about_legal_text is about_text:
+    size gui.text_size - 26
+
+style about_link is button:
+    background None
+    hover_background None
+    xpadding 0
+    ypadding 0
+
+style about_link_text is hyperlink_text:
+    font "oscar assets/fonts/oscar_MetalMania.ttf"
+    size gui.text_size - 5
+    hover_color gui.hover_color
+    hover_underline False
+
+style about_oscar_link_text is about_link_text:
+    size gui.text_size + 10
+    textshader "oscar_red_gradient"
+    color "#FFFFFFFF"
+
+style about_oscar_glow_text is about_oscar_link_text:
+    color "#3A0008D8"
+    hover_color "#3A0008D8"
+
+style about_oscar_codev_text is about_link_text:
+    size gui.text_size + 5
+    color "#FFFFFFFF"
+    hover_color "#FFFFFFFF"
+
+style about_inline_link_text is about_link_text:
+    size gui.text_size - 26
+
+style about_inline_link is about_link
+
+style about_long_link is about_link
+
+style about_long_link_text is about_link_text:
+    size gui.text_size - 33
+
+style about_mix_link is about_link
+
+style about_mix_link_text is about_link_text:
+    size gui.text_size - 15
+
+style about_loling_link is about_link
+
+style about_loling_link_text is about_link_text:
+    size gui.text_size - 23
+    text_align 0.5
 
 
 
@@ -1539,113 +2056,135 @@ screen preferences():
     use game_menu(_("Настройки"), scroll="viewport"):
 
         vbox:
+            xsize 2680
+            xalign 0.5
+            spacing 18
 
             hbox:
-                box_wrap True
+                xalign 0.5
+                spacing 30
 
-                if renpy.variant("pc") or renpy.variant("web"):
-
-                    vbox:
-                        style_prefix "radio"
-                        label _("Экран")
-                        textbutton _("Окно") action Preference("display", "window")
-                        textbutton _("Полный экран") action Preference("display", "fullscreen")
+# недоступно в русификаторе (смена шрифта ломает кириллицу)
+#                vbox:
+#                    xsize 1050
+#                    spacing 0
+#
+#                    label _("Шрифт")
+#                    for fnt in size_dict.keys():
+#                        $ disp = fnt.rsplit(".", 1)[0].replace("_", " ").replace("-", " ")
+#                        textbutton "{font=%s}%s" % (fnt, disp):
+#                            style "settings_font_button"
+#                            action [ changeFont(fnt) ]
+#                            selected (persistent.pref_text_font == fnt)
+#                            at settings_preferences_hover
 
                 vbox:
-                    style_prefix "check"
-                    label _("Пропуск")
-                    textbutton _("Непрочитанный текст") action Preference("skip", "toggle")
-                    textbutton _("После выборов") action Preference("after choices", "toggle")
-                    textbutton _("Переходы") action InvertSelected(Preference("transitions", "toggle"))
+                    xsize 1550
+                    spacing 0
 
-                if renpy.variant("pc"):
-                    vbox:
-                        style_prefix "radio"
-                        label _("Быстрое меню")
+                    hbox:
+                        style_prefix "settings_radio"
+                        spacing 18
+                        yalign 0.5
+                        if renpy.variant("pc") or renpy.variant("web"):
+                            label _("Экран")
+                            textbutton _("Окно") action Preference("display", "window") at settings_preferences_hover
+                            text "|" style "settings_toggle_separator"
+                            textbutton _("Полный экран") action Preference("display", "fullscreen") at settings_preferences_hover
 
-                        textbutton _("Включить") action SetVariable("quick_menu",True)
-                        textbutton _("Выключить") action SetVariable("quick_menu",False)
+                    if renpy.variant("pc"):
+                        hbox:
+                            style_prefix "settings_radio"
+                            spacing 18
+                            yalign 0.5
+                            label _("Быстрое меню")
+                            textbutton _("Включить") action SetVariable("quick_menu", True) at settings_preferences_hover
+                            text "|" style "settings_toggle_separator"
+                            textbutton _("Выключить") action SetVariable("quick_menu", False) at settings_preferences_hover
+
+                    hbox:
+                        style_prefix "settings_check"
+                        spacing 18
+                        yalign 0.5
+                        label _("Пропуск")
+                        textbutton _("Непрочитанный\nтекст") action Preference("skip", "toggle") at settings_preferences_hover
+                        text "|" style "settings_toggle_separator"
+                        textbutton _("После\nвыборов") action Preference("after choices", "toggle") at settings_preferences_hover
+                        text "|" style "settings_toggle_separator"
+                        textbutton _("Переходы") action InvertSelected(Preference("transitions", "toggle")) at settings_preferences_hover
+
+                    hbox:
+                        style_prefix "settings_radio"
+                        spacing 18
+                        yalign 0.5
+                        label _("Размер текста")
+                        textbutton "Обычный":
+                            action [ changeScale("regular") ]
+                            selected (persistent.pref_text_scale == "regular")
+                            at settings_preferences_hover
+                        text "|" style "settings_toggle_separator"
+                        textbutton "Крупный":
+                            action [ changeScale("large") ]
+                            selected (persistent.pref_text_scale == "large")
+                            at settings_preferences_hover
 
 
-            null height (4 * gui.pref_spacing)
-
-# недоступно в русификаторе
-#            label _("Шрифт")
-#            vbox:
-#                spacing 6
-#                for fnt in size_dict.keys():
-#                    $ disp = fnt.rsplit(".", 1)[0].replace("_", " ").replace("-", " ")
-#                    textbutton "{font=%s}%s" % (fnt, disp):
-#                        action [ changeFont(fnt) ]
-#                        selected (persistent.pref_text_font == fnt)
 
 
-            label _("Размер текста")
-            vbox:
-                spacing 6
-                textbutton "Обычный":
-                    action [ changeScale("regular") ]
-                    selected (persistent.pref_text_scale == "regular")
-                textbutton "Крупный":
-                    action [ changeScale("large") ]
-                    selected (persistent.pref_text_scale == "large")
-
-
-            label _("Прозрачность окна текста")
-            bar value FieldValue(persistent, 'say_window_alpha', 1.0, max_is_zero=False, offset=0, step=.05)
+                    hbox:
+                        style_prefix "settings_check"
+                        spacing 18
+                        yalign 0.5
+                        label _("Discord")
+                        $ ad_discord_rpc_status = "ВКЛ" if persistent.ad_discord_rpc_enabled else "ВЫКЛ"
+                        textbutton _("Статус в Discord: [ad_discord_rpc_status]"):
+                            action Function(ad_discord_rpc_set_enabled, not persistent.ad_discord_rpc_enabled)
+                            selected persistent.ad_discord_rpc_enabled
+                            at settings_preferences_hover
 
             hbox:
                 style_prefix "slider"
-                box_wrap True
+                xalign 0.0
+                spacing 80
 
                 vbox:
-
+                    xsize 1300
+                    spacing 0
                     label _("Прозрачность окна текста")
-
-                    bar value FieldValue(persistent, "dialogueBoxOpacity", range=1.0, style="slider")
-
+                    bar:
+                        style "slider_slider"
+                        value FieldValue(persistent, 'say_window_alpha', 1.0, max_is_zero=False, offset=0, step=.05)
                     label _("Скорость текста")
-
                     bar value Preference("text speed")
-
                     label _("Время автопрокрутки")
-
                     bar value Preference("auto-forward time")
 
                 vbox:
-
+                    xsize 1300
+                    spacing 0
                     if config.has_music:
                         label _("Громкость музыки")
-
                         hbox:
                             bar value Preference("music volume")
-
                     if config.has_sound:
-
                         label _("Громкость звуков")
-
                         hbox:
                             bar value Preference("sound volume")
-
                             if config.sample_sound:
-                                textbutton _("Тест") action Play("sound", config.sample_sound)
-
-
+                                textbutton _("Тест") action Play("sound", config.sample_sound) at settings_preferences_hover
                     if config.has_voice:
                         label _("Громкость озвучки")
-
                         hbox:
                             bar value Preference("voice volume")
-
                             if config.sample_voice:
-                                textbutton _("Тест") action Play("voice", config.sample_voice)
-
+                                textbutton _("Тест") action Play("voice", config.sample_voice) at settings_preferences_hover
                     if config.has_music or config.has_sound or config.has_voice:
-                        null height gui.pref_spacing
-
+                        null height (gui.pref_spacing - 20)
                         textbutton _("Выключить звук"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
+                            xoffset -450
+                            at settings_preferences_hover
 
 
 style pref_label is gui_label
@@ -1675,7 +2214,7 @@ style mute_all_button is check_button
 style mute_all_button_text is check_button_text
 
 style pref_label:
-    top_margin gui.pref_spacing
+    top_margin (gui.pref_spacing - 10)
     bottom_margin 6
 
 style pref_label_text:
@@ -1704,6 +2243,39 @@ style check_button:
 style check_button_text:
     properties gui.button_text_properties("check_button")
 
+
+
+
+
+style settings_radio_label is radio_label
+style settings_radio_label_text is radio_label_text
+style settings_radio_button is radio_button:
+    foreground None
+    left_padding 0
+style settings_radio_button_text is radio_button_text:
+    selected_idle_color "#D3A5FF"
+    selected_hover_color "#E8D1FF"
+
+style settings_check_label is check_label
+style settings_check_label_text is check_label_text
+style settings_check_button is check_button:
+    foreground None
+    left_padding 0
+style settings_check_button_text is check_button_text:
+    selected_idle_color "#D3A5FF"
+    selected_hover_color "#E8D1FF"
+
+style settings_font_button is button
+style settings_font_button_text is button_text:
+    hover_color gui.hover_color
+    selected_hover_color gui.hover_color
+
+style settings_toggle_separator is gui_text:
+    color "#F0DFFF"
+    size 68
+    outlines [(2, "#3C2157", 0, 0)]
+    yalign 0.5
+
 style slider_slider:
     xsize 1050
 
@@ -1717,6 +2289,17 @@ style slider_button_text:
 
 style slider_vbox:
     xsize 1350
+
+
+
+
+
+transform settings_preferences_hover:
+    subpixel True
+    on idle:
+        easeout 0.14 xoffset 0 alpha 0.92
+    on hover:
+        easein 0.12 xoffset 7 alpha 1.0
 
 
 
