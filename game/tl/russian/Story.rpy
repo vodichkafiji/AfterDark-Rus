@@ -48,7 +48,7 @@ style mainquest_title:
     size 300
 style mainquest2_title:
     size 200
-    font "Barlow-Black.ttf"
+    font "NotoSansDisplay-ExtraBold.ttf"
     outlines [(16, "#000000", 0, 0)]
 
 
