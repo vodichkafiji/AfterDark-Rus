@@ -105,6 +105,9 @@ define rh = Character("Рона", color="#ac0000")
 define ja = Character("Янус", color="#8a8272")
 define po = Character("Полиция", color="#280a7c")
 define u2 = Character("???", color="#ac0000")
+define T1 = Character("Бенни")
+define T2 = Character("Кенни")
+define T1T2 = Character("Близнецы")
 
 define host = Character("Фудзинами", color="#ac0000")
 define dunkle = Character("ДанклФанкл", color="#2b00a1")
@@ -1903,6 +1906,12 @@ label actualintro:
         scene scareroom (13) with quickdissolve
         $ renpy.pause(0.01, hard=True)
         scene scareroom (14) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene scareroom (10) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene scareroom (11) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene scareroom (12) with quickdissolve
         $ renpy.pause(0.01, hard=True)
         scene scareroom (13) with quickdissolve
         $ renpy.pause(0.01, hard=True)
@@ -6697,119 +6706,178 @@ label actualintro:
         k "Отнесись к этому серьёзно, пожалуйста."
         mc "Ладно... Думай, [mcname]"
         mc "Что я чувствую по запаху?"
-
+        stop music fadeout 1.0
         scene chap1room (17) with dissolve
 
         mc "Я чувствую запах..."
-        play sound "audio/Sound/static.mp3"
-        scene scawy with ahhflash
-        scene scawy with ahhflash
-        scene scawy with ahhflash
-        stop sound
-        play music "audio/Music/Glitch2.wav" volume 0.75
-        scene scawy2 with flash
-        pause 2
-        scene scawy3 with quickdissolve
-        scene scawy4 with quickdissolve
-        scene scawy2 with quickdissolve
-        scene scawy3 with quickdissolve
-        scene scawy4 with quickdissolve
-        scene scawy2 with quickdissolve
-        scene scawy3 with quickdissolve
-        scene scawy4 with quickdissolve
-        scene scawy2 with quickdissolve
-        pause 2
+        scene chap1room (18) with hpunch
+
+        mc "КРОВЬ!{nw}"
+        scene black
+        $ renpy.pause(2, hard=True)
+
+        stop music 
+        play sound "audio/sound/numan.mp3" volume 1.0
+        scene numan
+        $ renpy.pause(14, hard=True)
         stop music
-        play sound "audio/Sound/static.mp3"
-        scene scawy with ahhflash
-        scene scawy with ahhflash
-        scene scawy with ahhflash
-        scene chap1room (18) with flash
         stop sound
 
-        mc "КРОВЬ!"
+        scene trippyroom (1) with hpunch
+        mc "Ч-"
+        mc "Где я?"
+        scene trippyroom (2) with dissolve
+        mc "Это не моя спальня."
+        play music "audio/music/creepy.mp3" volume 0.5
+        scene trippyroom (3) with dissolve
+        mc "Это вообще не похоже...{w}ни на что."
+        scene trippyroom (2) with dissolve
+        mc "Я просто сделал то, что сказала Кицунэ. Это часть пробуждения моей ауры?"
+        scene trippyroom (4) with dissolve
+        mc "..."
 
-        scene chap1room (19)
+        mc "Так...{w}это сон?"
 
-        play music "audio/Music/lostfire.mp3" volume 1.0
+        mc "Но это значило бы, что я сплю..."
+
+        mc "Кажется, это..."
+        play sound "audio/sound/paper.wav"
+        scene trippyroom (5) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene trippyroom (6) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene trippyroom (7) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene trippyroom (8) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene trippyroom (9) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene trippyroom (10) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene trippyroom (4) with quickdissolve
+        stop sound
+        mc "Что-то совсем другое..."
+
+        mc "Но я не понимаю, при чём тут..."
+        play sound "audio/sound/mm.mp3"
+        scene red
+        $ renpy.pause(1, hard=True)
+        stop sound
+        scene tripprison (1)
         mc "А?"
-        mc "(Где я вообще? Похоже на какую-то тюрьму.)"
+        scene tripprison (2) with hpunch
+        mc "Где я, чёрт возьми, теперь?"
 
-        scene chap1room (21) with dissolve
+        mc "Похоже на...{w} какую-то тюрьму."
 
-        mc "(Это место... оно ощущается неправильным. Холодным. Будто я задыхаюсь.)"
+        mc "..."
 
-        scene chap1room (22) with dissolve
+        mc "Это место...{w} с ним что-то не так."
+
+        mc "Такое чувство, будто я задыхаюсь."
+
+        scene tripprison (3) with dissolve
 
         mc "(Погоди...)"
+        mc "Это немного похоже на..."
 
-        scene chap1room (23) with dissolve
+        mc "Но...{w} я этого не помню...{w} с кем я разговариваю?"
 
-        mc "(Это похоже на... меня? Но... я этого не помню... И с кем я разговариваю?)"
+        "Тишину нарушает младшая версия... кажется, тебя."
 
-        scene chap1room (25) with dissolve
+        scene tripprison (4) with dissolve
+        u "Меня заставили обрить голову, но...{w} это не так уж плохо. Это просто волосы. Они отрастут."
+        u "Тебе...{w} тебе ведь всегда нравились мои волосы подлиннее, да?"
 
-        "Молодая версия тебя нарушает тишину, голос сорванный и напряжённый."
-        young_mc "Меня заставили обрить голову, но... это не так уж плохо. Это просто волосы. Они отрастут."
-        "Он делает паузу, будто ожидая ответа, который так и не приходит."
-        young_mc "Ты же... тебе всегда нравились мои волосы подлиннее, да? Говорила, что я похож на одного из тех героев из историй."
-        "Тишина. Девочка не двигается, всё ещё повернувшись к нему спиной."
-        young_mc "Они отрастут. Твои тоже. Может... может, мы просто притворимся, что это новое начало. Как новая глава."
-        mc "Ты, наверное, закатываешь глаза на меня сейчас, да? Знаю, знаю... вечно пытаюсь найти хорошее в ужасной ситуации."
+        "Говорила, что я с ними похож на одного из тех героев из историй."
+        u "Они отрастут. Твои тоже."
 
-        scene chap1room (26) with dissolve
+        u "Может... может, притворимся, что это новое начало. Как новая глава."
+        u "Ты, наверное, сейчас закатываешь глаза, да?"
 
-        mc "Уверен, ты будешь такой же красивой, когда сделают это и с тобой тоже."
-        "Тишина заполняет комнату. На мгновение кажется, что кто-то слушает."
-        young_mc "Я знаю, что это больно. Всё больно. Но мы не можем сдаться, ладно? Мы просто... должны продолжать идти."
+        u "Знаю, знаю... вечно пытаюсь найти хорошее в ужасной ситуации."
+        image prisonglitch:
+            "images/Chapter 1/Bedroom/prisonglitch1.webp"
+            pause 0.2
+            "images/Chapter 1/Bedroom/prisonglitch2.webp"
+            pause 0.2
+            "images/Chapter 1/Bedroom/prisonglitch3.webp"
+            pause 0.2
+            "images/Chapter 1/Bedroom/prisonglitch4.webp"
+            pause 0.2
+            repeat
+        scene prisonglitch with dissolve
+
+        u "Уверен, ты будешь такой же красивой, когда и с тобой это сделают."
+        u "Я знаю, что больно. Всё болит. Но мы не можем сдаться, ладно? Мы просто... должны держаться."
         "Девочка остаётся неподвижной, её маленькое тело дрожит."
-        young_mc "Хотел бы я... хотел бы я забрать всю эту боль. Заставить её прекратиться. Но всё, что я могу — это остаться здесь, с тобой."
-        "Он придвигается ближе, его голос смягчается."
-        young_mc "Ты не одна. Я здесь, рядом. Я всегда буду рядом."
-        "В комнате становится холоднее, и у тебя перехватывает дыхание, пока ты наблюдаешь, как разворачивается эта сцена."
-        young_mc "Мы сильные, помнишь? Нам просто нужно потерпеть сейчас, и однажды... однажды мы выберемся отсюда. Вместе."
-        "Это воспоминание ощущается как острый осколок в его сознании, разрезающий любое чувство утешения."
+        u "Хотел бы я...{w} хотел бы я забрать всю эту боль."
 
-        scene chap1room (29) with dissolve
+        u "Но всё, что я могу, это быть здесь, с тобой."
+        u "Я всегда буду рядом."
+        "В комнате становится холоднее, и у тебя перехватывает дыхание, пока ты наблюдаешь за этой сценой."
+        u "Однажды...{w} однажды мы выберемся отсюда. Вместе."
 
-        young_mc "Они думают, что смогут нас сломать, но они ошибаются. Мы сильнее, чем они когда-либо узнают."
+
+        u "Они думают, что смогут нас сломать, но... Мы сильнее, чем они могут себе представить."
         "Его голос дрожит, выдавая собственный страх."
-        young_mc "Однажды... однажды мы выберемся отсюда. Мы снова увидим солнце. Обещаю."
-        young_mc "Я буду тебя защищать. Несмотря ни на что. Никто больше тебя не тронет. Клянусь."
-        young_mc "Всё будет хорошо. Я не позволю, чтобы с тобой снова что-то случилось. Обещаю. Я буду защищать свою сестру, несмотря ни на что."
-        mc "(Мою... сестру? Почему я не могу вспомнить её лицо?)"
 
-        scene chap1room (30) with dissolve
+        u "В-всё будет хорошо."
 
-        mc "(Это... это не может быть реальным. Я не помню свою сестру... и уж точно не помню ничего из этого.)"
-        mc "(Так... почему это ощущается настолько реальным? Настолько... знакомым?)"
+        u "Я больше не позволю, чтобы с тобой что-то случилось."
 
-        scene chap1room (31) with dissolve
+        "О-обещаю, я защищу свою сестру, что бы ни случилось."
+        mc "С-сестру?"
+
+        scene tripprison (5) with dissolve
+
+        mc "Это...{w} это не может быть правдой."
+
+        mc "Я не помню свою сестру...{w} и уж точно, чёрт возьми, не помню ничего из этого."
+        mc "Так...{w} почему это кажется таким...{w} знакомым?"
+        play sound "audio/sound/mm.mp3"
+        scene red
+        $ renpy.pause(1, hard=True)
+        stop sound
+        scene tripprison (6)
 
         u "Воспоминания, погребённые в тени, но эхо остаётся, не так ли, [mcname]?"
+        play sound "audio/sound/shootglitch.mp3"
+        scene owlglitch (1) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene owlglitch (2) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        stop sound
+        scene chap1room (33) with quickdissolve
+        $ renpy.pause(2, hard=True)
 
-        scene chap1room (32) with dissolve
-        window hide dissolve
-        pause 1.0
-        scene chap1room (33) with dissolve
-
-        "(Говорящая сова? Что вообще происходит? Что это такое?)"
-        u "Прошлое — это головоломка с осколками, разбросанными повсюду. Одни потеряны, другие спрятаны..."
+        mc "Говорящая сова? Что, чёрт возьми, происходит? Что это такое?"
+        u "Прошлое — это головоломка, чьи кусочки разбросаны повсюду. Одни потеряны, другие спрятаны..."
         u "А некоторые, [mcname], заперты в самых глубоких уголках твоего разума."
-        play ambient "audio/ambient/feathers.mp3" volume 0.3
 
         scene chap1room (34) with dissolve
 
 
         mc "О чём ты вообще? Кто ты?"
         u "Имена, как и воспоминания, текучи... меняются со временем."
+        scene chap1room (35) with dissolve
         u "Но я — хранитель тайн, страж забытых истин."
+        play sound "audio/sound/shootglitch.mp3"
+        scene owlglitch (3) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene owlglitch (4) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        stop sound
+        scene chap1room (35) with quickdissolve
+
         u "И ты, [mcname], на грани того, чтобы вспомнить нечто давно утраченное."
 
-        scene chap1room (35) with dissolve
 
-        mc "Вспомнить? Но я даже не знаю, что именно должен вспомнить. Что всё это такое?"
-        u "Со временем ты найдёшь свои ответы. Но пока знай одно: прошлое никогда по-настоящему не уходит."
+        play ambient "audio/ambient/feathers.mp3" volume 0.3
+        mc "Вспомнить? Но я даже не знаю, что должен вспомнить."
+        u "Со временем ты найдёшь свои ответы."
+
+        u "Но пока знай одно: прошлое никогда не уходит по-настоящему."
         play sound "audio/Sound/feathers.mp3" volume 0.3
 
         scene chap1room (36) with dissolve
@@ -6827,7 +6895,20 @@ label actualintro:
         play sound "audio/Sound/feathers.mp3" volume 0.3
 
         scene chap1room (38) with dissolve
-        u "Когда мы встретимся снова, кусочки могут начать складываться воедино. А пока... помни, истина внутри тебя. Найди её."
+        u "Когда мы встретимся снова, кусочки могут начать складываться воедино. Истина внутри тебя."
+        stop ambient
+        play sound "audio/Sound/s_kill_glitch1.ogg"
+        scene owlglitch (5) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene owlglitch (6) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene owlglitch (5) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene owlglitch (6) with quickdissolve
+        $ renpy.pause(0.01, hard=True)
+        scene black with quickdissolve
+
+        u "Найди её."
         stop sound
         stop ambient
         stop music
@@ -6840,15 +6921,18 @@ label actualintro:
         "(А???)"
 
         scene chap1room (42) with dissolve
-        "(Это всё был сон? Но я же не засыпал?)"
+        mc "(Это всё был сон? Но я же не засыпал?)"
         "(Да что вообще, чёрт возьми, происходит!?)"
 
         scene chap1room (44) with dissolve
 
-        "Что за хрень это вообще было!?"
-        "Ты уж лучше дай мне какой-нибудь внятный ответ на то, что я там видел!"
+        mc "Что за хрень это вообще было!?"
+        mc "Ты уж лучше дай мне какой-нибудь внятный ответ на то, что я там видел!"
         k "[mcname]..."
-        mc "Кто была эта сова? Что это было за место? Почему я не могу вспомнить, что это вообще происходило?!"
+        mc "Кто была эта сова?"
+        mc "Что это было за место?"
+
+        mc "Почему я не помню, чтобы такое происходило?!"
 
         scene chap1room (48) with dissolve
 
@@ -7968,7 +8052,7 @@ label skatepark_noonwait:
 label weekend_evening:
     stop music fadeout 1.0
     stop sound
-    scene evening with fade
+    scene mapweekendevening_bg with fade
     "Ты пытаешься убить немного времени, но быстро начинаешь скучать."
     "Уже вечер. Куда хочешь пойти?"
 label weekend_eveningmap:
@@ -10268,10 +10352,10 @@ label thefirstdream:
 
 
     label yes_accept:
-    show layer master:
-        zoom 1.0 yalign 0.5
-    show layer screens:
-        zoom 1.0 yalign 0.5
+        show layer master:
+            zoom 1.0 yalign 0.5
+        show layer screens:
+            zoom 1.0 yalign 0.5
 
 
     scene dreamroom (28) with dissolve
@@ -12206,6 +12290,10 @@ label thefirstdream:
     scene weirdshit (68) with quickflash
     $ renpy.pause (0.001, hard= True)
     scene wakeup (7) with quickflash
+    $ renpy.pause (0.001, hard= True)
+    scene weirdshit (68) with quickflash
+    $ renpy.pause (0.001, hard= True)
+    scene wakeup (8) with quickflash
     $ renpy.pause (0.001, hard= True)
     stop sound
 
